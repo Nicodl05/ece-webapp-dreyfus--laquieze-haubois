@@ -9,8 +9,6 @@ module.exports = {
     const params = qs.parse(route.query)
     const names = ["Nicolas", "Cyril"];
     let contenu=null;
-    
-    
     const content="";
     res.writeHead(200, { 'Content-Type':  'text/html' });   
     let test = 0;    

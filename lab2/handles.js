@@ -33,10 +33,7 @@ module.exports = {
         res.write(content +'\nHello ' + params['name']);
     }
     else if (path === '/about') {
-      //res.writeHead(200, {'Content-Type': 'text/html'});
-      var json_data = require('./content/about.json')
-     // res.write("hello")
-     
+      var json_data = require('./content/about.json') 
       try{     
           for( var elem in json_data){
             console.log(elem + ": " +json_data[elem] +" <br>")
@@ -45,8 +42,7 @@ module.exports = {
       }
       catch(err){
         console.log("Error parsing Json string", err)
-      } 
-    //}) 
+      }
     }
     else if(path=== '/'){
       res.write(content +'\nBonjour tout le monde')

@@ -1,19 +1,7 @@
 const url = require('url')
 
-const fs =require("fs"); // mettre en com et faire la lecture json
 const qs = require('querystring');
 const { Script } = require('vm');
-
-
-function replacer(key, value) {
-  // Filtering out properties
-  if (typeof value === "string") {
-    return value;
-  }
-  return value;
-}
-
-//let about=require('/about.json')
 module.exports = {
   serverHandle: function (req, res) {
     const route = url.parse(req.url)
@@ -21,45 +9,9 @@ module.exports = {
     const params = qs.parse(route.query)
     const names = ["Nicolas", "Cyril"];
     let contenu=null;
-    console.log("hello")
-    const foo ={
-      "title": "About",
-    "content": "Content Lab2",
-    "author": "Nicolas Dreyfus--Laquièze et Cyril Haubois",
-    "date": "02/10/2022",
-    };
-    const content = '<!DOCTYPE html>' +
-    '<html lang="en">' +
-    '    <head>' +
-    '        <meta charset="utf-8" />' +
     
-    'meta name="viewport" content="width=device-width, initial-scale=1.0">'
-    '<meta http-equiv="X-UA-Compatible" content="ie=edge">'
-    '        <title>'+  +'</title>' +
-    '    </head>' + 
-    '    <body>' +
-    '       <script type="text/javascript">' 
-   '          fetch("about.json")'
-   '            .then(response => response.json())'
-   '              .then(data => {'
-   '                 for (var i = 0; i<data.items.length; i++){ '
-   '                    let title = data.items[i].title;'
-   '                    let content = data.items[i].content;'
-    '                   let author = data.items[i].author;'
-    '                   let date = data.items[i].date;'
-    '                     document.querySelector("#tb1").innerHTML += `'
-    '                     <tr>'
-    '                      <td>$[title]</td>'
-    '                      <td>$[content]</td>'
-    '                      <td>$[author]</td>'
-    '                       <td>$[date]</td>'
-    '                       </tr>`;'
-   '}'
-   '})'    
-    '</script>'
-   
-    '    </body>' +
-    '</html>';
+    
+    const content="";
     res.writeHead(200, { 'Content-Type':  'text/html' });   
     let test = 0;    
     if (path === '/hello' && 'name' in params) {
@@ -81,27 +33,20 @@ module.exports = {
         res.write(content +'\nHello ' + params['name']);
     }
     else if (path === '/about') {
-      res.write("hello")
-      fs.readFile("./content/about.json","utf-8",(err,jsonString) => {   
-        if(err){
-          console.log("file read failed: ", err);
-          return;
-        } 
+      //res.writeHead(200, {'Content-Type': 'text/html'});
+      var json_data = require('./content/about.json')
+     // res.write("hello")
+     
       try{     
-          const about_content=JSON.stringify(jsonString.toString())  
-          //console.log(about_content[10] +" ")
-          console.log(about_content);
-          res.write(about_content[10])
-         // document.getElementsById("author").
-         // console.log(JSON.stringify(foo,replacer))
-          //res.write(JSON.stringify(foo,replacer))    
-          //res.write(jsonString.toString())
-        
+          for( var elem in json_data){
+            console.log(elem + ": " +json_data[elem] +" <br>")
+            res.write(elem + ": " +json_data[elem] +" <br>");
+          }
       }
       catch(err){
         console.log("Error parsing Json string", err)
       } 
-    }) 
+    //}) 
     }
     else if(path=== '/'){
       res.write(content +'\nBonjour tout le monde')

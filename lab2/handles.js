@@ -89,7 +89,8 @@ module.exports = {
         } 
       try{     
           const about_content=JSON.stringify(jsonString.toString())  
-          console.log(about_content[10] +" ")
+          //console.log(about_content[10] +" ")
+          console.log(about_content);
           res.write(about_content[10])
          // document.getElementsById("author").
          // console.log(JSON.stringify(foo,replacer))

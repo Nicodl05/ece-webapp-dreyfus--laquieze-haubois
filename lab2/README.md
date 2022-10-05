@@ -1,7 +1,4 @@
-# ece-webapp-dreyfus--laquieze_haubois
-ECE Projet: Dreyfus--Laquièze Nicolas et Haubois Cyril
-
-Projet Web
+# Dreyfus--Laquièze Nicolas et Haubois Cyril
 
 TP2
 A noter

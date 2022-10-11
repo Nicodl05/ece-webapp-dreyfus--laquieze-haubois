@@ -21,6 +21,7 @@ let db = {
     ]
   }
 const express = require('express')
+const bodyParser=require("body-parser");
 const router = express.Router()
 const names = ["Nicolas", "Cyril"];
 router.route('/').get((req, res) => {
@@ -58,23 +59,44 @@ router.route('/about').get((req,res) =>{
         console.log("Error parsing Json string", err)
     }
 });
-router.route('/articles').post((req,res) => {
-    const article = req.body;
+router.route('/articles/:articleId/comments/:commentId').get((req,res) =>{
+    const articleId = req.params.articleId; // corresponds to the id of the article
+    const commentId = req.params.commentId; // corresponds to the id of the comment
+    const comment = db.comments.find(comment => comment.id === commentId && comment.articleId === articleId);   
+    res.send(comment);
+})
+router.route('/articles/:articleId/comments').get((req,res) => {
+    const articleId = req.params.articleId; // corresponds to the id of the article
+    const comments = db.comments.find(comment => comment.articleId === articleId); // find the comments corresponding to the article
+    console.log("méthode get 3")
+    res.send(comments)
+})
+// create a method post /articles which allows us to add a new article
+router.route('/articles?').post((req,res) => {
+    const article = req.articles.id;
+    db.articles.push(article);
+    res.send(article);
+})
+/*
+router.route('/').post((req,res) => {
+    const article = req.body; 
     console.log(article);
     db.articles.push(article);
+    console.log("methode post")
     res.send(db.articles);
-})
+})*/
 router.route('/articles').get((req,res) => {
     res.send(db.articles);
+    console.log("Methode get")
 })
 router.route('/articles/:articleId').get((req,res) => {
     const articleId = req.params.articleId;
-    console.log(articleId);
-    const article = db.articles.find(article => article.id === articleId);
-    console.log(article);
+    console.log("méthode get article id");
+    const article = db.articles.find(article => article.id === articleId);   
     res.send(article);
     //res.send("Found")
 })
+
 
 
 

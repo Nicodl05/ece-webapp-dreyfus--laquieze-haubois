@@ -29,8 +29,10 @@ router.route('/').get((req, res) => {
 })
 router.route('/hello').get((req,res) =>
 {
+
     const name = req.query.name;
-    console.log(name);
+    if(name !=undefined){
+        console.log(name);
     switch(name){
         case "Nicolas":
             console.log(name);
@@ -49,6 +51,10 @@ router.route('/hello').get((req,res) =>
                 res.send("Bonjour à toi "+ name);
             break;
     }
+}
+    else
+        throw console.error();   
+    
 })
 router.route('/about').get((req,res) =>{
     var json_data = require('./content/about.json')
@@ -62,20 +68,32 @@ router.route('/about').get((req,res) =>{
 router.route('/articles/:articleId/comments/:commentId').get((req,res) =>{
     const articleId = req.params.articleId; // corresponds to the id of the article
     const commentId = req.params.commentId; // corresponds to the id of the comment
+    if(articleId!=undefined && commentId != undefined){
+
     const comment = db.comments.find(comment => comment.id === commentId && comment.articleId === articleId);
     res.send(comment);
+    }
+    else{
+        throw error;
+    }
 })
 router.route('/articles/:articleId/comments').get((req,res) => {
     const articleId = req.params.articleId; // corresponds to the id of the article
-    const comments = db.comments.find(comment => comment.articleId === articleId); // find the comments corresponding to the article
-    console.log("méthode get 3")
-    res.send(comments)
+    if(articleId!=undefined){
+        const comments = db.comments.find(comment => comment.articleId === articleId); // find the comments corresponding to the article
+        console.log("méthode get 3")
+        res.send(comments)
+    }
 })
 // create a method post /articles which allows us to add a new article
 router.route('/articles?').post((req,res) => {
     const article = req.articles.id;
+    if(article!=undefined){
     db.articles.push(article);
     res.send(article);
+    }
+    else    
+        throw error;    
 })
 /*
 router.route('/').post((req,res) => {

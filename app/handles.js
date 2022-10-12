@@ -62,7 +62,7 @@ router.route('/about').get((req,res) =>{
 router.route('/articles/:articleId/comments/:commentId').get((req,res) =>{
     const articleId = req.params.articleId; // corresponds to the id of the article
     const commentId = req.params.commentId; // corresponds to the id of the comment
-    const comment = db.comments.find(comment => comment.id === commentId && comment.articleId === articleId);   
+    const comment = db.comments.find(comment => comment.id === commentId && comment.articleId === articleId);
     res.send(comment);
 })
 router.route('/articles/:articleId/comments').get((req,res) => {
@@ -79,7 +79,7 @@ router.route('/articles?').post((req,res) => {
 })
 /*
 router.route('/').post((req,res) => {
-    const article = req.body; 
+    const article = req.body;
     console.log(article);
     db.articles.push(article);
     console.log("methode post")
@@ -92,7 +92,7 @@ router.route('/articles').get((req,res) => {
 router.route('/articles/:articleId').get((req,res) => {
     const articleId = req.params.articleId;
     console.log("méthode get article id");
-    const article = db.articles.find(article => article.id === articleId);   
+    const article = db.articles.find(article => article.id === articleId);
     res.send(article);
     //res.send("Found")
 })

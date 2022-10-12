@@ -9,8 +9,8 @@ module.exports = {
     const names = ["Nicolas", "Cyril"];
     let contenu=null;
     const content="";
-    res.writeHead(200, { 'Content-Type':  'text/html' });   
-    let test = 0;    
+    res.writeHead(200, { 'Content-Type':  'text/html' });
+    let test = 0;
     if (path === '/hello' && 'name' in params) {
       for (let i = 0; i < names.length; i++) {
         if (params['name'] === names[i]) {
@@ -30,8 +30,8 @@ module.exports = {
         res.write(content +'\nHello ' + params['name']);
     }
     else if (path === '/about') {
-      var json_data = require('./content/about.json') 
-      try{     
+      var json_data = require('./content/about.json')
+      try{
           for( var elem in json_data){
             console.log(elem + ": " +json_data[elem] +" <br>")
             res.write(elem + ": " +json_data[elem] +" <br>");
@@ -45,9 +45,9 @@ module.exports = {
       res.write(content +'\nBonjour tout le monde')
     }
     else if (path === '/hello') {
-      
+
       res.write(content +'\nBonjour a toi personne anonyme \nComment ca va ?')
-      
+
     }
     else {
       res.write('Error 404')

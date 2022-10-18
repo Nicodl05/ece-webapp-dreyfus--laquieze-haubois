@@ -1,23 +1,55 @@
 import Link from 'next/link'
 import Router, { useRouter } from 'next/router'
-import data from '../data.json';
-function Articles() {
-    return (
-        <div>
-            <head><h1>Articles</h1></head>
-        <body> <p>This is the articles page</p> </body>
+const parse = require('html-react-parser');
+
+const db={   "articles": [
+        {
+        "id": 1,
+        "title": "Pomme pack",
+        "content": "1 pomme + 1 poire"
+        },
+        {
+        "id": 2,
+        "title": "Banane pack",
+        "content": "1 banane + 1 orange"
+        },
         
-            </div>
-            
+        {
+        "id": 3,
+        "title": "Chocolate pack",
+        "content": "100 g chocolat + 1 biscuit"
+        }
+        
+    ]
+}
+let array='';
+    // saut de ligne
+    let br = '<br></br>';
+    
+    for (let i=0; i<db.articles.length; i++){
+        array+="Article "+(i+1)+":"+br+"Title: "+db.articles[i].title +br+"Content: " + db.articles[i].content + br;
+
+    }
+function Articles() {
+    
+    return (
+        <div><h1>Articles</h1>
+            <p>This is the articles page</p>        
+            <p>
+                {parse(array)} <br></br>
+                
+            </p>  
+        </div>
     )
     }
     
     export default Articles
+    /*
     const newdata = data.map((data) => {
         return (
             <div>
                 <h1>{data.title}</h1>
-                <p>{data.body}</p>
+                <p>{data.body} </p>
             </div>
         )
-    })
+    })*/

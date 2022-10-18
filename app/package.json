@@ -9,5 +9,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
+  },
+  "devDependencies": {
+    "html-react-parser": "^3.0.4"
   }
 }

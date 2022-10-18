@@ -1,10 +1,11 @@
 import Link from 'next/link'
-import Router, { useRouter } from 'next/router'
-import { URLPattern } from 'next/server';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import Head from 'next/head';
 
-const name ="Nicolas"
+// create a header function in common for all files
+
+
+
 function Home() {
   return (
     <div>
@@ -18,8 +19,7 @@ function Home() {
           <a>Home</a>
         </Link>
       </li>
-      <li>
-        
+      <li> 
 
         <Link href="/about" onClick={()=> Router.push('/about')}>
           <a>About Us</a>
@@ -36,29 +36,16 @@ function Home() {
         </Link>
       </li>
     </ul>
+
+    L'objectif de ce tp est d'apprendre nextjs.
+    <br></br>
+    Documentation en cliquant <a href='https://nextjs.org/'> ici</a>
+      
     </div>
 
   )
 }
-// create function which displays about
-function BlogPost() {
-  const router = useRouter()
-  const { slug } = router.query
-  return (
-    <div>
-      <h1>{slug}</h1>
-    </div>
-  )
-}
-function About() {
-  return (
-    <div>
-      <h1>About Us</h1>
-      <p>This is the about page</p>
-    </div>
-  )
-  
-}
+
 
 export default Home
  

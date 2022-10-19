@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Router, { useRouter } from 'next/router'
-const parse = require('html-react-parser');
+
+const parse = require('html-react-parser')
 
 const db={   "articles": [
         {
@@ -13,43 +14,33 @@ const db={   "articles": [
         "title": "Banane pack",
         "content": "1 banane + 1 orange"
         },
-        
+
         {
         "id": 3,
         "title": "Chocolate pack",
         "content": "100 g chocolat + 1 biscuit"
         }
-        
+
     ]
 }
 let array='';
     // saut de ligne
     let br = '<br></br>';
-    
+
     for (let i=0; i<db.articles.length; i++){
         array+="Article "+(i+1)+":"+br+"Title: "+db.articles[i].title +br+"Content: " + db.articles[i].content + br;
 
     }
 function Articles() {
-    
+
     return (
         <div><h1>Articles</h1>
-            <p>This is the articles page</p>        
+            <p>This is the articles page</p>
             <p>
                 {parse(array)} <br></br>
-                
-            </p>  
+
+            </p>
         </div>
     )
     }
-    
-    export default Articles
-    /*
-    const newdata = data.map((data) => {
-        return (
-            <div>
-                <h1>{data.title}</h1>
-                <p>{data.body} </p>
-            </div>
-        )
-    })*/
+ export default Articles

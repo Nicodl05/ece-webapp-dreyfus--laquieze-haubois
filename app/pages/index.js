@@ -1,11 +1,16 @@
 import Link from "next/link";
-import React from "react";
+import React, { Fragment } from "react";
 import Head from "next/head";
 
 // create a header function in common for all files
 
 function Home() {
   return (
+    <React.Fragment>
+      <Head>
+        <meta name="theme-color" content ="3c1742" />
+      </Head>
+      <Component {...pageProps} />
     <div>
       <h1>Home</h1>
       <a> Vous êtes sur la page principale de cette application </a>
@@ -40,6 +45,7 @@ function Home() {
       <br></br>
       Documentation en cliquant <a href="https://nextjs.org/"> ici</a>
     </div>
+    </React.Fragment>
   );
 }
 

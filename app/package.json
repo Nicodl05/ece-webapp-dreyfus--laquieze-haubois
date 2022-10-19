@@ -11,6 +11,7 @@
     "lint": "next lint"
   },
   "devDependencies": {
-    "html-react-parser": "^3.0.4"
+    "html-react-parser": "^3.0.4",
+    "tailwindcss": "^3.1.8"
   }
 }

@@ -1,17 +1,15 @@
 import Link from "next/link";
 import React, { Fragment } from "react";
 import Head from "next/head";
-
+// import { BrowserRouter as Router } from "react-router-dom";
+//import navbar from "src/components/navbar"
 // create a header function in common for all files
-
+//<navbar />
 function Home() {
   return (
-    <React.Fragment>
-      <Head>
-        <meta name="theme-color" content ="3c1742" />
-      </Head>
-      <Component {...pageProps} />
+    
     <div>
+      
       <h1>Home</h1>
       <a> Vous êtes sur la page principale de cette application </a>
       <br></br>
@@ -45,7 +43,6 @@ function Home() {
       <br></br>
       Documentation en cliquant <a href="https://nextjs.org/"> ici</a>
     </div>
-    </React.Fragment>
   );
 }
 

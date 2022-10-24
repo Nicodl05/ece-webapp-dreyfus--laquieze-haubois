@@ -7,7 +7,7 @@ const mail_cyril = "cyril.haubois@edu.ece.fr";
 function Contacts() {
   return (
     <div>
-      <h1>Contacts</h1>
+      <h1 class = "text-3xl font bold underline">Contacts</h1>
       <ul>
         <li>
           <Link href="/">

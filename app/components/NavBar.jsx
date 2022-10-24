@@ -1,33 +1,31 @@
 import Link from "next/link";
 import { ImMenu } from "react-icons/im";
 
-
 const NavBar = () => {
 
     return (
-        <nav className='flex justify-between item-center h-16 bg-white text-black relative shadow-sm font-mono bg-gray-50 rounded border-gray-500' role='navigation'>
-            <Link href="/" className="pl-8">
-                Home
-            </Link>
-            <div className="px-4 cursor-pointer md:hidden text-red-500 text-xl">
-                <ImMenu />
+        <nav className='p-3 bg-gray-50 rounded border-gray-200 dark:bg-gray-400 dark:border-blue-700 ' role='navigation'>
+            <div className="container flex flex-wrap justify-between items-center mx-auto">
+                <a href="https://flowbite.com" className="flex items-center">
+                    <img src="../public/ece.jpg" className="mr-3 h-6 sm:h-9" alt="ECE Logo" />
+                    {/* <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"></span> */}
+                </a>
 
+                <ul className="flex flex-col mt-4 bg-gray-50 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-transparent dark:bg-gray-400 md:dark:bg-transparent dark:border-gray-700 ">
+                    <li className=" text-primaire">
+                        <Link href="/" className="block py-2 pr-4 pl-3 text-sky bg-white-700 rounded md:bg-transparent md:text-white-700 md:p-0 md:dark:text-white dark:bg-white-600 md:dark:bg-transparent" aria-current="page">Home </Link>
+                    </li>
+                    <li>
+                        <Link href="/about" className="block py-2 pr-4 pl-3 text-white bg-white-700 rounded md:bg-transparent md:text-white-700 md:p-0 text-white">About </Link>
+                    </li>
+                    <li>
+                        <Link href="/contacts" className="block py-2 pr-4 pl-3 text-white bg-white-700 rounded md:bg-transparent md:text-white-700 md:p-0 text-white">Contact </Link>
+                    </li>
+                    <li>
+                        <Link href="/articles" className="block py-2 pr-4 pl-3 text-white bg-white-700 rounded md:bg-transparent md:text-white-700 md:p-0 text-white">Articles </Link>
+                    </li>
+                </ul>
             </div>
-            <ul className="space-x-8 ">
-                <li className=" text-primaire">
-                    <Link href="/" className="pr-8">Home </Link>
-                </li>
-                <li>
-                    <Link href="/about" className="pr-8">About </Link>
-                </li>
-                <li>
-                    <Link href="/contacts" className="pr-8">Contact </Link>
-                </li>
-                <li>
-                    <Link href="/articles" className="pr-8">Articles </Link>
-                </li>
-            </ul>
-
         </nav>
     );
 }

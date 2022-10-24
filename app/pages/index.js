@@ -16,8 +16,8 @@ function Home() {
   return (
 
     <div>
-      <NavBar />
-      {/* <h1>Home</h1>
+
+      <h1>Home</h1>
       <a> Vous êtes sur la page principale de cette application </a>
       <br></br>
       <b>
@@ -27,7 +27,7 @@ function Home() {
 
       L'objectif de ce tp est d'apprendre next.js
       <br></br>
-      Documentation en cliquant <a href="https://nextjs.org/"> ici</a> */}
+      Documentation en cliquant <a href="https://nextjs.org/"> ici</a>
     </div>
   );
 

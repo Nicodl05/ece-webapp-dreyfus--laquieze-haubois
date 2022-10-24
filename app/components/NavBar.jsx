@@ -8,7 +8,7 @@ const NavBar = () => {
             <div className="container flex flex-wrap justify-between items-center mx-auto">
                 <a href="https://flowbite.com" className="flex items-center">
                     <img src="../public/ece.jpg" className="mr-3 h-6 sm:h-9" alt="ECE Logo" />
-                    {/* <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"></span> */}
+                    <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"></span>
                 </a>
 
                 <ul className="flex flex-col mt-4 bg-gray-50 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-transparent dark:bg-gray-400 md:dark:bg-transparent dark:border-gray-700 ">

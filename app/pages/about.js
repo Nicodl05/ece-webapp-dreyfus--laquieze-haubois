@@ -2,7 +2,7 @@ import Link from "next/link";
 import Router, { useRouter } from "next/router";
 
 // create a function about
-function About() {
+const About=() => {
   return (
     <div>
       <h1>About Us</h1>

@@ -4,7 +4,11 @@ const { default: Head } = require('next/head');
 module.exports = {
   content: ['app/pages/head.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'hero-image': 'url("./components/assets/earth.jpg")',
+      }
+    },
   },
   plugins: [],
 }

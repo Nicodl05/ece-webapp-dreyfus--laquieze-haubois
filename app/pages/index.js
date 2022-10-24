@@ -1,15 +1,12 @@
 import Link from "next/link";
-import React, { Fragment } from "react";
-import Head from "next/head";
-// import { BrowserRouter as Router } from "react-router-dom";
-//import navbar from "src/components/navbar"
-// create a header function in common for all files
-//<navbar />
+import React from "react";
+
+//import app from "./app";
+
 function Home() {
   return (
-    
     <div>
-      
+
       <h1>Home</h1>
       <a> Vous êtes sur la page principale de cette application </a>
       <br></br>
@@ -44,6 +41,7 @@ function Home() {
       Documentation en cliquant <a href="https://nextjs.org/"> ici</a>
     </div>
   );
+
 }
 
 export default Home;

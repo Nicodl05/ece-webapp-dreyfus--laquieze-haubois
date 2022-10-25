@@ -10,7 +10,7 @@ const Nicolas = () => {
                 <div className="px-6 py-4">
                     <div className="font-bold text-xl mb-2 text-gray-700 text-base">Nicolas</div>
                     <p >
-                        Nicolas est un étudiant de l'ECE Paris, il est en 2ème année de cycle ingénieur.
+                        Nicolas est un étudiant de l'ECE Paris, il est en 2ème année de cycle ingénieur spécialisé en SI.
                     </p>
                     <p>
                         Il est passionné par le développement logiciel et les nouvelles technologies.

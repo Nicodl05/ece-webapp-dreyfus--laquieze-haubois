@@ -10,15 +10,15 @@ const Cyril = () => {
                 <div className="px-6 py-4">
                     <div className="font-bold text-xl mb-2 text-gray-700 text-base">Cyril</div>
                     <p>
-                        Cyril est un étudiant de l'ECE Paris, il est en 2ème année de cycle ingénieur.
+                        Cyril est un étudiant de l'ECE Paris, il est en 2ème année de cycle ingénieur spécialisé en SI.
 
                     </p>
                     <p>
-                        Il est passionné par la cybersécurité.
+                        Il est passionné par l'informatique et plus particulièrement la cybersécurité.
                     </p>
-                    <p>Son exploit : tenir le record du monde d'une piste TrackMania durant une semaine</p>
+                    <p>Son exploit : tenir le record du monde d'une piste TrackMania durant une semaine !</p>
                     <p>Vous pouvez cliquer
-                        <a href="https://github.com/teepol" classNameName="text-gray-500 hover:text-gray-800 font-bold"> ici</a> pour accéder à son Github</p>
+                        <a href="https://github.com/teepol" className="text-gray-500 hover:text-gray-800 font-bold"> ici</a> pour accéder à son Github</p>
 
                 </div>
                 <div className="px-6 pt-4 pb-2">

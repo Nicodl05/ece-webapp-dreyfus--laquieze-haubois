@@ -14,7 +14,7 @@ const Profiles = () => {
                 <div className="px-6 py-4">
                     <div className="font-bold text-xl mb-2 text-gray-700 text-base">Nicolas</div>
                     <p >
-                        Nicolas est un étudiant de l'ECE Paris, il est en 2ème année de cycle ingénieur.
+                        Nicolas est un étudiant de l'ECE Paris, il est en 2ème année de cycle ingénieur spécialisé en SI.
                     </p>
                     <p>
                         Il est passionné par le développement logiciel et les nouvelles technologies.
@@ -27,7 +27,7 @@ const Profiles = () => {
                 <div className="px-6 pt-4 pb-2">
                     <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Dev</span>
                     <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Java</span>
-                    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Dév Logiciel</span>
+                    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Dev Logiciel</span>
 
                 </div>
             </div>
@@ -37,13 +37,13 @@ const Profiles = () => {
                 <div className="px-6 py-4">
                     <div className="font-bold text-xl mb-2 text-gray-700 text-base">Cyril</div>
                     <p>
-                        Cyril est un étudiant de l'ECE Paris, il est en 2ème année de cycle ingénieur.
+                        Cyril est un étudiant de l'ECE Paris, il est en 2ème année de cycle ingénieur spécialisé en SI.
 
                     </p>
                     <p>
-                        Il est passionné par la cybersécurité.
+                        Il est passionné par l'informatique et plus particulièrement la cybersécurité.
                     </p>
-                    <p>Son exploit : tenir le record du monde d'une piste TrackMania durant une semaine</p>
+                    <p>Son exploit : tenir le record du monde d'une piste TrackMania durant une semaine !!</p>
                     <p>Vous pouvez cliquer
                         <a href="https://github.com/teepol" className="text-blue-500 hover:text-blue-800 font-bold"> ici</a> pour accéder à son Github</p>
                 </div>

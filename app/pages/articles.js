@@ -49,7 +49,7 @@ function Articles() {
       </h1>
 
       <p>This is the articles page</p>
-      <p>
+      <p className="text-center align-center text-blue-400">
         {parse(array)} <br></br>
       </p>
     </div>

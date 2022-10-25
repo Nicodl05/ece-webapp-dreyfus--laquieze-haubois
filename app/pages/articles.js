@@ -44,8 +44,9 @@ for (let i = 0; i < db.articles.length; i++) {
 function Articles() {
   return (
     <div>
-      <h1>Articles</h1>
-
+      <h1 className="align-center text-3xl border-b border-2 text-center">
+        Articles
+      </h1>
 
       <p>This is the articles page</p>
       <p>

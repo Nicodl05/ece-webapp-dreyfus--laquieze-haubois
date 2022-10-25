@@ -7,7 +7,7 @@ const mail_cyril = "cyril.haubois@edu.ece.fr";
 function Contacts() {
   return (
     <div>
-      <h1 className="text-3xl font bold underline">Contacts</h1>
+      <h1 className="text-2xl font bold underline">Contacts</h1>
 
       <p>
         This is the contacts page

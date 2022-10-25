@@ -3,9 +3,9 @@ import Profiles from "../components/Profiles";
 function About() {
   return (
     <div>
-      <p className=" align-center text-3xl border-b border-2 text-center text-blue-800">
+      <h1 className=" align-center text-3xl border-b border-2 text-center wt-title">
         About Us
-      </p>
+      </h1>
       <Profiles />
     </div>
   );

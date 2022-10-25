@@ -1,17 +1,16 @@
-import Link from "next/link";
-import Router, { useRouter } from "next/router";
-
 const mail_nico = "nicolas.dreyfus@outlook.fr";
 const mail_cyril = "cyril.haubois@edu.ece.fr";
 
 function Contacts() {
   return (
     <div>
-      <h1 className="text-2xl font bold underline text-center">Contacts</h1>
+      <h1 className="text-2xl font bold underline text-center wt-title">
+        Contacts
+      </h1>
 
       <p>
         <br></br>
-        <div className="text-center align-center bg-gray-200">
+        <div className="text-center align-center ">
           Vous pouvez contacter les créateurs de cette page par mail en cliquant
           sur leurs noms: <br></br>
           <a href={"mailto:" + mail_nico} className="text-blue-600">

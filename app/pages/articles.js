@@ -1,6 +1,3 @@
-import Link from "next/link";
-import Router, { useRouter } from "next/router";
-
 const parse = require("html-react-parser");
 
 const db = {
@@ -44,12 +41,11 @@ for (let i = 0; i < db.articles.length; i++) {
 function Articles() {
   return (
     <div>
-      <h1 className="align-center text-3xl border-b border-2 text-center">
+      <h1 className="align-center text-3xl border-b border-2 text-center wt-title">
         Articles
       </h1>
 
-      <p>This is the articles page</p>
-      <p className="text-center align-center text-blue-400">
+      <p className="text-center align-center ">
         {parse(array)} <br></br>
       </p>
     </div>

@@ -2,11 +2,11 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Head from "next/head";
 
-const Layout = ({ children}) => {
+const Layout = ({ children }) => {
   return (
     <>
-      <Head>        
-        <link rel="icon" href="/favicon.ico" />        
+      <Head>
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="min-h-screen mx-auto max-w-2xl flex flex-col">
         <Header />

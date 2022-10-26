@@ -21,7 +21,7 @@ const Profiles = () => {
                     <p>Vous pouvez cliquer
                         <a href="https://www.linkedin.com/in/nicolas-dreyfus-laquièze-024532169" className="text-blue-500 hover:text-blue-800 font-bold"> ici </a>
                         pour accéder à son profil LinkedIn ou
-                        <a href="https://github.com/Nicodl05" className="text-blue-500 hover:text-blue-800 font-bold"> ici</a> pour accéder à son Github</p>
+                        <a href="https://github.com/Nicodl05" className=" text-blue-500 hover:text-blue-800 font-bold"> ici</a> pour accéder à son Github</p>
                 </div>
                 <div className="px-6 pt-4 pb-2">
                     <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Dev</span>
@@ -55,12 +55,10 @@ const Profiles = () => {
                     <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Cybersecurity</span>
                     <span className="inline-block bg-blue-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                         <Link href="/Cyril">Voir son profil</Link>
-                    </span>
-                   
+                    </span>                   
                 </div>
             </div>
-        </div>
-        
+        </div>        
     )
 };
 

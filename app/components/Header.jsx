@@ -1,5 +1,4 @@
 import {useState, useEffect} from "react";
-import Logo from "./Logo";
 import {useTheme} from "next-themes";
 import { HiOutlineMoon } from "react-icons/hi2";
 import   { HiSun } from "react-icons/hi2";

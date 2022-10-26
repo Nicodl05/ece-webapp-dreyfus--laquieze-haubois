@@ -6,7 +6,8 @@ function footer() {
         <a href="https://www.ece.fr/" className="hover:underline">
           ECE
         </a>
-        . All Rights Reserved. By Nicolas and Cyril
+        . All Rights Reserved.
+      By Nicolas and Cyril
       </span>
       <ul className="flex flex-wrap items-center mt-3 text-sm text-black-500 dark:text-black-400 sm:mt-0">
         <li>
@@ -30,10 +31,7 @@ function footer() {
           </a>
         </li>
         <li>
-          <a
-            href="https://github.com/Nicodl05/ece-webapp-dreyfus--laquieze-haubois"
-            className="hover:underline"
-          >
+          <a href="https://github.com/Nicodl05/ece-webapp-dreyfus--laquieze-haubois" className="hover:underline">
             Github
           </a>
         </li>

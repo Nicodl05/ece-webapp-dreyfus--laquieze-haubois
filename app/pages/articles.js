@@ -1,3 +1,6 @@
+import Layout from "../components/Layout";
+import NavBar from "../components/NavBar";
+
 const parse = require("html-react-parser");
 
 const db = {
@@ -40,15 +43,17 @@ for (let i = 0; i < db.articles.length; i++) {
 }
 function Articles() {
   return (
-    <div>
-      <h1 className="align-center text-3xl border-b border-2 text-center wt-title">
-        Articles
-      </h1>
+    <Layout>
+      <div>
+        <h1 className="align-center text-3xl border-b border-2 text-center wt-title">
+          Articles
+        </h1>
 
-      <p className="text-center align-center ">
-        {parse(array)} <br></br>
-      </p>
-    </div>
+        <p className="text-center align-center ">
+          {parse(array)} <br></br>
+        </p>
+      </div>
+    </Layout>
   );
 }
 export default Articles;

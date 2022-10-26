@@ -3,14 +3,12 @@ import Profiles from "../components/Profiles";
 
 function About() {
   return (
-    <Layout>
-      <div>
-        <h1 className=" align-center text-3xl border-b border-2 text-center wt-title">
-          About Us
-        </h1>
-        <Profiles />
-      </div>
-    </Layout>
+    <div>
+      <h1 className=" align-center text-3xl border-b border-2 text-center wt-title">
+        About Us
+      </h1>
+      <Profiles />
+    </div>
   );
 }
 export default About;

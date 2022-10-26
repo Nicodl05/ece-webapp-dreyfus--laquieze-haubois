@@ -9,7 +9,7 @@ const Profiles = () => {
         <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-10">
 
             <div class="rounded overflow-hidden shadow-lg">
-                <Image src={nicolas} alt="Picture of the author" width={400} height={400} />
+                <Image src={nicolas} className= "justify-center "alt="Picture of the author" width={400} height={400} />
                 <div className="px-6 py-4">
                     <div className="font-bold text-xl mb-2 text-gray-700 ">Nicolas</div>
                     <p >

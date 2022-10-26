@@ -41,17 +41,15 @@ for (let i = 0; i < db.articles.length; i++) {
 }
 function Articles() {
   return (
-    <Layout>
-      <div>
-        <h1 className="align-center text-3xl border-b border-2 text-center wt-title">
-          Articles
-        </h1>
+    <div>
+      <h1 className="align-center text-3xl border-b border-2 text-center wt-title">
+        Articles
+      </h1>
 
-        <p className="text-center align-center ">
-          {parse(array)} <br></br>
-        </p>
-      </div>
-    </Layout>
+      <p className="text-center align-center ">
+        {parse(array)} <br></br>
+      </p>
+    </div>
   );
 }
 export default Articles;

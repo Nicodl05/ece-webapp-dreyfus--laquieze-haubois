@@ -1,13 +1,14 @@
 import React from "react";
 import Layout from "../components/Layout";
+import Link from "next/link";
 
 function Home() {
   return (
-    <div className="text-center">
-      <h1 className="wt-title">Home</h1>
-      <a> Vous êtes sur la page principale de cette application </a>
+    <div className="text-center dark:dark">
+      <h1 className="h1">Home</h1>
       <br></br>
-      <br></br>
+      <p> Vous êtes sur la page principale de cette application </p>
+
       <p>
         Vous pouvez naviguer sur le site en utilisant la barre de navigation.
         <br></br>
@@ -24,14 +25,14 @@ function Home() {
         Tailwindcss
       </p>
       <br></br>
-      <a className="text-blue-400 dark:text-blue-800">
-        Documentation de Nextjs: <a href="https://nextjs.org/"> ici</a>
+      <div className="text-gray-800 dark:text-gray-300">
+        Documentation de Nextjs: <Link href="https://nextjs.org/"> ici</Link>
         <br></br>
-        Documentation de React: <a href="https://fr.reactjs.org/">ici </a>
+        Documentation de React: <Link href="https://fr.reactjs.org/">ici </Link>
         <br></br>
         Documentation de Tailwindcss:
-        <a href="https://tailwindcss.com/"> ici</a>
-      </a>
+        <Link href="https://tailwindcss.com/"> ici</Link>{" "}
+      </div>
     </div>
   );
 }

@@ -1,7 +1,6 @@
 import {useState, useEffect} from "react";
 import {useTheme} from "next-themes";
-import { HiOutlineMoon } from "react-icons/hi2";
-import   { HiSun } from "react-icons/hi2";
+import {FaSun, FaMoon}  from "react-icons/fa";
 
 const Header = () => {
 
@@ -16,13 +15,13 @@ const Header = () => {
       const currentTheme = theme === "system" ? systemTheme : theme ;
       if(currentTheme ==="dark"){
         return (
-          <HiSun  className="w-10 h-10 text-yellow-500 " role="button" onClick={() => setTheme('light')} />
+          <FaSun  className="w-10 h-10 text-yellow-400 " role="button" onClick={() => setTheme('light')} />
         )
       }
 
       else {
         return (
-          <HiOutlineMoon className="w-10 h-10 text-white " role="button" onClick={() => setTheme('dark')} />
+          <FaMoon className="w-10 h-10 text-yellow-400 " role="button" onClick={() => setTheme('dark')} />
         )
       }
    };

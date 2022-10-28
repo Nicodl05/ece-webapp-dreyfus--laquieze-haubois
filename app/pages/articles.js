@@ -42,10 +42,8 @@ for (let i = 0; i < db.articles.length; i++) {
 function Articles() {
   return (
     <div>
-      <h1 className="align-center text-3xl border-b border-2 text-center wt-title">
-        Articles
-      </h1>
-
+      <h1 className="align-center h1 dark:dark text-center ">Articles</h1>
+      <br></br>
       <p className="text-center align-center ">
         {parse(array)} <br></br>
       </p>

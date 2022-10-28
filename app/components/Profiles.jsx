@@ -11,7 +11,7 @@ const Profiles = () => {
             <div class="rounded overflow-hidden shadow-lg">
                 <Image src={nicolas} className= "justify-center "alt="Picture of the author" width={400} height={400} />
                 <div className="px-6 py-4">
-                    <div className="font-bold text-xl mb-2 text-gray-700 ">Nicolas</div>
+                    <div className="font-bold text-xl mb-2 text-gray-200 ">Nicolas</div>
                     <p >
                         Nicolas est un étudiant de l'ECE Paris, il est en 2ème année de cycle ingénieur spécialisé en SI.
                     </p>
@@ -37,7 +37,7 @@ const Profiles = () => {
 
                 <Image src={cyril} alt="Picture of the author" width={400} height={400} />
                 <div className="px-6 py-4">
-                    <div className="font-bold text-xl mb-2 text-gray-700 ">Cyril</div>
+                    <div className="font-bold text-xl mb-2 text-gray-200 ">Cyril</div>
                     <p>
                         Cyril est un étudiant de l'ECE Paris, il est en 2ème année de cycle ingénieur spécialisé en SI.
 

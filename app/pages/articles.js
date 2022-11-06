@@ -39,15 +39,29 @@ for (let i = 0; i < db.articles.length; i++) {
     db.articles[i].content +
     br;
 }
-function Articles() {
+function Articles({res}) {
   return (
-    <div>
-      <h1 className="align-center h1 dark:dark text-center ">Articles</h1>
-      <br></br>
-      <p className="text-center align-center ">
-        {parse(array)} <br></br>
-      </p>
-    </div>
+    <ul>
+      {
+        res.map((post) => (
+          <ul>
+            <li>{post.title}</li>
+            <li>{post.content}</li>
+          </ul>
+        ))
+      }
+    </ul>
   );
 }
+
+export async function getStaticProps()
+{
+  const res = db.articles;
+  return{
+    props: {
+      res,
+    },
+  }
+}
+
 export default Articles;

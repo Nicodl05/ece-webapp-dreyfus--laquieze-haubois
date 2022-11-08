@@ -1,19 +1,26 @@
 import profile_image from "/public/Nicolas.jpg";
 import Image from "next/image";
-import Layout from "../components/Layout";
 
 const Nicolas = () => {
   return (
-    <div className="p-10">
-      <div className="max-w-sm rounded overflow-hidden shadow-lg">
-        <Image
-          src={profile_image}
-          alt="Picture of the author"
-          width={400}
-          height={400}
-        />
-        <div className="px-6 py-4">
-          <div className="font-bold text-xl mb-2 text-gray-700 ">Nicolas</div>
+    <div className="p-10grid grid-cols-1  sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-10">
+      <br></br>
+      <div className="max-w rounded overflow-hidden shadow-lg ">
+        <div className="flex items-start ">
+          <Image
+            src={profile_image}
+            alt="Picture of the author"
+            width={400}
+            height={400}
+          />
+          <div className="justify-center text-center items-center">
+            Compétences
+          </div>
+        </div>
+        <div className="px-6 py-4 justify-center items-center ">
+          <div className="font-bold text-xl mb-2 text-gray-700 justify-center ">
+            Nicolas
+          </div>
           <p>
             Nicolas est un étudiant de l'ECE Paris, il est en 2ème année de
             cycle ingénieur spécialisé en SI.

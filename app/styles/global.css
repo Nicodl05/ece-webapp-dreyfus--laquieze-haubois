@@ -5,6 +5,9 @@
  .wt-title{
     @apply text-3xl font-bold underline mb-10 text-blue-800 text-center;
  }
+ .light{
+   @apply bg-gray-200 text-black;
+}
  .dark{ 
     @apply bg-gray-800 text-white;
     
@@ -12,6 +15,4 @@
  .h1{
     @apply text-center text-4xl   underline
  }
- .light{
-    @apply bg-gray-100 text-black;
- }
+ 

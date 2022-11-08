@@ -8,9 +8,9 @@ const Layout = ({ children}) => {
       <Head>        
         <link rel="icon" href="/favicon.ico" />        
       </Head>
-      <div >
+      <div className="flex flex-col justify-between  min-h-screen" >
         <NavBar />
-        <main className="flex-grow container mx-auto px-4 sm:px-6">
+        <main className="flex-grow container mx-auto px-4 sm:px-6 ">
           {children}
         </main>
         <Footer />

@@ -21,7 +21,7 @@ const Header = () => {
 
       else {
         return (
-          <FaMoon className="w-10 h-10 text-yellow-400 " role="button" onClick={() => setTheme('dark')} />
+          <FaMoon className="w-10 h-10 text-white " role="button" onClick={() => setTheme('dark')} />
         )
       }
    };

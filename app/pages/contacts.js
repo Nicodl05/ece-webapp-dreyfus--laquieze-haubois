@@ -14,13 +14,19 @@ function Contacts() {
         <div className="text-center align-center  ">
           Vous pouvez contacter les créateurs de cette page par mail en cliquant
           sur leurs noms: <br></br>
-          <Link href={"mailto:" + mail_nico}>Nicolas Dreyfus--Laquièze</Link>
+          <div className="dark:hover:text-blue-500 hover:text-[#007178] font-bold  ">
+            <Link href={"mailto:" + mail_nico}>Nicolas Dreyfus--Laquièze</Link>
+          </div>
           <br></br>
-          <Link href={"mailto:" + mail_cyril}> Cyril Haubois</Link>
+          <div className="dark:hover:text-blue-500 hover:text-[#007178] font-bold ">
+            <Link href={"mailto:" + mail_cyril}> Cyril Haubois</Link>
+          </div>
           <br></br>
-          <Link href="https://github.com/Nicodl05/ece-webapp-dreyfus--laquieze-haubois">
-            Notre Github
-          </Link>
+          <div className="dark:hover:text-blue-500 hover:text-[#007178] font-bold ">
+            <Link href="https://github.com/Nicodl05/ece-webapp-dreyfus--laquieze-haubois">
+              Notre Github
+            </Link>
+          </div>
         </div>
       </div>
     </div>

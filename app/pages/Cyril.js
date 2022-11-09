@@ -4,9 +4,9 @@ import css from "/public/css.png";
 import html from "/public/html.png";
 import sql from "/public/sql.jpg";
 import nosql from "/public/nosql.png";
-import csharp from "/public/csharp.jpg";
+import csharp from "/public/csharp.png";
 import java from "/public/java.png";
-import js from "/public/js.jpg";
+import js from "/public/js.png";
 import react from "/public/react.png";
 import tailwind from "/public/tailwind.png";
 import python from "/public/python.png";
@@ -28,7 +28,6 @@ const Cyril = () => {
           />
           <div className="gap-6 justify-between text-center items-center ">
             <p className="gap-6 wt-title"> Mes langages maitrisés</p>
-
             <div className=" grid grid-cols-4 gap-6 ">
               <Image src={cplus} width={75} height={75} />
               <Image src={csharp} width={75} height={75} />

@@ -24,9 +24,10 @@ const NavBar = () => {
                     <li className="hover:text-white hover:underline text-2xl">
                         <Link href="/articles" className="block py-2 pr-4 pl-3 text-white bg-white rounded md:bg-transparent md:text-white md:p-0 ">Articles </Link>
                     </li>
-                    
-
-                </ul>     
+                    <li className="hover:text-white hover:underline text-2xl">
+                        <Link href="/login-native" className="block py-2 pr-4 pl-3 text-white bg-white rounded md:bg-transparent md:text-white md:p-0 ">Login </Link>
+                   </li>    
+                </ul>                    
                 <div className="text-right">            
                     <Header /> 
                 </div>     

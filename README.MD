@@ -41,6 +41,10 @@ Normalement après toutes ces étapes tout devrait normalement fonctionner.
 D'abors nous avons recréé l'application créée dans les premiers lab mais cette fois ci en utilisant Next.js.
 Après la mise en place d'un routing dynamique pour la navigation entre pages. Nous avons installé Tailwindcss pour le style de notre application.
 
+## De nouvelles mises à jour
+A présent, en naviguant sur les pages About us, Profiles et Articles. Vous avez la possibilité d'en apprendre plus concernant les auteurs et les articles.
+
+
 ### Nos emails pour nous contacter
 
 - <nicolas.dreyfuslaquieze@edu.ece.fr>

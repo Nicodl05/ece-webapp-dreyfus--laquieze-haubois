@@ -26,7 +26,10 @@ const NavBar = () => {
                     </li>
                     <li className="hover:text-white hover:underline text-2xl">
                         <Link href="/login-native" className="block py-2 pr-4 pl-3 text-white bg-white rounded md:bg-transparent md:text-white md:p-0 ">Login </Link>
-                   </li>    
+                   </li>  
+                   <li className="hover:text-white hover:underline text-2xl">
+                        <Link href="/login-controlled" className="block py-2 pr-4 pl-3 text-white bg-white rounded md:bg-transparent md:text-white md:p-0 ">Login 2 </Link>
+                   </li>   
                 </ul>                    
                 <div className="text-right">            
                     <Header /> 

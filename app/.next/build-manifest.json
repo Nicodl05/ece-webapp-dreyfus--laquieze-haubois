@@ -25,10 +25,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/login-native": [
+    "/login-controlled": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/login-native.js"
+      "static/chunks/pages/login-controlled.js"
     ]
   },
   "ampFirstPages": []

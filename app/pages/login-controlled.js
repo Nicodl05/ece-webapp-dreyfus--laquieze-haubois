@@ -1,34 +1,59 @@
 import React from "react";
+import { useState } from "react";
 
-function Login() {
+const Login = function () {
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
+  const onSubmit = function (e) {
+    e.preventDefault();
+    alert(
+      "Email:" +
+        JSON.stringify(user.email) +
+        "\nPassword:" +
+        JSON.stringify(user.password)
+    );
+  };
   return (
-    <div className="relative flex flex-col min-h-screen overflow-hidden">
+    <div className="relative flex space-y-6 flex-col min-h-screen overflow-hidden">
+      <p></p>
       <div className="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-xl">
-        <h1 className="text-3xl font-semibold text-center text-gray-700 mr-2 mb-2   underline">
+        <h1 className="text-3xl font-semibold text-center text-gray-700 mr-2 mb-2 underline">
           Sign in
         </h1>
-        <form className="mt-6">
+        <form className="mt-6" onSubmit={onSubmit}>
           <div className="mb-2">
             <label
-              for="email"
+              htmlFor="email"
               className="block text-gray-700 mr-2 mb-2   text-sm font-semibold "
             >
               Email
             </label>
             <input
               type="email"
+              name="email"
+              id="email"
+              onChange={(e) =>
+                setUser({ ...user, ...{ email: e.target.value } })
+              }
               className="block w-full px-4 py-2 mt-2  text-gray-700 mr-2 mb-2   bg-white border rounded-md   focus:outline-none focus:ring focus:ring-opacity-40"
             />
           </div>
           <div className="mb-2">
             <label
-              for="password"
+              htmlFor="password"
               className="block text-sm text-gray-700 mr-2 mb-2  font-semibold "
             >
               Password
             </label>
             <input
               type="password"
+              name="password"
+              id="password"
+              onChange={(e) =>
+                setUser({ ...user, ...{ password: e.target.value } })
+              }
               className="block w-full px-4 py-2 mt-2 text-gray-700 mr-2 mb-2   bg-white border rounded-md   focus:outline-none focus:ring focus:ring-opacity-40"
             />
           </div>
@@ -58,5 +83,5 @@ function Login() {
       </div>
     </div>
   );
-}
+};
 export default Login;

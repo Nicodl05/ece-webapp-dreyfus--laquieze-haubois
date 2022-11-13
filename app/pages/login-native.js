@@ -1,13 +1,10 @@
 import React from "react";
-import { useState } from "react";
 
 const Login = function () {
   const onSubmit = function (e) {
     e.preventDefault();
     const data = new FormData(e.target);
-    // display the content of data
-    // console.log(data);
-    // display the content of data as a string
+
     alert(JSON.stringify(Object.fromEntries(data)));
   };
   return (
@@ -27,7 +24,7 @@ const Login = function () {
             </label>
             <input
               type="email"
-              name="user[email]"
+              name="email"
               id="email"
               className="block w-full px-4 py-2 mt-2  text-gray-700 mr-2 mb-2   bg-white border rounded-md   focus:outline-none focus:ring focus:ring-opacity-40"
             />
@@ -41,7 +38,7 @@ const Login = function () {
             </label>
             <input
               type="password"
-              name="user[password]"
+              name="password"
               id="password"
               className="block w-full px-4 py-2 mt-2 text-gray-700 mr-2 mb-2   bg-white border rounded-md   focus:outline-none focus:ring focus:ring-opacity-40"
             />

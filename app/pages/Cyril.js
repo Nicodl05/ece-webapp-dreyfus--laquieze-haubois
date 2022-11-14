@@ -19,7 +19,7 @@ const Cyril = () => {
     <div className="p-10grid grid-cols-1  sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-10">
       <br></br>
       <div className="max-w rounded overflow-hidden shadow-lg ">
-        <div className="flex items-start text-center justify-center ">
+        <div className="p-10grid grid-cols-2 flex items-start text-center justify-center gap-20 ">
           <Image
             src={profile_image}
             alt="Picture of the author"
@@ -45,7 +45,7 @@ const Cyril = () => {
           </div>
         </div>
         <div className="px-6 py-4 justify-center items-center text-center ">
-          <div className=" mb-2 wt-title justify-center ">Nicolas</div>
+          <div className=" mb-2 wt-title justify-center ">Cyril</div>
           <div>
             Cyril est un étudiant de l'ECE Paris, il est en 2ème année de cycle
             ingénieur spécialisé en SI.

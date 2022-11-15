@@ -14,6 +14,8 @@ import php from "/public/php.png";
 import cer from "/public/cer.png";
 import renov from "/public/renov.png";
 import ece from "/public/ece.png";
+import ski from "/public/ski.png";
+import java_nico from "/public/java_nico.png";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -63,22 +65,32 @@ const Nicolas = () => {
           <div>
             <br></br>
             <div className="wt-title">Mes projets réalisés</div>
-            <div className="justify-center items-center text-center ">
-              <div className="text-blue-500 font-bold ">
-                <Link href="https://github.com/Nicodl05/Cinema_Projet">
-                  Projet Cinéma
-                </Link>
+            <div className=" grid grid-cols-2  ">
+              <div className=" font-bold hover:scale-125 items-center text-center justify-center  ">
+                <div>
+                  <a href="https://github.com/Nicodl05/Cinema_Projet">
+                    <Image src={java_nico} width={150} height={100} />
+                  </a>
+                </div>
+                Projet Cinéma (Java, MySQL) <br></br> Ce projet a été réalisé en
+                3ème année.
               </div>
-              Ce projet a été réalisé en 3ème année.
-              <br></br>
-              <div className="text-blue-500 font-bold">
-                <Link href="https://github.com/Nicodl05/TdG-Projet">
-                  Projet de Théorie des Graphes
-                </Link>
+              <div className="font-bold hover:scale-125 items-center text-center justify-center">
+                <div>
+                  <a
+                    href="https://github.com/Nicodl05/TdG-Projet"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Image src={ski} width={100} height={100} />
+                  </a>
+                </div>
+                Projet Théorie des Graphes (C++) <br></br>Ce projet a été
+                réalisé en 2ème année
               </div>
-              Ce projet a été réalisé en 2ème année.
             </div>
           </div>
+
           <div className="gap-6 justify-between text-center items-center ">
             <p className="gap-6 wt-title"> Mes langages maitrisés</p>
             <div className=" grid grid-cols-6 gap-6 font-bold justify-between">
@@ -109,7 +121,7 @@ const Nicolas = () => {
                   href=" https://docs.oracle.com/en/java/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  title="Documentation de C#"
+                  title="Documentation de Java"
                 >
                   <Image src={java} width={75} height={75} /> <p></p>
                   Java
@@ -120,49 +132,106 @@ const Nicolas = () => {
                   href="https://www.mysql.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  title="Documentation de C#"
+                  title="Documentation de MySQL"
                 >
                   <Image src={sql} width={75} height={75} /> <p></p>
                   MySQL
                 </a>
               </div>
               <div className="hover:scale-150 rounded overflow-hidden shadow-lg ">
-                <Image src={nosql} width={75} height={75} /> <p></p>
-                NoSQL
+                <a
+                  href="https://docs.oracle.com/en/database/other-databases/nosql-database/index.html
+                  "
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Documentation de NoSQL"
+                >
+                  <Image src={nosql} width={75} height={75} /> <p></p>
+                  NoSQL
+                </a>
               </div>
               <div className="hover:scale-150 rounded overflow-hidden shadow-lg ">
-                <Image src={html} width={75} height={75} /> <p></p>
-                HTML
+                <a
+                  href="https://developer.mozilla.org/fr/docs/Web/HTML"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Documentation de HTML"
+                >
+                  <Image src={html} width={75} height={75} /> <p></p>
+                  HTML
+                </a>
               </div>
               <div className="hover:scale-150 rounded overflow-hidden shadow-lg ">
-                <Image src={css} width={75} height={75} />
-                <p></p>
-                CSS
+                <a
+                  href="https://developer.mozilla.org/fr/docs/Web/CSS"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Documentation de CSS"
+                >
+                  <Image src={css} width={75} height={75} />
+                  <p></p>
+                  CSS
+                </a>
               </div>
               <div className="hover:scale-150 rounded overflow-hidden shadow-lg ">
-                <Image src={js} width={75} height={75} />
-                <p></p>
-                JavaScript
+                <a
+                  href="https://developer.mozilla.org/fr/docs/Web/JavaScript"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Documentation de Javascript"
+                >
+                  <Image src={js} width={75} height={75} />
+                  <p></p>
+                  JavaScript
+                </a>
               </div>
               <div className="hover:scale-150 rounded overflow-hidden shadow-lg ">
-                <Image src={react} width={75} height={75} />
-                <p></p>
-                React
+                <a
+                  href="https://reactjs.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Documentation de React"
+                >
+                  <Image src={react} width={75} height={75} />
+                  <p></p>
+                  React
+                </a>
               </div>
               <div className="hover:scale-150 rounded overflow-hidden shadow-lg ">
-                <Image src={tailwind} width={75} height={75} />
-                <p></p>
-                Tailwind CSS
+                <a
+                  href="https://tailwindcss.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Documentation de Tailwind CSS"
+                >
+                  <Image src={tailwind} width={75} height={75} />
+                  <p></p>
+                  Tailwind CSS
+                </a>
               </div>
               <div className="hover:scale-150 rounded overflow-hidden shadow-lg ">
-                <Image src={php} width={75} height={75} />
-                <p></p>
-                PHP
+                <a
+                  href="https://www.php.net/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Documentation de PHP"
+                >
+                  <Image src={php} width={75} height={75} />
+                  <p></p>
+                  PHP
+                </a>
               </div>
               <div className="hover:scale-150 rounded overflow-hidden shadow-lg ">
-                <Image src={python} width={75} height={75} />
-                <p></p>
-                Python
+                <a
+                  href="https://www.python.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Documentation de Python"
+                >
+                  <Image src={python} width={75} height={75} />
+                  <p></p>
+                  Python
+                </a>
               </div>
             </div>
           </div>

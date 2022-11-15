@@ -17,37 +17,33 @@ const Profiles = () => {
             justifyContent
           />
         </div>
-        <div className="px-6 py-4">
+        <div className="px-6 py-4 ">
           <div className="font-bold text-xl mb-2 text-gray-200 text-center ">
             Nicolas
           </div>
-          <p>
-            Nicolas est un étudiant de l'ECE Paris, il est en 2ème année de
-            cycle ingénieur spécialisé en SI.
-          </p>
-          <p>
-            Il est passionné par le développement logiciel et les nouvelles
-            technologies.
-          </p>
-          <p>
-            Vous pouvez cliquer
-            <a
-              href="https://www.linkedin.com/in/nicolas-dreyfus-laquièze-024532169"
-              className="text-blue-500 hover:text-blue-800 font-bold"
-            >
-              {" "}
-              ici{" "}
-            </a>
-            pour accéder à son profil LinkedIn ou
-            <a
-              href="https://github.com/Nicodl05"
-              className=" text-blue-500 hover:text-blue-800 font-bold"
-            >
-              {" "}
-              ici
-            </a>{" "}
-            pour accéder à son Github
-          </p>
+          <div>
+            <p>
+              Nicolas est un étudiant de l'ECE Paris, il est en 2ème année de
+              cycle ingénieur spécialisé en SI.
+            </p>
+            <p>
+              Il est passionné par le développement logiciel et les nouvelles
+              technologies.
+            </p>
+            <div className="flex flex-wrap gap-1">
+              Vous pouvez cliquer
+              <div className="text-blue-500 hover:text-blue-800 font-bold">
+                <Link href="https://www.linkedin.com/in/nicolas-dreyfus-laquièze-024532169">
+                  ici
+                </Link>
+              </div>
+              pour accéder à son profil LinkedIn ou
+              <div className=" text-blue-500 hover:text-blue-800 font-bold">
+                <Link href="https://github.com/Nicodl05">ici</Link>
+              </div>
+              pour accéder à son Github
+            </div>
+          </div>
         </div>
         <div className="px-6 pt-4 pb-2">
           <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 dark:hover:bg-blue-500 hover:bg-[#007178] hover:text-white">
@@ -90,17 +86,13 @@ const Profiles = () => {
             Son exploit : tenir le record du monde d'une piste TrackMania durant
             une semaine !!
           </p>
-          <p>
+          <div className=" flex flex-wrap gap-1">
             Vous pouvez cliquer
-            <a
-              href="https://github.com/teepol"
-              className="text-blue-500 hover:text-blue-800 font-bold"
-            >
-              {" "}
-              ici
-            </a>{" "}
+            <div className="text-blue-500 hover:text-blue-800 font-bold  text-justify">
+              <Link href="https://github.com/teepol"> ici </Link>
+            </div>
             pour accéder à son Github
-          </p>
+          </div>
         </div>
         <div className="px-6 pt-4 pb-2">
           <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 dark:hover:bg-blue-500 hover:bg-[#007178] hover:text-white">

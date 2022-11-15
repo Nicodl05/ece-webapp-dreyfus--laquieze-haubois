@@ -23,7 +23,7 @@ const NavBar = () => {
               href="/"
               className="block py-2 pr-4 pl-3  justify-center text-center items-center rounded md:bg-transparent md:text-white md:p-0 md:dark:text-white dark:bg-white md:dark:bg-transparent"
             >
-              Home{" "}
+              Home
             </Link>
           </li>
           <li className="hover:text-white  hover:underline text-2xl">
@@ -31,7 +31,7 @@ const NavBar = () => {
               href="/about"
               className="block py-2 pr-4 pl-3 text-white bg-white rounded md:bg-transparent md:text-white md:p-0 "
             >
-              About{" "}
+              About
             </Link>
           </li>
           <li className="hover:text-white hover:underline text-2xl">
@@ -39,7 +39,7 @@ const NavBar = () => {
               href="/contacts"
               className="block py-2 pr-4 pl-3 text-white bg-white rounded md:bg-transparent md:text-white md:p-0 "
             >
-              Contact{" "}
+              Contact
             </Link>
           </li>
           <li className="hover:text-white hover:underline text-2xl">
@@ -47,7 +47,7 @@ const NavBar = () => {
               href="/articles"
               className="block py-2 pr-4 pl-3 text-white bg-white rounded md:bg-transparent md:text-white md:p-0 "
             >
-              Articles{" "}
+              Articles
             </Link>
           </li>
           <li className="hover:text-white hover:underline text-2xl">
@@ -55,7 +55,7 @@ const NavBar = () => {
               href="/login-native"
               className="block py-2 pr-4 pl-3 text-white bg-white rounded md:bg-transparent md:text-white md:p-0 "
             >
-              Login{" "}
+              Login
             </Link>
           </li>
           <li className="hover:text-white hover:underline text-2xl">
@@ -63,7 +63,7 @@ const NavBar = () => {
               href="/login-controlled"
               className="block py-2 pr-4 pl-3 text-white bg-white rounded md:bg-transparent md:text-white md:p-0 "
             >
-              Login 2{" "}
+              Login 2
             </Link>
           </li>
         </ul>

@@ -2,7 +2,7 @@ import profile_image from "/public/Cyril.jpg";
 import cplus from "/public/c++.png";
 import css from "/public/css.png";
 import html from "/public/html.png";
-import sql from "/public/sql.jpg";
+import sql from "/public/sql.png";
 import nosql from "/public/nosql.png";
 import csharp from "/public/csharp.png";
 import java from "/public/java.png";
@@ -11,6 +11,8 @@ import react from "/public/react.png";
 import tailwind from "/public/tailwind.png";
 import python from "/public/python.png";
 import php from "/public/php.png";
+import braintech from "/public/braintech.png";
+import lacentralef from "/public/lacentralef.png";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -29,18 +31,42 @@ const Cyril = () => {
           <div className="gap-6 justify-between text-center items-center ">
             <p className="gap-6 wt-title"> Mes langages maitrisés</p>
             <div className=" grid grid-cols-4 gap-6 ">
-              <Image src={cplus} width={75} height={75} />
-              <Image src={csharp} width={75} height={75} />
-              <Image src={java} width={75} height={75} />
-              <Image src={sql} width={75} height={75} />
-              <Image src={nosql} width={75} height={75} />
-              <Image src={html} width={75} height={75} />
-              <Image src={css} width={75} height={75} />
-              <Image src={js} width={75} height={75} />
-              <Image src={react} width={75} height={75} />
-              <Image src={tailwind} width={75} height={75} />
-              <Image src={php} width={75} height={75} />
-              <Image src={python} width={75} height={75} />
+              <div className="hover:scale-150">
+                <Image src={cplus} width={75} height={75} />
+              </div>
+              <div className="hover:scale-150">
+                <Image src={csharp} width={75} height={75} />
+              </div>
+              <div className="hover:scale-150">
+                <Image src={java} width={75} height={75} />
+              </div>
+              <div className="hover:scale-150">
+                <Image src={sql} width={75} height={75} />
+              </div>
+              <div className="hover:scale-150">
+                <Image src={nosql} width={75} height={75} />
+              </div>
+              <div className="hover:scale-150">
+                <Image src={html} width={75} height={75} />
+              </div>
+              <div className="hover:scale-150">
+                <Image src={css} width={75} height={75} />
+              </div>
+              <div className="hover:scale-150">
+                <Image src={js} width={75} height={75} />
+              </div>
+              <div className="hover:scale-150">
+                <Image src={react} width={75} height={75} />
+              </div>
+              <div className="hover:scale-150">
+                <Image src={tailwind} width={75} height={75} />
+              </div>
+              <div className="hover:scale-150">
+                <Image src={php} width={75} height={75} />
+              </div>
+              <div className="hover:scale-150">
+                <Image src={python} width={75} height={75} />
+              </div>
             </div>
           </div>
         </div>
@@ -58,15 +84,11 @@ const Cyril = () => {
             Son exploit : tenir le record du monde d'une piste TrackMania durant
             une semaine !!
           </div>
-          <div>
+          <div className="flex flex-wrap gap-1 justify-center">
             Vous pouvez accéderà son Github en cliquant
-            <a
-              href="https://github.com/teepol"
-              className="text-blue-500 hover:text-blue-800 font-bold"
-            >
-              {" "}
-              ici
-            </a>
+            <div className="text-blue-500 hover:text-blue-800 font-bold">
+              <Link href="https://github.com/teepol"> ici</Link>
+            </div>
           </div>
           <div>
             <br></br>
@@ -85,6 +107,27 @@ const Cyril = () => {
                 </Link>
               </div>
               Ce projet a été réalisé en 2ème année.
+            </div>
+            <br></br>
+            <div>
+              <div className="wt-title">
+                Les entreprises avec lesquelles j'ai travaillé
+              </div>
+
+              <div className="grid grid-cols-2  text-center items-center justify-center  ">
+                <div className="rounded overflow-hidden shadow-lg items-center text-center justify-center   ">
+                  <div>
+                    <Image src={braintech} width={100} height={100}></Image>
+                  </div>
+                  Braintechnologies
+                </div>
+                <div className="rounded overflow-hidden shadow-lg items-center text-center justify-center   ">
+                  <div>
+                    <Image src={lacentralef} width={100} height={100}></Image>
+                  </div>
+                  La Centrale de Financement
+                </div>
+              </div>
             </div>
           </div>
         </div>

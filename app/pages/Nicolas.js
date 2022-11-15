@@ -2,7 +2,7 @@ import profile_image from "/public/Nicolas.jpg";
 import cplus from "/public/c++.png";
 import css from "/public/css.png";
 import html from "/public/html.png";
-import sql from "/public/sql.jpg";
+import sql from "/public/sql.png";
 import nosql from "/public/nosql.png";
 import csharp from "/public/csharp.png";
 import java from "/public/java.png";
@@ -30,18 +30,42 @@ const Nicolas = () => {
             <p className="gap-6 wt-title"> Mes langages maitrisés</p>
 
             <div className=" grid grid-cols-4 gap-6 ">
-              <Image src={cplus} width={75} height={75} />
-              <Image src={csharp} width={75} height={75} />
-              <Image src={java} width={75} height={75} />
-              <Image src={sql} width={75} height={75} />
-              <Image src={nosql} width={75} height={75} />
-              <Image src={html} width={75} height={75} />
-              <Image src={css} width={75} height={75} />
-              <Image src={js} width={75} height={75} />
-              <Image src={react} width={75} height={75} />
-              <Image src={tailwind} width={75} height={75} />
-              <Image src={php} width={75} height={75} />
-              <Image src={python} width={75} height={75} />
+              <div className="hover:scale-150">
+                <Image src={cplus} width={75} height={75} />
+              </div>
+              <div className="hover:scale-150">
+                <Image src={csharp} width={75} height={75} />
+              </div>
+              <div className="hover:scale-150">
+                <Image src={java} width={75} height={75} />
+              </div>
+              <div className="hover:scale-150">
+                <Image src={sql} width={75} height={75} />
+              </div>
+              <div className="hover:scale-150">
+                <Image src={nosql} width={75} height={75} />
+              </div>
+              <div className="hover:scale-150">
+                <Image src={html} width={75} height={75} />
+              </div>
+              <div className="hover:scale-150">
+                <Image src={css} width={75} height={75} />
+              </div>
+              <div className="hover:scale-150">
+                <Image src={js} width={75} height={75} />
+              </div>
+              <div className="hover:scale-150">
+                <Image src={react} width={75} height={75} />
+              </div>
+              <div className="hover:scale-150">
+                <Image src={tailwind} width={75} height={75} />
+              </div>
+              <div className="hover:scale-150">
+                <Image src={php} width={75} height={75} />
+              </div>
+              <div className="hover:scale-150">
+                <Image src={python} width={75} height={75} />
+              </div>
             </div>
           </div>
         </div>
@@ -56,23 +80,17 @@ const Nicolas = () => {
             Il est passionné par le développement logiciel et les nouvelles
             technologies.
           </div>
-          <div>
+          <div className="flex flex-wrap gap-1 justify-center">
             Vous pouvez cliquer
-            <a
-              href="https://www.linkedin.com/in/nicolas-dreyfus-laquièze-024532169"
-              className="text-blue-500 hover:text-blue-800 font-bold"
-            >
-              {" "}
-              ici{" "}
-            </a>
+            <div className="text-blue-500 hover:text-blue-800 font-bold">
+              <Link href="https://www.linkedin.com/in/nicolas-dreyfus-laquièze-024532169">
+                ici
+              </Link>
+            </div>
             pour accéder à son profil LinkedIn ou
-            <a
-              href="https://github.com/Nicodl05"
-              className="text-blue-500 hover:text-blue-800 font-bold"
-            >
-              {" "}
-              ici
-            </a>{" "}
+            <div className="text-blue-500 hover:text-blue-800 font-bold">
+              <Link href="https://github.com/Nicodl05"> ici</Link>
+            </div>
             pour accéder à son Github
           </div>
           <div>

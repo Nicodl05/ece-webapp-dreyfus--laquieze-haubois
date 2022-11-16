@@ -18,6 +18,7 @@ import ski from "/public/ski.png";
 import java_nico from "/public/java_nico.png";
 import Image from "next/image";
 import Link from "next/link";
+import Presentation from "../components/Presentation";
 
 const Nicolas = () => {
   return (

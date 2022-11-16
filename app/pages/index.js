@@ -1,30 +1,11 @@
 import React from "react";
 import Link from "next/link";
-import { Auth, ThemeSupa } from "@supabase/auth-ui-react";
-import Account from "../components/Account";
-
-import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
-
 function Home() {
-  const session = useSession();
-
-  const supabase = useSupabaseClient();
-
   return (
     <div className="text-center dark:dark">
       <h1 className="h1">Home</h1>
       <br></br>
-      <div className="container" style={{ padding: "50px 0 100px 0" }}>
-        {!session ? (
-          <Auth
-            supabaseClient={supabase}
-            appearance={{ theme: ThemeSupa }}
-            theme="dark"
-          />
-        ) : (
-          <Account session={session} />
-        )}
-      </div>
+
       <p> Vous êtes sur la page principale de cette application </p>
 
       <p>

@@ -1,10 +1,18 @@
 import Layout from "../components/Layout";
 import Link from "next/link";
 
+import { Auth, ThemeSupa } from "@supabase/auth-ui-react";
+import Account from "../components/Account";
+
+import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
+
 const mail_nico = "nicolas.dreyfus@outlook.fr";
 const mail_cyril = "cyril.haubois@edu.ece.fr";
 
 function Contacts() {
+  const session = useSession();
+
+  const supabase = useSupabaseClient();
   return (
     <div>
       <h1 className="text-2xl  text-center h1">Contacts</h1>
@@ -28,6 +36,17 @@ function Contacts() {
             </Link>
           </div>
         </div>
+      </div>
+      <div className="" style={{ padding: "50px 0 100px 0" }}>
+        {!session ? (
+          <Auth
+            supabaseClient={supabase}
+            appearance={{ theme: ThemeSupa }}
+            theme="dark"
+          />
+        ) : (
+          <Account session={session} />
+        )}
       </div>
     </div>
   );

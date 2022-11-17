@@ -1,11 +1,11 @@
 function footer() {
   return (
-    <footer className=" margin-top:auto position:absolute bottom-0 left-0 z-20 p-4 w-full md:flex md:items-center md:justify-between md:p-6 border-t border-blue-400 bg-[#007178]  dark:border-gray-600 dark:bg-gray-700 shadow-xl">
-      <div className="text-sm  sm:text-center font-bold">
+    <footer className="text-xl margin-top:auto position:absolute bottom-0 left-0 z-20 p-4 w-full md:flex md:items-center md:justify-between md:p-6 border-t border-blue-400 bg-[#007178]  dark:border-gray-600 dark:bg-gray-700 shadow-xl">
+      <div className=" sm:text-center font-bold">
         © 2022 <a href="https://www.ece.fr/" className="hover:underline"></a>●
         All Rights Reserved by Nicolas and Cyril
       </div>
-      <ul className="flex flex-wrap items-center mt-3 text-sm   sm:mt-0">
+      <ul className="flex flex-wrap items-center mt-3 text-md   sm:mt-0">
         <li>
           <a
             href="/about"

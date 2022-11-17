@@ -23,7 +23,7 @@ Pour lancer notre application il faut:
 - écrire dans le terminal la commmande: `npm run dev`
 - cliquer sur le lien géneré par l'application qui sera: <http://localhost:3000/>
 
-Si l'application ne se lance pas, soit: 
+Si l'application ne se lance pas, soit:
 
 - il manque un paquet
 - aucun paquet n'est installé
@@ -42,8 +42,8 @@ D'abors nous avons recréé l'application créée dans les premiers lab mais cet
 Après la mise en place d'un routing dynamique pour la navigation entre pages. Nous avons installé Tailwindcss pour le style de notre application.
 
 ## De nouvelles mises à jour
-A présent, en naviguant sur les pages About us, Profiles et Articles. Vous avez la possibilité d'en apprendre plus concernant les auteurs et les articles.
 
+A présent, en naviguant sur les pages About us, Profiles et Articles. Vous avez la possibilité d'en apprendre plus concernant les auteurs et les articles.
 
 ### Nos emails pour nous contacter
 

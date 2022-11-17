@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+
 import About from "./About";
 
 function Home() {
@@ -8,6 +9,19 @@ function Home() {
       <h1 className="h1">Home</h1>
       <br></br>
       <h2 className="text-2xl">Bienvenue à vous cher visiteur !!</h2>
+
+      <p> Vous êtes sur la page principale de cette application </p>
+
+      <p>
+        Vous pouvez naviguer sur le site en utilisant la barre de navigation.
+        <br></br>
+        Si vous cliquez sur About, vous en apprendrez plus sur les créateurs de
+        ce site. <br></br>
+        Si vous cliquez sur Articles, vous pourrez voir les articles
+        disponibles. <br></br>
+        Si vous cliquez sur Contacts, vous pourrez contacter les créateurs de ce
+        site. <br></br>
+      </p>
       <br></br>
       <div className="text-xl ">
         <p> Vous êtes désormais sur la page principale de cette application </p>

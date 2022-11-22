@@ -2,5 +2,12 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/test": "pages/test.js"
+  "/Cyril": "pages/Cyril.js",
+  "/": "pages/index.js",
+  "/Nicolas": "pages/Nicolas.js",
+  "/contacts": "pages/contacts.js",
+  "/about": "pages/about.js",
+  "/articles": "pages/articles.js",
+  "/login-controlled": "pages/login-controlled.js",
+  "/login-native": "pages/login-native.js"
 }

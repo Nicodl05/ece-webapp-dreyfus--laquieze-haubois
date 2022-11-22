@@ -16,7 +16,6 @@ import lacentralef from "/public/lacentralef.png";
 import ski from "/public/ski.png";
 import java_cyril from "/public/java_nico.png";
 import Image from "next/image";
-import Link from "next/link";
 
 const Cyril = () => {
   return (

@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-import About from "./About";
+import About from "./about";
 
 function Home() {
   return (

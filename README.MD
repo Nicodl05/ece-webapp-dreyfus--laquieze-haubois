@@ -43,7 +43,13 @@ Après la mise en place d'un routing dynamique pour la navigation entre pages. N
 
 ## De nouvelles mises à jour
 
-A présent, en naviguant sur les pages About us, Profiles et Articles. Vous avez la possibilité d'en apprendre plus concernant les auteurs et les articles.
+A présent, en naviguant sur les pages About us, Profiles et Articles.
+Vous avez la possibilité d'en apprendre plus concernant les auteurs et les articles.
+
+## Supabase
+
+Nous avons décidé d'utiliser pour le stockage des données lors des communiations, Supabase (https://supabase.com/docs).
+Cela nous permet d'avoir un système de base de donnée avec la possibilité d'authentification, la génération d'API ainsi que du stockage de fichiers.
 
 ### Nos emails pour nous contacter
 

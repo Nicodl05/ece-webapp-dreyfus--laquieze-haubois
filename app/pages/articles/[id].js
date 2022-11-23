@@ -21,7 +21,7 @@ function PageArticle({ res }) {
   return (
     <div>
       <h1 className="justify-center items-center text-center wt-title">
-        Nos différents articles du terroir
+        Cet article vous intéresse ?
       </h1>
       <div className="flex items-start text-center justify-center">
         <div className="">

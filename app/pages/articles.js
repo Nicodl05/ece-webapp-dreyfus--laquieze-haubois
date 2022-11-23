@@ -53,7 +53,9 @@ function Articles({ res }) {
               <li className="text-xl">
                 Commentaires de {post.title}: {post.content}
               </li>
-              <li>{renderswitch(post.image)}</li>
+              <li>
+                <a href={post.link}>{renderswitch(post.image)}</a>
+              </li>
             </ul>
           ))}
         </div>

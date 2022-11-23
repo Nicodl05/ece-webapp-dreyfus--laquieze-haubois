@@ -46,8 +46,9 @@ function Home() {
           Si vous cliquez sur About, vous en apprendrez plus sur les créateurs
           de ce site et avoir accès à de nombreuses informations. <br></br>
           Si vous cliquez sur Articles, vous pourrez voir les articles
-          disponibles. L'objectif est de pouvoir affiché des articles sans avoir
-          précisemment le nombre d'articles<br></br>
+          disponibles. L'objectif est de pouvoir afficher des articles sans
+          avoir précisemment le nombre d'articles ou de cliquer sur un article
+          pour avoir sa page<br></br>
           Si vous cliquez sur Contacts, vous pourrez contacter les créateurs de
           ce site en leur envoyant un mail. Vous avez aussi accès à leur Github{" "}
           <br></br>

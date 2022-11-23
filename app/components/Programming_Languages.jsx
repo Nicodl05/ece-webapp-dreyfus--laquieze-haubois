@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 /*grid lg:grid-cols-6  lg:gap-6 md:grid-cols-4 md:gap-4 sm:grid-cols-2 sm:gap-2*/
 function Programming_Languages({ lang }) {

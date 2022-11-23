@@ -7,7 +7,7 @@ import Header from "./Header";
 const NavBar = () => {
   return (
     <nav className=" bg-[#007178]   border-blue-400  dark:border-gray-600 dark:bg-gray-700  ">
-      <div className="  flex flex-row  w-screen  text-center items-center justify-between ">
+      <div className="  flex flex-row text-center items-center justify-between ">
         <div>
           <a
             href="https://www.ece.fr/"

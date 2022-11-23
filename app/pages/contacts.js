@@ -11,8 +11,8 @@ const mail_cyril = "cyril.haubois@edu.ece.fr";
 
 function Contacts() {
   const session = useSession();
-
   const supabase = useSupabaseClient();
+
   return (
     <div>
       <h1 className="text-2xl  text-center h1">Contacts</h1>
@@ -39,11 +39,7 @@ function Contacts() {
       </div>
       <div className="" style={{ padding: "50px 0 100px 0" }}>
         {!session ? (
-          <Auth
-            supabaseClient={supabase}
-            appearance={{ theme: ThemeSupa }}
-            theme="dark"
-          />
+          <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} />
         ) : (
           <Account session={session} />
         )}

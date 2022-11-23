@@ -29,7 +29,7 @@ const NavBar = () => {
             <li className="hover:text-white hover:underline hover:scale-110  text-2xl ">
               <Link
                 href="/"
-                className="block py-2 pr-4 pl-3  md:bg-transparent md:text-white md:p-0 md:dark:text-white dark:bg-white md:dark:bg-transparent"
+                className="  md:bg-transparent md:text-white md:p-0 md:dark:text-white dark:bg-white md:dark:bg-transparent"
               >
                 Home
               </Link>
@@ -37,7 +37,7 @@ const NavBar = () => {
             <li className="hover:text-white  hover:underline hover:scale-110  text-2xl">
               <Link
                 href="/about"
-                className="block py-2 pr-4 pl-3 text-white bg-white  md:bg-transparent md:text-white md:p-0 "
+                className=" text-white bg-white  md:bg-transparent md:text-white md:p-0 "
               >
                 About
               </Link>
@@ -45,7 +45,7 @@ const NavBar = () => {
             <li className="hover:text-white hover:underline hover:scale-110  text-2xl">
               <Link
                 href="/contacts"
-                className="block py-2 pr-4 pl-3 text-white bg-white  md:bg-transparent md:text-white md:p-0 "
+                className=" text-white bg-white  md:bg-transparent md:text-white md:p-0 "
               >
                 Contact
               </Link>
@@ -53,7 +53,7 @@ const NavBar = () => {
             <li className="hover:text-white hover:underline hover:scale-110  text-2xl">
               <Link
                 href="/articles"
-                className="block py-2 pr-4 pl-3 text-white bg-white md:bg-transparent md:text-white md:p-0 "
+                className=" text-white bg-white md:bg-transparent md:text-white md:p-0 "
               >
                 Articles
               </Link>
@@ -61,7 +61,7 @@ const NavBar = () => {
             <li className="hover:text-white hover:underline hover:scale-110  text-2xl">
               <Link
                 href="/login-native"
-                className="block py-2 pr-4 pl-3 text-white bg-white md:bg-transparent md:text-white md:p-0 "
+                className=" text-white bg-white md:bg-transparent md:text-white md:p-0 "
               >
                 Login
               </Link>
@@ -69,7 +69,7 @@ const NavBar = () => {
             <li className="hover:text-white hover:underline hover:scale-110 text-2xl">
               <Link
                 href="/login-controlled"
-                className="block py-2 pr-4 pl-3 text-white bg-white md:bg-transparent md:text-white md:p-0 "
+                className=" text-white bg-white md:bg-transparent md:text-white md:p-0 "
               >
                 Login 2
               </Link>

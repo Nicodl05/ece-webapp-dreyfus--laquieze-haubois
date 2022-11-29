@@ -25,10 +25,20 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/fetchsupa": [
+    "/articles/[id]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/fetchsupa.js"
+      "static/chunks/pages/articles/[id].js"
+    ],
+    "/login-controlled": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/login-controlled.js"
+    ],
+    "/login-native": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/login-native.js"
     ]
   },
   "ampFirstPages": []

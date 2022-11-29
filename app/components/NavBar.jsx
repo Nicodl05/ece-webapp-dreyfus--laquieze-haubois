@@ -3,7 +3,6 @@ import profile_image from "/public/ece.png";
 import Image from "next/image";
 import Header from "./Header";
 
-//mx-auto
 const NavBar = () => {
   return (
     <nav className=" bg-[#007178]   border-blue-400  dark:border-gray-600 dark:bg-gray-700  ">

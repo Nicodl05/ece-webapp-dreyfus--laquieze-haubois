@@ -1,4 +1,3 @@
-import Layout from "../components/Layout";
 import Profiles from "../components/Profiles";
 
 function About() {

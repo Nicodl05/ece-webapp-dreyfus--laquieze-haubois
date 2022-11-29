@@ -18,7 +18,7 @@ export const ContextProvider = ({ children }) => {
         },
       }}
     >
-      {children}
+      { children }
     </Context.Provider>
   );
 };*/

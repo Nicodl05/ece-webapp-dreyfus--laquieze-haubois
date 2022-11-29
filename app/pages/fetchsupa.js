@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Auth, ThemeSupa } from "@supabase/auth-ui-react";
 import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
 
 function FetchSupa() {
@@ -8,9 +7,9 @@ function FetchSupa() {
   const [fetchError, setFetchError] = useState(null);
   const [contact, setContact] = useState(null);
 
-  useEffect(() =>  {
+  useEffect(() => {
     const fetchContact = async () => {
-      const { data, error } = await supabase.from('contacts').select('*');
+      const { data, error } = await supabase.from("contacts").select("*");
 
       if (error) {
         setFetchError("Ne peut récupérer les contacts");
@@ -30,7 +29,9 @@ function FetchSupa() {
       {fetchError && <p>{fetchError}</p>}
       {contact && (
         <div className="text-xl">
-          {contact.map((contacts) => <p>{contacts.email}</p>)}
+          {contact.map((contacts) => (
+            <p>{contacts.email}</p>
+          ))}
         </div>
       )}
     </div>

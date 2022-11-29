@@ -73,6 +73,14 @@ const NavBar = () => {
                 Login 2
               </Link>
             </li>
+            <li className="hover:text-white hover:underline hover:scale-110 text-2xl">
+              <Link
+                href="/insertsupa"
+                className=" text-white bg-white md:bg-transparent md:text-white md:p-0 "
+              >
+                Insert
+              </Link>
+            </li>
           </ul>
         </div>
         <Header />

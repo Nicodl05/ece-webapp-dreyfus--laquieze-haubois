@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Auth, ThemeSupa } from "@supabase/auth-ui-react";
 import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
+import { supabase } from "../utils/supabase";
 
 function InsertSupa() {
   const [fname, setFname] = useState("");
@@ -9,9 +10,33 @@ function InsertSupa() {
   const [msg, setMsg] = useState("");
   const [formError, setFromError] = useState(null);
 
+  const handleSubmit = async (e) =>
+  {
+    e.preventDefault()
+    if (!fname || !lname || !email || !msg)
+    {
+      setFromError('Remplissez tous les champs')
+      return
+    }
+
+    const { data, error}  = await supabase.from('contacts').insert([{firstname: fname,lastname: lname,email: email,message: msg}])
+
+    if(error)
+    {
+      console.log(error)
+      setFromError('Remplissez tous les champs correctement')
+    }
+
+    if(data)
+    {
+      console.log(data)
+      setFromError(null)
+    }
+  }
+
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={ handleSubmit }>
         <label htmlFor="firstname">First Name : </label>
         <input
           type="text"

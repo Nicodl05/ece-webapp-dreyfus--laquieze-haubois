@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
-//import { supabase } from "@supabase/auth-ui-react/dist/esm/common/theming";
+import { supabase } from "../utils/supabase";
 
-/*export const getStaticProps = async () => {
+export const getStaticProps = async () => {
   const { data: contact } = await supabase.from("contacts").select("*");
   return {
     props: {
@@ -17,9 +17,9 @@ export default function FetchSupa({contact})
   return (
     <div className="flex flex-col items-center justify-center">Travail</div>
   )
-}*/
+}
 
-function FetchSupa() {
+/*function FetchSupa() {
   const session = useSession();
   const supabase = useSupabaseClient();
   const [fetchError, setFetchError] = useState(null);
@@ -55,4 +55,4 @@ function FetchSupa() {
     </div>
   );
 }
-export default FetchSupa;
+export default FetchSupa;*/

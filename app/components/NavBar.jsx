@@ -5,7 +5,7 @@ import Header from "./Header";
 
 const NavBar = () => {
   return (
-    <nav className=" bg-[#007178]   border-blue-400  dark:border-gray-600 dark:bg-gray-700  ">
+    <nav className=" bg-[#007178]   border-blue-400  dark:border-gray-600 dark:bg-gray-700 grid grid-flow-row  ">
       <div className="  flex flex-row text-center items-center justify-between ">
         <div>
           <a
@@ -57,22 +57,7 @@ const NavBar = () => {
                 Articles
               </Link>
             </li>
-            <li className="hover:text-white hover:underline hover:scale-110  text-2xl">
-              <Link
-                href="/login-native"
-                className=" text-white bg-white md:bg-transparent md:text-white md:p-0 "
-              >
-                Login
-              </Link>
-            </li>
-            <li className="hover:text-white hover:underline hover:scale-110 text-2xl">
-              <Link
-                href="/login-controlled"
-                className=" text-white bg-white md:bg-transparent md:text-white md:p-0 "
-              >
-                Login 2
-              </Link>
-            </li>
+
             <li className="hover:text-white hover:underline hover:scale-110 text-2xl">
               <Link
                 href="/insertsupa"
@@ -84,6 +69,25 @@ const NavBar = () => {
           </ul>
         </div>
         <Header />
+      </div>
+      <div>
+        <button
+          type="button"
+          className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+        >
+          <a
+            href="/login-native"
+            className=" text-white bg-white md:bg-transparent md:text-white md:p-0 "
+          >
+            Login
+          </a>
+        </button>
+        <button
+          type="button"
+          className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+        >
+          Dark
+        </button>
       </div>
     </nav>
   );

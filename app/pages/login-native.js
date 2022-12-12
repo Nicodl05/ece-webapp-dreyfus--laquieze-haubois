@@ -8,9 +8,10 @@ const Login = function () {
 
     alert(JSON.stringify(Object.fromEntries(data)));
   };
+
   return (
     <div className="relative space-y-6 flex flex-col min-h-screen overflow-hidden">
-      <p></p>
+      <br></br>
       <div className="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-xl">
         <h1 className="text-3xl font-semibold text-center text-gray-700 mr-2 mb-2   underline">
           Sign in
@@ -18,7 +19,7 @@ const Login = function () {
         <form className="mt-6" onSubmit={onSubmit}>
           <div className="mb-2">
             <label
-              for="email"
+              htmlfor="email"
               className="block text-gray-700 mr-2 mb-2   text-sm font-semibold "
             >
               Email
@@ -53,14 +54,13 @@ const Login = function () {
             </button>
           </div>
         </form>
-
-        <p className="mt-8 text-xs font-light text-gray-700 mr-2 mb-2   text-center ">
+        <div className="mt-8 text-xs font-light text-gray-700 mr-2 mb-2   text-center ">
           {" "}
           Don't have an account?{" "}
           <div className="font-medium  hover:underline hover:text-[#007178] dark:hover:text-blue-500 ">
             <Link href="#">Sign up</Link>
           </div>
-        </p>
+        </div>
       </div>
     </div>
   );

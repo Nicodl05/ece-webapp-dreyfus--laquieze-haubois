@@ -78,10 +78,12 @@ const Header = () => {
     return <pre className="text-red-500">{JSON.stringify(error, null, 2)}</pre>;
   }
   return (
-    <div className="flex gap-2 items-center">
-      <Avatar email={user.email} />
-      <p>User: {user?.username}</p>
-      <div>{renderThemeChanger()}</div>
+    <div>
+      <div className="flex gap-2 items-center">
+        <Avatar email={user.email} />
+        <p>User: {user?.username}</p>
+        <div>{renderThemeChanger()}</div>
+      </div>
     </div>
   );
 

@@ -61,7 +61,7 @@ const Profiles = () => {
           </span>
         </div>
       </div>
-      <div class="rounded overflow-hidden shadow-lg border border-gray-500 ">
+      <div className="rounded overflow-hidden shadow-lg border border-gray-500 ">
         <div className="text-center">
           <Image
             src={cyril}

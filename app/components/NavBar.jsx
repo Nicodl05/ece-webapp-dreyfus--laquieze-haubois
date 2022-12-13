@@ -2,6 +2,7 @@ import Link from "next/link";
 import profile_image from "/public/ece.png";
 import Image from "next/image";
 import Header from "./Header";
+import { FaUserCircle, FaUserCog } from "react-icons/fa";
 
 const NavBar = () => {
   return (
@@ -68,26 +69,36 @@ const NavBar = () => {
             </li>
           </ul>
         </div>
-        <Header />
-      </div>
-      <div>
-        <button
-          type="button"
-          className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
-        >
-          <a
-            href="/login-native"
-            className=" text-white bg-white md:bg-transparent md:text-white md:p-0 "
-          >
-            Login
-          </a>
-        </button>
-        <button
-          type="button"
-          className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
-        >
-          Dark
-        </button>
+        <div className="grid grid-flow-row-2">
+          <Header />
+          <div>
+            <button
+              type="button"
+              className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+            >
+              <a
+                href="/login-native"
+                className=" text-white bg-white md:bg-transparent md:text-white md:p-0 "
+              >
+                <FaUserCircle
+                  className="w-5 h-5 dark:text-white hover:scale-125  "
+                  role="button"
+                />
+              </a>
+            </button>
+            <a href="/parametre">
+              <button
+                type="button"
+                className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+              >
+                <FaUserCog
+                  className="w-5 h-5 dark:text-white hover:scale-125  "
+                  role="button"
+                />
+              </button>
+            </a>
+          </div>
+        </div>
       </div>
     </nav>
   );

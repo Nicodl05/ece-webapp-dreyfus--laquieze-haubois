@@ -13,8 +13,6 @@ const Profiles = () => {
             alt="Picture of the author"
             width={400}
             height={400}
-            flex
-            justifyContent
           />
         </div>
         <div className="px-6 py-4 ">

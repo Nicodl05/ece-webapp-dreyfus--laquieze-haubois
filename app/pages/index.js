@@ -16,7 +16,7 @@ function Home() {
       <br></br>
       <h2 className="text-2xl">Bienvenue à vous cher visiteur !!</h2>
       <br></br>
-      <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
+
       <Carousel />
       <div className="text-lg">
         <p>

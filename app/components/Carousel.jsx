@@ -1,5 +1,5 @@
 import React from "react";
-import "tw-elements";
+
 import { useEffect } from "react";
 
 import carou1 from "../public/carou1.png";

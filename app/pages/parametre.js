@@ -1,6 +1,14 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../utils/supabase";
 
+export const getStaticProps = async () => {
+  const { data: contact } = await supabase.from("contacts").select("*");
+  return {
+    props: {
+      contact,
+    },
+  };
+};
 function parametre() {
   const [nom, setFname] = useState("");
   return (
@@ -14,7 +22,7 @@ function parametre() {
           >
             Nom
           </label>
-          <input
+          <output
             type="text"
             id="nom"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"

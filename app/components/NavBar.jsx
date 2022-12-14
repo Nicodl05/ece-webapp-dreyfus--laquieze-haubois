@@ -52,10 +52,10 @@ const NavBar = () => {
             </li>
             <li className="hover:text-white hover:underline hover:scale-110  text-2xl">
               <Link
-                href="/articles"
+                href="/projets"
                 className=" text-white bg-white md:bg-transparent md:text-white md:p-0 "
               >
-                Articles
+                Projets
               </Link>
             </li>
 

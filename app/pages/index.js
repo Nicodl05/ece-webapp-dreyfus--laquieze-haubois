@@ -7,7 +7,6 @@ import nextjs from "../public/nextjs.png";
 import About from "./about";
 import Image from "next/image";
 import Carousel from "../components/Carousel";
-import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 
 function Home() {
   return (
@@ -17,6 +16,7 @@ function Home() {
       <br></br>
       <h2 className="text-2xl">Bienvenue à vous cher visiteur !!</h2>
       <br></br>
+      <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
       <Carousel />
       <div className="text-lg">
         <p>

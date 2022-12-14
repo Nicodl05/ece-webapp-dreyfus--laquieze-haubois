@@ -7,6 +7,7 @@ import nextjs from "../public/nextjs.png";
 import About from "./about";
 import Image from "next/image";
 import Carousel from "../components/Carousel";
+// import script from "../node_modules/tw-elements/dist/js/index.min.js";
 
 function Home() {
   return (
@@ -16,7 +17,7 @@ function Home() {
       <br></br>
       <h2 className="text-2xl">Bienvenue à vous cher visiteur !!</h2>
       <br></br>
-
+      {/* <script src={script}> </script> */}
       <Carousel />
       <div className="text-lg">
         <p>

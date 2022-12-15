@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import projets from "../projets";
-//https://github.com/Nicodl05/Project_Chess_Game
 function Page_Projet({ project }) {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2 p-10">

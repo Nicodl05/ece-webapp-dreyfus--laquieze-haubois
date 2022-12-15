@@ -19,6 +19,7 @@ function Projects({ project }) {
           </div>
         ))}
       </div>
+
       <br></br>
     </div>
   );

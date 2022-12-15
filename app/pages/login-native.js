@@ -15,15 +15,16 @@ const Login = function () {
       setFromError("Remplissez tous les champs");
       return;
     }
-    const { donnee: contact } = await supabase.from("contacts").select("*");
+    const { donnee: contact } = await supabase
+      .from("auth.user")
+      .select("*")
+      .eq("email", email);
+
     return {
       props: {
         contact,
       },
     };
-    if (email in contact) {
-      console.log("email existe");
-    }
   };
 
   return (

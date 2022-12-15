@@ -16,6 +16,7 @@ import python from "/public/python.png";
 import php from "/public/php.png";
 import ski from "/public/ski.png";
 import java_nico from "/public/java_nico.png";
+import echec from "/public/echec.png";
 import profile_image from "/public/Nicolas.jpg";
 import cer from "/public/cer.png";
 import renov from "/public/renov.png";
@@ -55,6 +56,12 @@ export default function test() {
       ski,
       "Projet Théorie des Graphes (C++) ",
       " Ce projet a été réalisé en 2ème année",
+    ],
+    [
+      "https://github.com/Nicodl05/Project_Chess_Game",
+      echec,
+      "Projet de création numérique (Java)",
+      "Ce projet a été réalisé en 4ème année",
     ],
   ];
   const jobs = [

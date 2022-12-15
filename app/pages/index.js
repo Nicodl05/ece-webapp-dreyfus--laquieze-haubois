@@ -13,7 +13,7 @@ function Home() {
   return (
     <div className=" dark:dark">
       <br></br>
-      <h1 className="text-4xl text-center ">Home</h1>
+      <h1 className="wt-title text-center ">Home</h1>
       <br></br>
       <h2 className="text-2xl">Bienvenue à vous cher visiteur !!</h2>
       <br></br>
@@ -68,7 +68,8 @@ function Home() {
         <br></br>
         <div className="italic text-xl text-center">
           L'objectif de ce projet est d'apprendre à utiliser les techno
-          suivantes :<br></br>
+          suivantes (vous pouvez cliquez sur les images pour accéder à leurs
+          documentation):<br></br>
           <br></br>
           <div>
             <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-10  ">

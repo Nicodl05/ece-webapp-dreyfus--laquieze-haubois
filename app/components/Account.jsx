@@ -7,19 +7,19 @@ export default function Account({ session }) {
   const user = useUser();
   const [loading, setLoading] = useState(true);
   const [username, setUsername] = useState(null);
-  const [website, setWebsite] = useState(null);
-  const [avatar_url, setAvatarUrl] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
 
   useEffect(() => {
-    getProfile();
+    getUser();
   }, [session]);
 
-  async function getProfile() {
+  async function getUser() {
     try {
       setLoading(true);
       let { data, error, status } = await supabase
-        .from("profiles")
-        .select(`username, website, avatar_url`)
+        .from("user")
+        .select(`email, password, name`)
         .eq("id", user.id)
         .single();
 
@@ -28,9 +28,9 @@ export default function Account({ session }) {
       }
 
       if (data) {
-        setUsername(data.username);
-        setWebsite(data.website);
-        setAvatarUrl(data.avatar_url);
+        setUsername(data.name);
+        setEmail(data.email);
+        setPassword(data.password);
       }
     } catch (error) {
       alert("Error loading user data!");
@@ -40,21 +40,21 @@ export default function Account({ session }) {
     }
   }
 
-  async function updateProfile({ username, website, avatar_url }) {
+  async function updateUser({ username, email, password }) {
     try {
       setLoading(true);
       const updates = {
         id: user.id,
         username,
-        website,
-        avatar_url,
+        email,
+        password,
         updated_at: new Date().toISOString(),
       };
 
-      let { error } = await supabase.from("profiles").upsert(updates);
+      let { error } = await supabase.from("user").upsert(updates);
       if (error) throw error;
 
-      alert("Profile updated!");
+      alert("user updated!");
     } catch (error) {
       alert("Error updating the data!");
       console.log(error);
@@ -64,53 +64,47 @@ export default function Account({ session }) {
   }
 
   return (
-    <div className="relative flex flex-col m-auto bg-blue-400 rounded overflow-hidden shadow-md">
-      <form className="">
-        <div>
-          <label htmlFor="email">Email</label>
-          <input id="email" type="text" value={session.user.email} disabled />
-        </div>
+    <div className="form-widget">
+      <div>
+        <label htmlFor="email">Email : </label>
+        <input id="email" type="text" value={session.user.email} disabled />
+      </div>
+      <div>
+        <label htmlFor="username">Username : </label>
+        <input
+          id="username"
+          type="text"
+          value={username || ''}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+      </div>
 
-        <div>
-          <label htmlFor="username">Username</label>
+      <div>
+          <label htmlFor="password">Password : </label>
+
           <input
-            id="username"
-            type="text"
-            value={username || ""}
-            onChange={(e) => setUsername(e.target.value)}
+            id="password"
+            type="password"
+            value={password || ""}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
 
-        <div>
-          <label htmlFor="website">Website</label>
+      <div>
+        <button
+          className="button primary block"
+          onClick={() => updateUser({ username, password })}
+          disabled={loading}
+        >
+          {loading ? 'Loading ...' : 'Update'}
+        </button>
+      </div>
 
-          <input
-            id="website"
-            type="website"
-            value={website || ""}
-            onChange={(e) => setWebsite(e.target.value)}
-          />
-        </div>
-
-        <div>
-          <button
-            className="button primary block"
-            onClick={() => updateProfile({ username, website, avatar_url })}
-            disabled={loading}
-          >
-            {loading ? "Loading ..." : "Update"}
-          </button>
-        </div>
-
-        <div>
-          <button
-            className="button block"
-            onClick={() => supabase.auth.signOut()}
-          >
-            Sign Out
-          </button>
-        </div>
-      </form>
+      <div>
+        <button className="button block" onClick={() => supabase.auth.signOut()}>
+          Sign Out
+        </button>
+      </div>
     </div>
-  );
+  )
 }

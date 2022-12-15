@@ -1,19 +1,6 @@
-import React, { useState } from "react";
 import ski from "/public/ski.png";
 import java_nico from "/public/java_nico.png";
 import echec from "/public/echec.png";
-import All_projects from "../components/All_projects";
-import { supabase } from "../utils/supabase";
-
-export const getStaticProps = async () => {
-  const { data: projet } = await supabase.from("projet").select("*");
-  return {
-    props: {
-      projet,
-    },
-  };
-};
-
 const projets = {
   project: [
     [
@@ -74,15 +61,4 @@ const projets = {
     ],
   ],
 };
-function ListProjets() {
-  return (
-    <div>
-      <h1 className=" gap-y-6 justify-center text-center wt-title">
-        Nos différents projets
-      </h1>
-      <All_projects project={projets} />
-    </div>
-  );
-}
-
-export default ListProjets;
+export default projets;

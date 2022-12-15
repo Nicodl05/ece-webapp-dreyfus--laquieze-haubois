@@ -58,15 +58,6 @@ const NavBar = () => {
                 Projets
               </Link>
             </li>
-
-            <li className="hover:text-white hover:underline hover:scale-110 text-2xl">
-              <Link
-                href="/insertsupa"
-                className=" text-white bg-white md:bg-transparent md:text-white md:p-0 "
-              >
-                Insert
-              </Link>
-            </li>
           </ul>
         </div>
         <div className="grid grid-flow-row-2">

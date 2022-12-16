@@ -1,78 +1,82 @@
-import { useState, useEffect } from 'react'
-import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
+import { useState, useEffect } from "react";
+import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
 
 export default function Account({ session }) {
-  const supabase = useSupabaseClient()
-  const user = useUser()
-  const [loading, setLoading] = useState(true)
-  const [name, setName] = useState(null)
-  const [email, setEmail] = useState(null)
-  const [pwd, setPwd] = useState(null)
+  const supabase = useSupabaseClient();
+  const user = useUser();
+  const [loading, setLoading] = useState(true);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPwd] = useState("");
 
   useEffect(() => {
-    getUser()
-  }, [session])
+    getUser();
+  }, [session]);
 
   async function getCurrentUser() {
-    const {data: {session}, error} = await supabase.auth.getSession();
-    if(error) {
-      throw error
+    const {
+      data: { session },
+      error,
+    } = await supabase.auth.getSession();
+    if (error) {
+      throw error;
     }
 
-    if(!session?.user) {
-      throw new Error('User not logged in')
+    if (!session?.user) {
+      throw new Error("User not logged in");
     }
 
-    return session.user
+    return session.user;
   }
 
   async function getUser() {
     try {
-      setLoading(true)
+      setLoading(true);
       const user = await getCurrentUser();
 
       let { data, error, status } = await supabase
-        .from('user')
-        .select(`email, name, password`)
-        .eq('id', user.id)
-        .single()
+        .from("user")
+        .select(`name, email, password`)
+        .eq("id", user.id)
+        .single();
 
       if (error && status !== 406) {
-        throw error
+        throw error;
       }
 
       if (data) {
-        setName(data.name)
-        setEmail(data.email)
-        setPwd(data.pwd)
+        setName(data.name);
+        setEmail(data.email);
+        setPwd(data.password);
       }
     } catch (error) {
-      alert('Error loading user data!')
-      console.log(error)
+      alert("Error loading user data!");
+      console.log(error);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
   }
 
-  async function updateProfile({ name, email, pwd }) {
+  async function updateProfile({ name, password }) {
     try {
-      setLoading(true)
+      setLoading(true);
+      const user = await getCurrentUser();
 
       const updates = {
         id: user.id,
         name,
-        email,
-        pwd,
-      }
+        email: user.email,
+        password,
+      };
 
-      let { error } = await supabase.from('profiles').upsert(updates)
-      if (error) throw error
-      alert('Profile updated!')
+      let { error } = await supabase.from("user").upsert(updates);
+      if (error) throw error;
+      alert("Profile updated!");
     } catch (error) {
-      alert('Error updating the data!')
-      console.log(error)
+      alert("Error updating the data!");
+      console.log(error);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
   }
 
@@ -80,14 +84,20 @@ export default function Account({ session }) {
     <div className="form-widget">
       <div>
         <label htmlFor="email">Email : </label>
-        <input id="email" type="text" value={session.user.email} disabled />
+        <input
+          id="email"
+          type="text"
+          value={session.user.email}
+          disabled
+          onChange={(e) => setEmail(e.target.value)}
+        />
       </div>
       <div>
         <label htmlFor="username">Name : </label>
         <input
           id="name"
           type="text"
-          value={name || ''}
+          value={name || ""}
           onChange={(e) => setName(e.target.value)}
         />
       </div>
@@ -95,8 +105,8 @@ export default function Account({ session }) {
         <label htmlFor="password">Password : </label>
         <input
           id="password"
-          type="password"
-          value={pwd || ''}
+          type="text"
+          value={password || ""}
           onChange={(e) => setPwd(e.target.value)}
         />
       </div>
@@ -104,18 +114,21 @@ export default function Account({ session }) {
       <div>
         <button
           className="button primary block"
-          onClick={() => updateProfile({ name, email, pwd })}
+          onClick={() => updateProfile({ name, email, password })}
           disabled={loading}
         >
-          {loading ? 'Loading ...' : 'Update'}
+          {loading ? "Loading ..." : "Update"}
         </button>
       </div>
 
       <div>
-        <button className="button block" onClick={() => supabase.auth.signOut()}>
+        <button
+          className="button block"
+          onClick={() => supabase.auth.signOut()}
+        >
           Sign Out
         </button>
       </div>
     </div>
-  )
+  );
 }

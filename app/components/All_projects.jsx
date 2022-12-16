@@ -1,5 +1,4 @@
 import Image from "next/image";
-
 function All_projects({ project }) {
   return (
     <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
@@ -22,8 +21,7 @@ function All_projects({ project }) {
                 </span>
               </span>
             </div>
-
-            <a href={project.git}>
+            <a href={project.path}>
               <button className="hover:scale-90 items-center justify-center text-center  text-gray-700 bg-blue-400 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">
                 En savoir plus
               </button>

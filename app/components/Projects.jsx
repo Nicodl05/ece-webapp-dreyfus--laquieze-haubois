@@ -1,5 +1,22 @@
 import Image from "next/image";
+import { supabase } from "../utils/supabase";
 
+export const getStaticProps = async () => {
+  const { data: id } = await supabase
+    .from("user")
+    .select("id")
+    .eq("name", user.name);
+  const { data: projet } = await supabase
+    .from("projet")
+    .select("*")
+    .eq("user_id", id);
+
+  return {
+    props: {
+      projet,
+    },
+  };
+};
 function Projects({ project }) {
   return (
     <div className="px-6 py-4 ">
@@ -8,13 +25,13 @@ function Projects({ project }) {
         {project.map((project) => (
           <div className=" font-bold hover:scale-125   ">
             <div className="text-center items-center">
-              <a href={project[0]}>
-                <Image src={project[1]} width={150} height={100} />
+              <a href={project.path}>
+                <Image src={project.image} width={150} height={100} />
               </a>
               <br></br>
-              {project[2]}
+              {project.languages}
               <br></br>
-              {project[3]}
+              {project.description}
             </div>
           </div>
         ))}

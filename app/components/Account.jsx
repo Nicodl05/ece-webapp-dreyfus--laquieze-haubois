@@ -1,65 +1,78 @@
-import { useState, useEffect } from "react";
-
-import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
+import { useState, useEffect } from 'react'
+import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
 
 export default function Account({ session }) {
-  const supabase = useSupabaseClient();
-  const user = useUser();
-  const [loading, setLoading] = useState(true);
-  const [username, setUsername] = useState(null);
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
+  const supabase = useSupabaseClient()
+  const user = useUser()
+  const [loading, setLoading] = useState(true)
+  const [name, setName] = useState(null)
+  const [email, setEmail] = useState(null)
+  const [pwd, setPwd] = useState(null)
 
   useEffect(() => {
-    getUser();
-  }, [session]);
+    getUser()
+  }, [session])
+
+  async function getCurrentUser() {
+    const {data: {session}, error} = await supabase.auth.getSession();
+    if(error) {
+      throw error
+    }
+
+    if(!session?.user) {
+      throw new Error('User not logged in')
+    }
+
+    return session.user
+  }
 
   async function getUser() {
     try {
-      setLoading(true);
+      setLoading(true)
+      const user = await getCurrentUser();
+
       let { data, error, status } = await supabase
-        .from("user")
-        .select(`email, password, name`)
-        .eq("id", user.id)
-        .single();
+        .from('user')
+        .select(`email, name, password`)
+        .eq('id', user.id)
+        .single()
 
       if (error && status !== 406) {
-        throw error;
+        throw error
       }
 
       if (data) {
-        setUsername(data.name);
-        setEmail(data.email);
-        setPassword(data.password);
+        setName(data.name)
+        setEmail(data.email)
+        setPwd(data.pwd)
       }
     } catch (error) {
-      alert("Error loading user data!");
-      console.log(error);
+      alert('Error loading user data!')
+      console.log(error)
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
   }
 
-  async function updateUser({ username, email, password }) {
+  async function updateProfile({ name, email, pwd }) {
     try {
-      setLoading(true);
+      setLoading(true)
+
       const updates = {
         id: user.id,
-        username,
+        name,
         email,
-        password,
-        updated_at: new Date().toISOString(),
-      };
+        pwd,
+      }
 
-      let { error } = await supabase.from("user").upsert(updates);
-      if (error) throw error;
-
-      alert("user updated!");
+      let { error } = await supabase.from('profiles').upsert(updates)
+      if (error) throw error
+      alert('Profile updated!')
     } catch (error) {
-      alert("Error updating the data!");
-      console.log(error);
+      alert('Error updating the data!')
+      console.log(error)
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
   }
 
@@ -70,30 +83,28 @@ export default function Account({ session }) {
         <input id="email" type="text" value={session.user.email} disabled />
       </div>
       <div>
-        <label htmlFor="username">Username : </label>
+        <label htmlFor="username">Name : </label>
         <input
-          id="username"
+          id="name"
           type="text"
-          value={username || ''}
-          onChange={(e) => setUsername(e.target.value)}
+          value={name || ''}
+          onChange={(e) => setName(e.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="password">Password : </label>
+        <input
+          id="password"
+          type="password"
+          value={pwd || ''}
+          onChange={(e) => setPwd(e.target.value)}
         />
       </div>
 
       <div>
-          <label htmlFor="password">Password : </label>
-
-          <input
-            id="password"
-            type="password"
-            value={password || ""}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-
-      <div>
         <button
           className="button primary block"
-          onClick={() => updateUser({ username, password })}
+          onClick={() => updateProfile({ name, email, pwd })}
           disabled={loading}
         >
           {loading ? 'Loading ...' : 'Update'}

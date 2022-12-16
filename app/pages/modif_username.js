@@ -44,16 +44,16 @@ function modif_username({ user }) {
     <div>
       {user.map((user) => (
         <div className="text-center justify-center items-center">
-          <div className="wt-title">Modification de votre email: </div>
+          <div className="wt-title">Modification de votre nom: </div>
           <div className="form-control gap-4 text-lg ">
             <br></br>
             <br></br>
             <h3>
-              Votre ancien email était :
+              Votre ancien nom était :
               <div className="font-bold">{user.name}</div>{" "}
             </h3>
             <br></br>
-            <h3>Votre nouveau email est :</h3>
+            <h3>Votre nouveau nom est :</h3>
             <form onSubmit={handleSubmit}>
               <label className="input-group input-group-vertical">
                 <input

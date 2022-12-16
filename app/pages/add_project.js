@@ -1,29 +1,39 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../utils/supabase";
 var i = 0;
-function add_project() {
+export const getStaticProps = async () => {
+  let { data: lastid, error } = await supabase.from("projet").select("id");
+
+  return {
+    props: {
+      lastid,
+    },
+  };
+};
+function add_project({ lastid }) {
   const [name, setName] = useState("");
   const [languages, setLanguages] = useState("");
   const [git, setGit] = useState("");
   const [description, setDescription] = useState("");
   const [id_author, setId_author] = useState("1");
   const [formError, setFromError] = useState(null);
-
+  // pour l'id
   const handleSubmit = async (e) => {
     if (!name || !languages || !description) {
       setFromError("Remplissez les champs obligatoires");
       return;
     }
-    const { error } = await supabase.from("projet").insert([
-      {
-        id: 1,
-        name: name,
-        languages: languages,
-        git: git,
-        user_id: id_author,
-        description: description,
-      },
-    ]);
+
+    const { error } = await supabase.from("projet").insert({
+      user_id: "32a51743-cebf-4fdd-9915-0b76da038d6e",
+      languages: languages,
+      git: git,
+      name: name,
+      description: description,
+    });
+    alert(
+      "Votre projet a été ajouté, vous pouvez retourner sur la page Projets"
+    );
     if (error) {
       console.log(error);
       setFromError("Remplissez tous les champs correctement " + i);

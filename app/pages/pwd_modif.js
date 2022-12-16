@@ -5,7 +5,7 @@ export const getStaticProps = async () => {
   let { data: user, error } = await supabase
     .from("user")
     .select("*")
-    .eq("name", "nicolas");
+    .eq("name", "Nicolas");
   return {
     props: {
       user,
@@ -32,19 +32,12 @@ function pwd_modif({ user }) {
     const { error2 } = await supabase
       .from("user")
       .update([{ password: pwd }])
-      .eq("name", "nicolas");
+      .eq("name", "Nicolas");
     alert(
       "Votre mot de passe a été modifié, votre nouveau mot de passe est " + pwd
     );
 
     if (error2) {
-      console.log(error);
-      setFromError("Problème de mise à jour");
-    }
-    const { data, error } = await supabase.auth.updateUser({
-      password: pwd,
-    });
-    if (error) {
       console.log(error);
       setFromError("Problème de mise à jour");
     }
@@ -75,14 +68,13 @@ function pwd_modif({ user }) {
               </label>
               <br></br>
               <br></br>
-              <a hrefLang="/parametres">
-                <button
-                  className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
-                  type="submit"
-                >
-                  Valider
-                </button>
-              </a>
+
+              <button
+                className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+                type="submit"
+              >
+                Valider
+              </button>
             </form>
           </div>
         </div>

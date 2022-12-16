@@ -16,8 +16,10 @@ export const getStaticProps = async () => {
 function pwd_modif({ user }) {
   const [pwd, setPwd] = useState("");
   const [formError, setFromError] = useState(null);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!pwd) {
       setFromError("Remplissez correctement le champ");
       return;
@@ -27,7 +29,7 @@ function pwd_modif({ user }) {
       return;
     }
 
-    const { error } = await supabase
+    const { error2 } = await supabase
       .from("user")
       .update([{ password: pwd }])
       .eq("name", "nicolas");
@@ -35,11 +37,17 @@ function pwd_modif({ user }) {
       "Votre mot de passe a été modifié, votre nouveau mot de passe est " + pwd
     );
 
+    if (error2) {
+      console.log(error);
+      setFromError("Problème de mise à jour");
+    }
+    const { data, error } = await supabase.auth.updateUser({
+      password: pwd,
+    });
     if (error) {
       console.log(error);
       setFromError("Problème de mise à jour");
     }
-    return <Redirect to="/parametres" />;
   };
   return (
     <div>

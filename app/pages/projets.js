@@ -69,7 +69,7 @@ function ListProjets() {
     <div>
       <h1 className=" gap-y-6 justify-center text-center wt-title">
         <br></br>
-        Nos différents projets
+        Nos Projets
       </h1>
       <All_projects project={projets} />
       <div className="justify-between items-center text-center">

@@ -5,7 +5,7 @@ export const getStaticProps = async () => {
   let { data: user, error } = await supabase
     .from("user")
     .select("*")
-    .eq("name", "nicolas");
+    .eq("name", "Nicolas");
   return {
     props: {
       user,
@@ -13,8 +13,8 @@ export const getStaticProps = async () => {
   };
 };
 
-function email_modif({ user }) {
-  const [email, setEmail] = useState("");
+function modif_username({ user }) {
+  const [name, setName] = useState("");
   const [formError, setFromError] = useState(null);
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,22 +22,23 @@ function email_modif({ user }) {
       setFromError("Remplissez correctement le champ");
       return;
     }
-    if (email.length <= 5) {
+    if (name.length <= 5) {
       setFromError("Votre mot de passe doit contenir au moins 6 caractères");
       return;
     }
 
     const { error } = await supabase
       .from("user")
-      .update([{ email: email }])
-      .eq("name", "nicolas");
-    alert("Votre mail a été modifié, votre nouveau mail est " + email);
+      .update([{ name: name }])
+      .eq("email", "nico.dreylaq@gmail.com");
+    alert(
+      "Votre nom d'utilisateur a été modifié, votre nouveau nom est " + name
+    );
 
     if (error) {
       console.log(error);
       setFromError("Problème de mise à jour");
     }
-    return <Redirect to="/parametres" />;
   };
   return (
     <div>
@@ -49,7 +50,7 @@ function email_modif({ user }) {
             <br></br>
             <h3>
               Votre ancien email était :
-              <div className="font-bold">{user.email}</div>{" "}
+              <div className="font-bold">{user.name}</div>{" "}
             </h3>
             <br></br>
             <h3>Votre nouveau email est :</h3>
@@ -59,8 +60,8 @@ function email_modif({ user }) {
                   className="input input-bordered"
                   type="text"
                   id="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                 />
               </label>
               <br></br>
@@ -81,4 +82,4 @@ function email_modif({ user }) {
   );
 }
 
-export default email_modif;
+export default modif_username;

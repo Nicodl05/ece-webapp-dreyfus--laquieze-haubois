@@ -6,7 +6,7 @@ export const getStaticProps = async () => {
   let { data: user, error } = await supabase
     .from("user")
     .select("*")
-    .eq("name", "nicolas");
+    .eq("name", "Nicolas");
   return {
     props: {
       user,
@@ -38,10 +38,10 @@ function parametre({ user }) {
                 </div>
               </div>
               <div className="flex justify-center">
-                <a href="/email_modif">
+                <a href="/modif_username">
                   {" "}
                   <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-                    Modifier l'email
+                    Modifier le nom
                   </button>
                 </a>
                 <a href="/pwd_modif">

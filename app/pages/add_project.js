@@ -10,13 +10,13 @@ function add_project() {
   const [formError, setFromError] = useState(null);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
     if (!name || !languages || !description) {
       setFromError("Remplissez les champs obligatoires");
       return;
     }
     const { error } = await supabase.from("projet").insert([
       {
+        id: 1,
         name: name,
         languages: languages,
         git: git,

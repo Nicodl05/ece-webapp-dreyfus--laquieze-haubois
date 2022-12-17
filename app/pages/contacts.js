@@ -5,6 +5,7 @@ import { Auth, ThemeSupa } from "@supabase/auth-ui-react";
 import Account from "../components/Account";
 
 import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
+import { darkThemes } from "../utils/supabase";
 
 const mail_nico = "nicolas.dreyfus@outlook.fr";
 const mail_cyril = "cyril.haubois@edu.ece.fr";
@@ -39,7 +40,7 @@ function Contacts() {
       </div>
       <div className="" style={{ padding: "50px 0 100px 0" }}>
         {!session ? (
-          <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} />
+          <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} providers={["github"]}/>
         ) : (
           <Account session={session} />
         )}

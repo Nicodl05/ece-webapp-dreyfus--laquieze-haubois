@@ -9,7 +9,12 @@ function Carousel() {
     <div>
       <div className=" relative h-full w-full overflow-hidden">
         <div className=" h-full w-full">
-          <Image src={carou1} className=" w-full" alt="Wild Landscape" />
+          <Image
+            src={carou1}
+            className=" w-full"
+            alt="Wild Landscape"
+            priority
+          />
         </div>
       </div>
     </div>

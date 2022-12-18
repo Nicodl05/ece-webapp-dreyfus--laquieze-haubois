@@ -10,7 +10,12 @@ export default function Avatar({ email }) {
 
   return (
     <div>
-      <img className="rounded-full" src={`${BASE_URL}/${hash}`} />
+      <img
+        className="rounded-full"
+        src={`${BASE_URL}/${hash}`}
+        width={60}
+        height={60}
+      />
     </div>
   );
 }

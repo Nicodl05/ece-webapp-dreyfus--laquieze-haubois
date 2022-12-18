@@ -21,8 +21,19 @@ import profile_image from "/public/Nicolas.jpg";
 import cer from "/public/cer.png";
 import renov from "/public/renov.png";
 import ece from "/public/ece.png";
+import { supabase } from "../utils/supabase";
+const user_id = "21ef1270-5eae-4b48-8f40-6e07915a0f90";
 
-export default function test() {
+export const getStaticProps = async () => {
+  const { data: projet } = await supabase.from("projet").select("*");
+  // .eq(await supabase.from("user").select(`id`).eq("name", author).single());
+  return {
+    props: {
+      projet,
+    },
+  };
+};
+export default function test({ projet }) {
   const user = {
     picture: profile_image,
     name: "Nicolas",
@@ -43,26 +54,6 @@ export default function test() {
     ["CSS", "https://developer.mozilla.org/fr/docs/Web/CSS", css],
     ["SQL", "https://www.w3schools.com/sql/", sql],
     ["NoSQL", "https://www.mongodb.com/nosql-explained", nosql],
-  ];
-  const project = [
-    [
-      "https://github.com/Nicodl05/Cinema_Projet",
-      java_nico,
-      " Projet Cinéma (Java, MySQL)",
-      " Ce projet a été réalisé en 3ème année.",
-    ],
-    [
-      "https://github.com/Nicodl05/TdG-Projet",
-      ski,
-      "Projet Théorie des Graphes (C++) ",
-      " Ce projet a été réalisé en 2ème année",
-    ],
-    [
-      "https://github.com/Nicodl05/Project_Chess_Game",
-      echec,
-      "Projet de création numérique (Java)",
-      "Ce projet a été réalisé en 4ème année",
-    ],
   ];
   const jobs = [
     [
@@ -95,12 +86,21 @@ export default function test() {
       "Responsable lors de salons étudiants",
     ],
   ];
+  const props = [
+    {
+      id: "32a51743-cebf-4fdd-9915-0b76da038d6e",
+    },
+    {
+      projet: projet,
+    },
+  ];
 
   return (
     <div className="overflow-hidden shadow-lg ">
       <Presentation {...user} />
       <Programming_Languages lang={lang} />
-      <Projects />
+      {user_id}
+      <Projects projet={projet} {...user_id} />
       <Compagny jobs={jobs} />
     </div>
   );

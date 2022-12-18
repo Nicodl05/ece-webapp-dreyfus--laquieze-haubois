@@ -20,8 +20,22 @@ import java_nico from "/public/java_nico.png";
 import profile_image from "/public/Cyril.jpg";
 import braintech from "/public/braintech.png";
 import lacentralef from "/public/lacentralef.png";
+import { useEffect, useState } from "react";
+import { supabase } from "../utils/supabase";
 
-export default function test() {
+const user_id = "32a51743-cebf-4fdd-9915-0b76da038d6e";
+
+export const getStaticProps = async () => {
+  const { data: projet } = await supabase.from("projet").select("*");
+  // .eq(await supabase.from("user").select(`id`).eq("name", author).single());
+  return {
+    props: {
+      projet,
+    },
+  };
+};
+
+export default function test({ projet }) {
   const user = {
     picture: profile_image,
     name: "Cyril",
@@ -44,20 +58,7 @@ export default function test() {
     ["SQL", "https://www.w3schools.com/sql/", sql],
     ["NoSQL", "https://www.mongodb.com/nosql-explained", nosql],
   ];
-  const project = [
-    [
-      "https://github.com/Nicodl05/Cinema_Projet",
-      java_nico,
-      " Projet Cinéma (Java, MySQL)",
-      " Ce projet a été réalisé en 3ème année.",
-    ],
-    [
-      "https://github.com/Nicodl05/TdG-Projet",
-      ski,
-      "Projet Théorie des Graphes (C++) ",
-      " Ce projet a été réalisé en 2ème année",
-    ],
-  ];
+
   const jobs = [
     [
       "https://mybraintech.com/",
@@ -79,11 +80,21 @@ export default function test() {
       "Vituralisation de Documentation",
     ],
   ];
+  const props = [
+    {
+      id: "32a51743-cebf-4fdd-9915-0b76da038d6e",
+    },
+    {
+      projet: projet,
+    },
+  ];
+
   return (
     <div className="overflow-hidden shadow-lg ">
       <Presentation {...user} />
       <Programming_Languages lang={lang} />
-      <Projects project={project} />
+      {user_id}
+      <Projects projet={projet} {...user_id} />
       <Compagny jobs={jobs} />
     </div>
   );

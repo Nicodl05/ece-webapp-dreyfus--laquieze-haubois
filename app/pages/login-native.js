@@ -3,8 +3,34 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { supabase } from "../utils/supabase";
 
+import { Auth, ThemeSupa } from "@supabase/auth-ui-react";
+
+import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
 const Login = function () {
-  const [email, setEmail] = useState("");
+  const session = useSession();
+  const supabase = useSupabaseClient();
+  return (
+    <div className="gap-6">
+      <br></br>
+      <h1 className="wt-title">Connexion</h1>
+      <div className="" style={{ padding: "50px 0 100px 0" }}>
+        {!session ? (
+          <Auth
+            supabaseClient={supabase}
+            appearance={{ theme: ThemeSupa }}
+            providers={["github"]}
+          />
+        ) : (
+          <Account session={session} />
+        )}
+      </div>
+    </div>
+  );
+};
+export default Login;
+/*
+
+const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
 
   const onSubmit = async (e) => {
@@ -26,9 +52,8 @@ const Login = function () {
       },
     };
   };
-
-  return (
-    <div className="relative space-y-6 flex flex-col min-h-screen overflow-hidden">
+  
+<div className="relative space-y-6 flex flex-col min-h-screen overflow-hidden">
       <br></br>
       <div className="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-xl">
         <h1 className="text-3xl font-semibold text-center text-gray-700 mr-2 mb-2   underline">
@@ -85,6 +110,4 @@ const Login = function () {
         </div>
       </div>
     </div>
-  );
-};
-export default Login;
+    */

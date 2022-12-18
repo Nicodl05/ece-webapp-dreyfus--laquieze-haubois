@@ -13,7 +13,7 @@ export const getStaticProps = async () => {
     },
   };
 };
-function ListProjets({ projet }) {
+export default function ListProjets({ projet }) {
   return (
     <div>
       <h1 className=" gap-y-6 justify-center text-center wt-title">
@@ -32,5 +32,3 @@ function ListProjets({ projet }) {
     </div>
   );
 }
-
-export default ListProjets;

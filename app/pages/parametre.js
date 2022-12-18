@@ -1,25 +1,23 @@
 import { useEffect, useState } from "react";
-import { supabase } from "../utils/supabase";
-import auth from "@supabase/auth-helpers-react";
+
 import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
 import baguette from "/public/baguette.jpg";
 import Image from "next/image";
 
-export default function parametre() {
+export default function parametre({ session }) {
   const supabase = useSupabaseClient();
-  const session = supabase.auth.session();
+
   const user = useUser();
   const [loading, setLoading] = useState(true);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPwd] = useState("");
+  const [name, setName] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [password, setPwd] = useState(null);
 
   useEffect(() => {
     getUser();
   }, [session]);
 
   async function getCurrentUser() {
-    const supabase = useSupabaseClient();
     const {
       data: { session },
       error,
@@ -34,11 +32,11 @@ export default function parametre() {
 
     return session.user;
   }
+
   async function getUser() {
     try {
       setLoading(true);
       const user = await getCurrentUser();
-
       let { data, error, status } = await supabase
         .from("user")
         .select(`name, email, password`)
@@ -108,3 +106,20 @@ export default function parametre() {
     </div>
   );
 }
+
+/*  async function getCurrentUser() {
+  const supabase = useSupabaseClient();
+  const {
+    data: { session },
+    error,
+  } = await supabase.auth.getSession();
+  if (error) {
+    throw error;
+  }
+
+  if (!session?.user) {
+    throw new Error("User not logged in");
+  }
+
+  return session.user;
+}*/

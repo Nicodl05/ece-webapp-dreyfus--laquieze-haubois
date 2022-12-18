@@ -95,11 +95,12 @@ export default function test() {
       "Responsable lors de salons étudiants",
     ],
   ];
+
   return (
     <div className="overflow-hidden shadow-lg ">
       <Presentation {...user} />
       <Programming_Languages lang={lang} />
-      <Projects project={project} />
+      <Projects />
       <Compagny jobs={jobs} />
     </div>
   );

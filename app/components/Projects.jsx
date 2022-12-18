@@ -6,7 +6,8 @@ export const getStaticProps = async () => {
     .from("user")
     .select("id")
     .eq("name", user.name);
-  const { data: projet } = await supabase
+
+  const { data2: projet } = await supabase
     .from("projet")
     .select("*")
     .eq("user_id", id);
@@ -17,12 +18,12 @@ export const getStaticProps = async () => {
     },
   };
 };
-function Projects({ project }) {
+function Projects({ projet }) {
   return (
     <div className="px-6 py-4 ">
       <div className="wt-title">Mes projets réalisés</div>
       <div className=" grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1  ">
-        {project.map((project) => (
+        {projet.map((project) => (
           <div className=" font-bold hover:scale-125   ">
             <div className="text-center items-center">
               <a href={project.path}>

@@ -1,9 +1,33 @@
 import { useEffect, useState } from "react";
 
 import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
-import baguette from "/public/baguette.jpg";
-import Image from "next/image";
 
+import Image from "next/image";
+import Nicolas from "../public/Nicolas.jpg";
+import Cyril from "../public/Cyril.jpg";
+
+function switchimages({ id }) {
+  switch (id) {
+    case "21ef1270-5eae-4b48-8f40-6e07915a0f90":
+      return (
+        <Image
+          src={Nicolas}
+          alt="Picture of the author"
+          width={500}
+          height={500}
+        />
+      );
+    case "32a51743-cebf-4fdd-9915-0b76da038d6e":
+      return (
+        <Image
+          src={Cyril}
+          alt="Picture of the author"
+          width={500}
+          height={500}
+        />
+      );
+  }
+}
 export default function parametre({ session }) {
   const supabase = useSupabaseClient();
 
@@ -12,6 +36,7 @@ export default function parametre({ session }) {
   const [name, setName] = useState(null);
   const [email, setEmail] = useState(null);
   const [password, setPwd] = useState(null);
+  const [id, setId] = useState(null);
 
   useEffect(() => {
     getUser();
@@ -39,7 +64,7 @@ export default function parametre({ session }) {
       const user = await getCurrentUser();
       let { data, error, status } = await supabase
         .from("user")
-        .select(`name, email, password`)
+        .select(`id,name, email, password`)
         .eq("id", user.id)
         .single();
 
@@ -51,6 +76,7 @@ export default function parametre({ session }) {
         setName(data.name);
         setEmail(data.email);
         setPwd(data.password);
+        setId(data.id);
       }
     } catch (error) {
       alert("Error loading user data!");
@@ -95,11 +121,7 @@ export default function parametre({ session }) {
             </div>
           </div>
           <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-            <Image
-              className="object-cover object-center rounded"
-              alt="hero"
-              src={baguette}
-            />
+            {switchimages({ id })}
           </div>
         </div>
       </section>

@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { supabase } from "../utils/supabase";
+import Account from "../components/Account";
 
 import { Auth, ThemeSupa } from "@supabase/auth-ui-react";
 

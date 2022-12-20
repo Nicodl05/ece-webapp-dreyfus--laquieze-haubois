@@ -25,7 +25,10 @@ import { supabase } from "../utils/supabase";
 const user_id = "21ef1270-5eae-4b48-8f40-6e07915a0f90";
 
 export const getStaticProps = async () => {
-  const { data: projet } = await supabase.from("projet").select("*");
+  const { data: projet } = await supabase
+    .from("projet")
+    .select("*")
+    .eq("user_id", user_id);
   // .eq(await supabase.from("user").select(`id`).eq("name", author).single());
   return {
     props: {
@@ -86,22 +89,16 @@ export default function test({ projet }) {
       "Responsable lors de salons étudiants",
     ],
   ];
-  const props = [
-    {
-      id: "32a51743-cebf-4fdd-9915-0b76da038d6e",
-    },
-    {
-      projet: projet,
-    },
-  ];
 
   return (
     <div className="overflow-hidden shadow-lg ">
       <Presentation {...user} />
       <Programming_Languages lang={lang} />
       {user_id}
-      <Projects projet={projet} {...user_id} />
+      <Projects projet={projet} />
       <Compagny jobs={jobs} />
     </div>
   );
 }
+// autrement envoyer le nom de user
+// par la suite faire la requete directement dans projects en utilisant en dur l'id de la personne

@@ -23,19 +23,7 @@ import lacentralef from "/public/lacentralef.png";
 import { useEffect, useState } from "react";
 import { supabase } from "../utils/supabase";
 
-const user_id = "32a51743-cebf-4fdd-9915-0b76da038d6e";
-
-export const getStaticProps = async () => {
-  const { data: projet } = await supabase.from("projet").select("*");
-  // .eq(await supabase.from("user").select(`id`).eq("name", author).single());
-  return {
-    props: {
-      projet,
-    },
-  };
-};
-
-export default function test({ projet }) {
+export default function test() {
   const user = {
     picture: profile_image,
     name: "Cyril",
@@ -80,21 +68,13 @@ export default function test({ projet }) {
       "Vituralisation de Documentation",
     ],
   ];
-  const props = [
-    {
-      id: "32a51743-cebf-4fdd-9915-0b76da038d6e",
-    },
-    {
-      projet: projet,
-    },
-  ];
 
+  const id = "32a51743-cebf-4fdd-9915-0b76da038d6e";
   return (
     <div className="overflow-hidden shadow-lg ">
       <Presentation {...user} />
       <Programming_Languages lang={lang} />
-      {user_id}
-      <Projects projet={projet} {...user_id} />
+      <Projects id={id} />
       <Compagny jobs={jobs} />
     </div>
   );

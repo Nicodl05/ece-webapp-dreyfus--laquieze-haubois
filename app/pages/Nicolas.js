@@ -22,21 +22,8 @@ import cer from "/public/cer.png";
 import renov from "/public/renov.png";
 import ece from "/public/ece.png";
 import { supabase } from "../utils/supabase";
-const user_id = "21ef1270-5eae-4b48-8f40-6e07915a0f90";
 
-export const getStaticProps = async () => {
-  const { data: projet } = await supabase
-    .from("projet")
-    .select("*")
-    .eq("user_id", user_id);
-  // .eq(await supabase.from("user").select(`id`).eq("name", author).single());
-  return {
-    props: {
-      projet,
-    },
-  };
-};
-export default function test({ projet }) {
+export default function test() {
   const user = {
     picture: profile_image,
     name: "Nicolas",
@@ -90,12 +77,13 @@ export default function test({ projet }) {
     ],
   ];
 
+  const user_id = "21ef1270-5eae-4b48-8f40-6e07915a0f90";
   return (
     <div className="overflow-hidden shadow-lg ">
       <Presentation {...user} />
       <Programming_Languages lang={lang} />
       {user_id}
-      <Projects projet={projet} />
+      <Projects id={user_id} />
       <Compagny jobs={jobs} />
     </div>
   );

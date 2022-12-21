@@ -6,7 +6,7 @@ export default function Avatar({ email }) {
   // const email = props.email d'autres facons de recevoir en parametre
   //
   const hash = md5(email.trim().toLowerCase());
-  console.log(hash);
+  // console.log(hash);
 
   return (
     <div>
@@ -15,6 +15,7 @@ export default function Avatar({ email }) {
         src={`${BASE_URL}/${hash}`}
         width={60}
         height={60}
+        alt="Avatar"
       />
     </div>
   );

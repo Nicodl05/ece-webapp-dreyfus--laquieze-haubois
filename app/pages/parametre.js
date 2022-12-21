@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Children, createContext, useEffect, useState } from "react";
 
 import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
 
@@ -83,49 +83,64 @@ export default function parametre({ session }) {
       console.log(error);
     }
   }
-
+  const Context = createContext();
   return (
-    <div>
-      <section className=" body-font text-black dark:text-white">
-        <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
-          <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-            <h1 className="title-font sm:text-4xl text-3xl mb-4 ">
-              <p> {name}</p>
-            </h1>
-            <div className="hidden lg:inline-block text-lg  ">
-              Vos informations
-            </div>
+    <Context.Provider
+      value={{
+        name,
+        email,
+        password,
+        id,
+      }}
+    >
+      <div>
+        <section className=" body-font text-black dark:text-white">
+          <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+            <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+              <h1 className="title-font sm:text-4xl text-3xl mb-4 ">
+                <p> {name}</p>
+              </h1>
+              <div className="hidden lg:inline-block text-lg  ">
+                Vos informations
+              </div>
 
-            <div className="mb-8 leading-relaxed ">
-              <div className="flex flex-wrap gap-2">
-                Email:
-                <p className="font-extrabold">{email}</p>
+              <div className="mb-8 leading-relaxed ">
+                <div className="flex flex-wrap gap-2">
+                  Email:
+                  <p className="font-extrabold">{email}</p>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  Mot de passe:
+                  <p className=" font-extrabold">{password}</p>
+                </div>
               </div>
-              <div className="flex flex-wrap gap-2">
-                Mot de passe:
-                <p className=" font-extrabold">{password}</p>
+              <div className=" justify-center grid lg:grid-cols-2 sm:grid-cols-1 gap-6 ">
+                <a href="/modif_username">
+                  <button className="inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 hover:text-white rounded text-lg">
+                    Modifier le nom
+                  </button>
+                </a>
+
+                <div></div>
+                <a href="/modif_proj">
+                  <button className=" inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 hover:text-gray-700 rounded text-lg">
+                    Modifier un projet
+                  </button>
+                </a>
+                <a href="/delete_proj">
+                  <button className=" inline-flex text-white bg-indigo-500  border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 hover:text-gray-700 rounded text-lg">
+                    Supprimer un projet
+                  </button>
+                </a>
               </div>
             </div>
-            <div className="flex justify-center">
-              <a href="/modif_username">
-                {" "}
-                <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-                  Modifier le nom
-                </button>
-              </a>
-              <a href="/pwd_modif">
-                <button className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">
-                  Modifier le mot de passe
-                </button>
-              </a>
+            <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+              {switchimages({ id })}
             </div>
           </div>
-          <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-            {switchimages({ id })}
-          </div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
+    </Context.Provider>
   );
 }
 

@@ -82,7 +82,7 @@ export default function test() {
     <div className="overflow-hidden shadow-lg ">
       <Presentation {...user} />
       <Programming_Languages lang={lang} />
-      {user_id}
+
       <Projects id={user_id} />
       <Compagny jobs={jobs} />
     </div>

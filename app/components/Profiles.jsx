@@ -6,7 +6,7 @@ import Link from "next/link";
 const Profiles = () => {
   return (
     <div className="p-10 grid grid-cols-1  sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-10">
-      <div className="rounded overflow-hidden shadow-lg border border-gray-500   ">
+      <div className="rounded overflow-hidden shadow-lg border border-gray-400 dark:bg-gray-900  ">
         <div className="text-center">
           <Image
             src={nicolas}
@@ -59,7 +59,7 @@ const Profiles = () => {
           </span>
         </div>
       </div>
-      <div className="rounded overflow-hidden shadow-lg border border-gray-500 ">
+      <div className="rounded overflow-hidden shadow-lg border border-gray-400 dark:bg-gray-900 ">
         <div className="text-center">
           <Image
             src={cyril}

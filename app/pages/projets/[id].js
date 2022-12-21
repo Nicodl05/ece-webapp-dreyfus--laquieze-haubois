@@ -15,14 +15,6 @@ function Page_Projet(props) {
             </h1>
             <h2>{props.languages}</h2>
             <p className="mb-8 leading-relaxed">{props.description}</p>
-            <div className="flex justify-center">
-              <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-                Supprimer
-              </button>
-              <button className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">
-                Commentaire
-              </button>
-            </div>
           </div>
           <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
             <img
@@ -35,13 +27,15 @@ function Page_Projet(props) {
       </section>
       {/* Juste en dessous c'est la ligne pour map les commentaires faudras que tu mettes en forme stp */}
       <div className="border-t pt-4 pb-4">
-        {props.comment.map((comment => (<div key={comment.id} className="border rounded-md p-4">
-          <p className="font-semibold mb-2">{comment.comment}</p>
-          <p className="font-light">{comment.created_at}</p>
-          <p className="font-light">{comment.u_id}</p>
-          </div>)))}
+        {props.comment.map((comment) => (
+          <div key={comment.id} className="border rounded-md p-4">
+            <p className="font-semibold mb-2">{comment.comment}</p>
+            <p className="font-light">{comment.created_at}</p>
+            <p className="font-light">{comment.u_id}</p>
+          </div>
+        ))}
       </div>
-      < Comment/>
+      <Comment id={props.id} />
     </div>
   );
 }
@@ -58,14 +52,17 @@ export async function getStaticPaths() {
 }
 export async function getStaticProps({ params }) {
   // trouver le bon projet en fonction de l'id en parametre et le return
-  let { data: project } = await supabase.from("projet").select('*');
-  let {data: comment} = await supabase.from("comment").select('*').eq("projet_id",params.id);
+  let { data: project } = await supabase.from("projet").select("*");
+  let { data: comment } = await supabase
+    .from("comment")
+    .select("*")
+    .eq("projet_id", params.id);
   const res = project.find((projet) => projet.id == params.id);
   return {
     props: {
       name: res.name,
       languages: res.languages,
-
+      id: res.id,
       description: res.description,
       image: res.image,
       github: res.git,

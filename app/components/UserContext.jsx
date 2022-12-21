@@ -1,10 +1,11 @@
-import { createContext, useState } from "react";
-/*
+import { createContext, useState , useEffect} from "react";
+import supabase from "../utils/supabase"
+
 const Context = createContext();
 
 export default Context;
 
-export const ContextProvider = ({ children }) => {
+export const UserContext = ({ children }) => {
   const [user, setUser] = useState(null);
   return (
     <Context.Provider
@@ -14,6 +15,10 @@ export const ContextProvider = ({ children }) => {
           setUser(user);
         },
         logout: () => {
+          async function supabasLogout() {
+            await supabase.auth.signOut();
+          }
+          supabasLogout();
           setUser(null);
         },
       }}
@@ -21,4 +26,4 @@ export const ContextProvider = ({ children }) => {
       { children }
     </Context.Provider>
   );
-};*/
+};

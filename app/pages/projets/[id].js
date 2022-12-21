@@ -35,16 +35,19 @@ function Page_Projet(props) {
       </section>
       {/* Juste en dessous c'est la ligne pour map les commentaires faudras que tu mettes en forme stp */}
       <div className="border-t pt-4 pb-4">
-        {/* {props.comment.map((comment => (<div key={comment.id} className="border rounded-md p-4">
+        {props.comment.map((comment => (<div key={comment.id} className="border rounded-md p-4">
           <p className="font-semibold mb-2">{comment.comment}</p>
           <p className="font-light">{comment.created_at}</p>
-          <p className="font-semibold mb-2">{comment.u_id}</p>
-          </div>)))} */console.log(props.comment)}
+          <p className="font-light">{comment.u_id}</p>
+          </div>)))}
       </div>
       < Comment/>
     </div>
   );
 }
+
+//console.log(props.comment)
+
 export async function getStaticPaths() {
   let { data: project } = await supabase.from("projet").select("*");
 

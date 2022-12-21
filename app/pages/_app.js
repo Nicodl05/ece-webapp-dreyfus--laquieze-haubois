@@ -3,9 +3,8 @@ import { ThemeProvider } from "next-themes";
 import Layout from "../components/Layout";
 
 import { createBrowserSupabaseClient } from "@supabase/auth-helpers-nextjs";
-
+import { UserContext } from "../components/UserContext";
 import { SessionContextProvider } from "@supabase/auth-helpers-react";
-//import { ContextProvider } from "../components/UserContext";
 import { useState } from "react";
 
 function MyApp({ Component, pageProps }) {
@@ -17,9 +16,11 @@ function MyApp({ Component, pageProps }) {
         supabaseClient={supabase}
         initialSession={pageProps.initialSession}
       >
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <UserContext>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </UserContext>
       </SessionContextProvider>
     </ThemeProvider>
   );

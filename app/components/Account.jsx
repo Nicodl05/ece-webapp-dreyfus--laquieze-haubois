@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
+import Context from "./UserContext";
 
 export default function Account({ session }) {
   const supabase = useSupabaseClient();
-  const user = useUser();
+  const user = useContext(Context);
   const [loading, setLoading] = useState(true);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");

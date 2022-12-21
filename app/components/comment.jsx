@@ -1,28 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
+import Context from "./UserContext";
 
 export default function Comment() {
   const supabase = useSupabaseClient();
-  const user = useUser();
+  const {user} = useContext(Context);
   const [loading, setLoading] = useState(true);
   const [comment, setComment] = useState("");
   const [projet_id, setProjet_id] = useState("");
   const [u_id, setU_id] = useState("");
-
-  async function getCurrentUser() {
-    const {
-      data: { session },
-      error,
-    } = await supabase.auth.getSession();
-    if (error) {
-      throw error;
-    }
-
-    if (!session?.user) {
-      throw new Error("User not logged in");
-    }
-    return session.user;
-  }
 
   async function getCurrentProject()
   {
@@ -33,42 +19,18 @@ export default function Comment() {
     }
   }
 
-  // async function getComment() {
-  //   try{
-  //     setLoading(true);
-  //     const projet = getCurrentProject();
-  //     let { data, error,status } = await supabase
-  //     .from("comment")
-  //     .select("*")
-  //     .eq("projet_id", projet.id)
-  //     .single();
-  //     if (error !== 406) {
-  //       throw error;
-  //     }
-  //     if (data) {
-  //       setComment(data.comment)
-  //     }
-  //   } catch (error) {
-  //     alert("Error loading comment!");
-  //     console.log(error);
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // }
-
-  async function addComment() {
+  async function addComment(comment) {
     try {
       setLoading(true);
-      const user = getCurrentUser();
       const projet = getCurrentProject();
       const update = {
         u_id: user.id,
         comment: comment,
-        projet: projet.id
+        projet_id: projet.id
       }
-      const { data, error } = await supabase
+      let { error } = await supabase
         .from("comment")
-        .upsert([{ update }]);
+        .upsert( update );
     } catch (error) {
       alert("Error!");
       console.log(error);
@@ -108,10 +70,10 @@ export default function Comment() {
               type="text"
               placeholder="Add a comment"
               className="p-2 border-b focus:border-b-gray-700 w-full outline-none"
-              value={comment}
+              value={comment || ""}
               onChange={(e) => setComment(e.target.value)}
             />
-            <button className="px-4 py-2 bg-green-500 rounded-lg text-white" onClick={() => addComment({ comment})}>
+            <button className="px-4 py-2 bg-green-500 rounded-lg text-white" onClick={() => addComment({ comment })}>
               Submit
             </button>
           </form>

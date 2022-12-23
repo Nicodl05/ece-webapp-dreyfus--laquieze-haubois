@@ -2,8 +2,23 @@ import React from "react";
 import { supabase } from "../../utils/supabase";
 import { useRouter } from "next/router";
 import Comment from "../../components/comment";
+import { useEffect, useState } from "react";
 
 function Page_Projet(props) {
+  async function getSession() {
+    const { data, error } = await supabase.auth.getSession();
+    if (error) {
+      console.log("error", error.message);
+    }
+    if (data === undefined) {
+      console.log("ma session de id est undefined");
+    }
+    return data;
+  }
+  const [loading, setLoading] = useState(true);
+  const [uid, setuId] = useState(null);
+
+  const id = props.id;
   return (
     <div className="flex flex-col items-center justify-center min-h-screen ">
       <section className="text-gray-600 body-font">
@@ -26,16 +41,18 @@ function Page_Projet(props) {
         </div>
       </section>
       {/* Juste en dessous c'est la ligne pour map les commentaires faudras que tu mettes en forme stp */}
-      <div className="border-t pt-4 pb-4">
+      <h1 className="underline wt-title">Commentaires</h1>
+      <div className="border-t pt-4 pb-4 grid grid-cols-3 gap-6">
         {props.comment.map((comment) => (
           <div key={comment.id} className="border rounded-md p-4">
             <p className="font-semibold mb-2">{comment.comment}</p>
             <p className="font-light">{comment.created_at}</p>
-            <p className="font-light">{comment.u_id}</p>
+            <p className="font-light">Author: {comment.u_id}</p>
           </div>
         ))}
       </div>
-      <Comment id={props.id} />
+      <br></br>
+      <Comment id={id} />
     </div>
   );
 }

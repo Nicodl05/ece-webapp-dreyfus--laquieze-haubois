@@ -111,7 +111,7 @@ function Page_Projet(props, { session }) {
       <br></br>
       <div className="grid grid-cols-3">
         <div>
-          <Add_comment id={id} />
+          <Add_comment id={id} session={session} />
         </div>
 
         <div>

@@ -1,22 +1,74 @@
 import React from "react";
+import Link from "next/link";
 import { supabase } from "../../utils/supabase";
-import { useRouter } from "next/router";
-import Comment from "../../components/comment";
+import Add_comment from "../../components/Add_comment";
+import UpdateComment from "../../components/UpdateComment";
+import DeleteComment from "../../components/DeleteComment";
+
+import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useEffect, useState } from "react";
 
-function Page_Projet(props) {
-  async function getSession() {
-    const { data, error } = await supabase.auth.getSession();
+function Page_Projet(props, { session }) {
+  const supabase = useSupabaseClient();
+  const [loading, setLoading] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPwd] = useState("");
+  const [uid, setUid] = useState(null);
+
+  useEffect(() => {
+    getUser();
+  }, [session]);
+
+  async function getCurrentUser() {
+    const {
+      data: { session },
+      error,
+    } = await supabase.auth.getSession();
     if (error) {
-      console.log("error", error.message);
+      throw error;
     }
-    if (data === undefined) {
-      console.log("ma session de id est undefined");
+
+    if (!session?.user) {
+      throw new Error("User not logged in");
     }
-    return data;
+
+    return session.user;
   }
-  const [loading, setLoading] = useState(true);
-  const [uid, setuId] = useState(null);
+
+  async function getUser() {
+    try {
+      setLoading(true);
+      const user = await getCurrentUser();
+      let { data, error, status } = await supabase
+        .from("user")
+        .select(`id,name, email, password`)
+        .eq("id", user.id)
+        .single();
+
+      if (error && status !== 406) {
+        throw error;
+      }
+
+      if (data) {
+        setName(data.name);
+        setEmail(data.email);
+        setPwd(data.password);
+        setUid(data.id);
+      }
+    } catch (error) {
+      alert("Error loading user data!");
+      console.log(error);
+    }
+  }
+  async function getAuthorName(id) {
+    console.log("lid de l'auteur est : " + id);
+    const { data: user, error } = await supabase
+      .from("user")
+      .select("name")
+      .eq("id", id);
+    return user.name;
+  }
 
   const id = props.id;
   return (
@@ -43,16 +95,32 @@ function Page_Projet(props) {
       {/* Juste en dessous c'est la ligne pour map les commentaires faudras que tu mettes en forme stp */}
       <h1 className="underline wt-title">Commentaires</h1>
       <div className="border-t pt-4 pb-4 grid grid-cols-3 gap-6">
-        {props.comment.map((comment) => (
-          <div key={comment.id} className="border rounded-md p-4">
-            <p className="font-semibold mb-2">{comment.comment}</p>
-            <p className="font-light">{comment.created_at}</p>
-            <p className="font-light">Author: {comment.u_id}</p>
+        {props.comment.map((commentary) => (
+          <div key={commentary.id} className="border rounded-md p-4">
+            ID Comment: {commentary.id}
+            <br></br>
+            <p className="font-bold">Commentaire: {commentary.comment}</p>
+            <p className="font-light">Ecrit: {commentary.created_at}</p>
+            <div className="font-light">
+              Auteur:
+              {commentary.author}
+            </div>
           </div>
         ))}
       </div>
       <br></br>
-      <Comment id={id} />
+      <div className="grid grid-cols-3">
+        <div>
+          <Add_comment id={id} />
+        </div>
+
+        <div>
+          <UpdateComment id={id} />
+        </div>
+        <div>
+          <DeleteComment />
+        </div>
+      </div>
     </div>
   );
 }
@@ -74,7 +142,10 @@ export async function getStaticProps({ params }) {
     .from("comment")
     .select("*")
     .eq("projet_id", params.id);
+  const { data: user, error } = await supabase.from("user").select("name");
+
   const res = project.find((projet) => projet.id == params.id);
+
   return {
     props: {
       name: res.name,
@@ -83,12 +154,10 @@ export async function getStaticProps({ params }) {
       description: res.description,
       image: res.image,
       github: res.git,
-
+      user,
       comment,
     },
   };
 }
 
 export default Page_Projet;
-// const res = projets.find((projet) => projet.id === params.id);
-// let { data: projets } = await supabase .from("projet") .select("*") .eq("id", params.id);

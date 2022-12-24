@@ -77,34 +77,8 @@ export default function Comment({ id }) {
     }
   };
 
-  async function deleteComment() {
-    let { data: id } = await supabase.from("comment").select("id");
-    const { data, error } = await supabase
-      .from("comment")
-      .delete()
-      .eq("id", id);
-  }
-
-  async function updateComment() {
-    try {
-      setLoading(true);
-      let { data: id } = await supabase.from("comment").select("id");
-      let { error } = await supabase
-        .from("comment")
-        .update({ comment: comment })
-        .eq("id", id);
-      if (error) throw error;
-      alert("comment updated!");
-    } catch (error) {
-      alert("Error updating comment!");
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  }
-
   return (
-    <div className="space-y-10">
+    <div>
       <div>
         <h2 className="underline italic">
           La liste des différents utilisateurs
@@ -118,27 +92,44 @@ export default function Comment({ id }) {
           </div>
         ))}
       </div>
-      <div className="pt-16 flex justify-center">
-        <div className="min-w-[600px]">
-          <h1 className="text-4xl font-bold ">Comments</h1>
-          <form className="mt-4 flex gap-2" onSubmit={addComment}>
+      <div className="text-center justify-center items-center">
+        <h2 className="underline italic">Nouveau Commentaire </h2>
+        <div className="form-control gap-4 text-lg ">
+          <br></br>
+          <br></br>
+          <h3>
+            Votre nouveau commentaire
+            <br></br>
             <input
+              className="input input-bordered"
               type="text"
-              placeholder="Add a comment"
-              className="p-2 border-b focus:border-b-gray-700 w-full outline-none"
-              value={comment || ""}
+              id="comment"
+              placeholder="commentaire"
+              value={comment}
               onChange={(e) => setComment(e.target.value)}
             />
-            <input
-              type="text"
-              placeholder="Add the name of the author"
-              className="p-2 border-b focus:border-b-gray-700 w-full outline-none"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-            <button className="px-4 py-2 bg-green-500 rounded-lg text-white">
-              Submit
+          </h3>
+          <br></br>
+          <h3>Name author</h3>
+          <form onSubmit={addComment}>
+            <label className="input-group input-group-vertical">
+              <input
+                className="input input-bordered"
+                type="text"
+                id="name"
+                placeholder="Votre nom"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </label>
+            <br></br>
+            <br></br>
+
+            <button
+              className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+              type="submit"
+            >
+              Valider
             </button>
           </form>
         </div>

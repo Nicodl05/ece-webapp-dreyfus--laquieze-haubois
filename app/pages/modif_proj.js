@@ -26,10 +26,6 @@ export default function modif_proj() {
   }, []);
   const modif = async function (e) {
     e.preventDefault();
-    const { error } = await supabase
-      .from("projet")
-      .update({ name: name })
-      .eq("id", id);
 
     if (name != null) {
       const { error } = await supabase

@@ -7,9 +7,10 @@ import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
 
 const Header = ({ session }) => {
   const { systemTheme, theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const [mounted, setMounted] = useState(true);
+
   const renderThemeChanger = () => {
-    if (!mounted) return null;
+    if (!mounted) return "shit";
     const currentTheme = theme === "system" ? systemTheme : theme;
     if (currentTheme === "dark") {
       return (
@@ -99,9 +100,9 @@ const Header = ({ session }) => {
   return (
     <div>
       <div className="flex gap-2 items-center">
+        <p>{renderThemeChanger()}</p>
         <Avatar email={userProfile.email} />
         <p> {userProfile?.username}</p>
-        <div>{renderThemeChanger()}</div>
       </div>
     </div>
   );

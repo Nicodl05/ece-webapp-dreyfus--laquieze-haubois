@@ -1,8 +1,7 @@
 import { useContext, useEffect, useState } from "react";
-import { supabase } from "../utils/supabase";
 import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
-import Link from "next/link";
 import Context from "../components/UserContext";
+
 export default function delete_proj({ session }) {
   const [projet, setProjet] = useState([]);
   const supabase = useSupabaseClient();
@@ -64,7 +63,7 @@ export default function delete_proj({ session }) {
         setEmailUser(data.email);
         setPwdUser(data.password);
         setId_User(data.id);
-        alert("Bienvenue " + data.name);
+        // alert("Bienvenue " + data.name);
       }
     } catch (error) {
       alert("Error loading user data!");
@@ -74,24 +73,13 @@ export default function delete_proj({ session }) {
 
   const delete_confirm = async function (e) {
     e.preventDefault();
-    const { data, error2 } = await supabase
-      .from("projet")
-      .select()
-      .eq("id", id);
-    if (error2) {
-      alert("Erreur lors de la récupération du projet, ");
-    }
-    alert("Nom de l'auteur : " + data.user_id);
-    if (data.user_id == id_User) {
-      const { error } = await supabase.from("projet").delete().eq("id", id);
-      if (error) {
-        alert("Erreur lors de la suppression du projet, ");
-      } else {
-        alert("Projet supprimé, vous pouvez rafraichir la page");
-      }
+
+    const { error } = await supabase.from("projet").delete().eq("id", id);
+    if (error) {
+      alert("Erreur lors de la suppression du projet, ");
     } else {
       alert(
-        "Vous n'êtes pas l'auteur de ce projet, vous ne pouvez pas le supprimer"
+        "Si vous étiez l'auteur de ce projet, il a bien été supprimé, vous pouvez rafraichir la page"
       );
     }
   };

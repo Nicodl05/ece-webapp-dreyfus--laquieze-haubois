@@ -2,24 +2,8 @@ import { useEffect, useState } from "react";
 import { supabase } from "../utils/supabase";
 import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
 
-var i = 0;
-var proj_added = "";
-
-const addinfo = async () => {
-  const { id, error } = await supabase
-    .from("projet")
-    .select("id")
-    .eq("name", proj_added);
-  const { error3 } = await supabase
-    .from("projet")
-    .update({ path: "../projets/" + id })
-    .eq("id", id);
-
-  if (error3) {
-    console.log("Erreur update:" + error3);
-  }
-};
-function add_project({ session }) {
+function add_project({ session, projet }) {
+  /* faut trouver un moyen pour add path */
   const [name, setName] = useState("");
   const [languages, setLanguages] = useState("");
   const [git, setGit] = useState("");
@@ -73,6 +57,30 @@ function add_project({ session }) {
       console.log(error);
     }
   }
+
+  async function addinfo(name) {
+    try {
+      const { data: id_founded, error1 } = await supabase
+        .from("projet")
+        .select("id")
+        .eq("name", name);
+      if (data) {
+        alert("Nom id :" + data.id);
+      }
+      if (error1) {
+        console.log(error1);
+      }
+      const { error2 } = await supabase
+        .from("projet")
+        .update({ path: "../projets/" + id_founded })
+        .eq("id", id);
+      if (error2) {
+        console.log(error2);
+      }
+    } catch (error) {
+      alert(error);
+    }
+  }
   // pour l'id
   const handleSubmit = async (e) => {
     if (!name || !languages || !description) {
@@ -93,27 +101,54 @@ function add_project({ session }) {
     // } catch (error_up_images) {
     //   console.log(error_up_images);
     // }
-
-    const { error } = await supabase.from("projet").insert({
-      user_id: id,
-      languages: languages,
-      git: git,
-      name: name,
-      description: description,
-    });
-    if (error) {
+    // proj_added = name;
+    // alert(proj_added);
+    try {
+      const { error } = await supabase.from("projet").insert({
+        user_id: id,
+        languages: languages,
+        git: git,
+        name: name,
+        description: description,
+        path: "../projets/",
+      });
+      if (error) {
+        console.log(error);
+        setFromError("Remplissez tous les champs correctement ");
+      }
+    } catch (error) {
       console.log(error);
-      setFromError("Remplissez tous les champs correctement " + i);
-      i++;
+      throw error;
     }
-    proj_added = name;
-    alert(
-      "Votre projet a été ajouté, vous pouvez retourner sur la page Projets"
-    );
+
+    // try {
+    //   const { data: id_founded, error1 } = await supabase
+    //     .from("projet")
+    //     .select("id")
+    //     .eq("name", name);
+
+    //   alert("Nom id :" + { id_founded });
+
+    //   if (error1) {
+    //     console.log(error1);
+    //   }
+    //   const { error2 } = await supabase
+    //     .from("projet")
+    //     .update({ path: "../projets/" + id_founded })
+    //     .eq("id", id);
+    //   if (error2) {
+    //     console.log(error2);
+    //   }
+    // } catch (error) {
+    //   alert(error);
+    // }
+
+    alert("Projet ajouté");
   };
   return (
     <div>
       <br></br>
+
       <h1 className=" text wt-title text-center space-y-6">
         Ajouter un nouveau projet
       </h1>
@@ -207,3 +242,5 @@ function add_project({ session }) {
 }
 
 export default add_project;
+
+/* Trigger after insert set path = path +id */

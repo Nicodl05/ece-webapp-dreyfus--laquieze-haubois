@@ -5,6 +5,7 @@ import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
 import Image from "next/image";
 import Nicolas from "../public/Nicolas.jpg";
 import Cyril from "../public/Cyril.jpg";
+import Avatar from "../components/Avatar";
 
 function switchimages({ id }) {
   switch (id) {
@@ -26,6 +27,15 @@ function switchimages({ id }) {
           height={500}
         />
       );
+    default:
+      return (
+        <img
+          src="https://ypkrvmmlnbddeybnmruo.supabase.co/storage/v1/object/public/images-projets/profile.png"
+          alt="Picture of the author"
+          width={500}
+          height={500}
+        />
+      );
   }
 }
 export default function parametre({ session }) {
@@ -37,6 +47,7 @@ export default function parametre({ session }) {
   const [email, setEmail] = useState(null);
   const [password, setPwd] = useState(null);
   const [id, setId] = useState(null);
+  const [admin, setAdmin] = useState("");
 
   useEffect(() => {
     getUser();
@@ -64,7 +75,7 @@ export default function parametre({ session }) {
       const user = await getCurrentUser();
       let { data, error, status } = await supabase
         .from("user")
-        .select(`id,name, email, password`)
+        .select(`id,name, email, password, admin`)
         .eq("id", user.id)
         .single();
 
@@ -77,6 +88,11 @@ export default function parametre({ session }) {
         setEmail(data.email);
         setPwd(data.password);
         setId(data.id);
+        if (data.admin == true) {
+          setAdmin("Oui");
+        } else {
+          setAdmin("Non");
+        }
       }
     } catch (error) {
       alert("Error loading user data!");
@@ -90,6 +106,7 @@ export default function parametre({ session }) {
         name,
         email,
         password,
+        admin,
         id,
       }}
     >
@@ -113,28 +130,37 @@ export default function parametre({ session }) {
                   Mot de passe:
                   <p className=" font-extrabold">{password}</p>
                 </div>
+                <div className="flex flex-wrap gap-2">
+                  Admin:
+                  <p className=" font-extrabold">{admin}</p>
+                </div>
               </div>
               <div className=" justify-center grid lg:grid-cols-2 sm:grid-cols-1 gap-6 ">
                 <a href="/modif_username">
-                  <button className="inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 hover:text-white rounded text-lg">
+                  <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 hover:text-white rounded text-lg">
                     Modifier le nom
                   </button>
                 </a>
 
-                <div></div>
                 <a href="/modif_proj">
                   <button className=" inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 hover:text-gray-700 rounded text-lg">
                     Modifier un projet
                   </button>
                 </a>
                 <a href="/delete_proj">
-                  <button className=" inline-flex text-white bg-indigo-500  border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 hover:text-gray-700 rounded text-lg">
+                  <button className=" inline-flex text-white bg-red-500  border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 hover:text-gray-700 rounded text-lg">
                     Supprimer un projet
+                  </button>
+                </a>
+                <a href="/delete_user">
+                  <button className=" inline-flex text-white bg-red-500  border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 hover:text-gray-700 rounded text-lg">
+                    Supprimer un utilisateur
                   </button>
                 </a>
               </div>
             </div>
             <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+              {/* <Avatar email={email} /> */}
               {switchimages({ id })}
             </div>
           </div>

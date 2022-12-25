@@ -1,7 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { supabase } from "../utils/supabase";
 import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
-import Link from "next/link";
 import Context from "../components/UserContext";
 
 export default function modif_proj({ session }) {

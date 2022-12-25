@@ -7,6 +7,7 @@ import { supabase } from "../utils/supabase";
 import Link from "next/link";
 export const getStaticProps = async () => {
   const { data: projet } = await supabase.from("projet").select("*");
+
   return {
     props: {
       projet,

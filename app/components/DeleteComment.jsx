@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
 import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
-import { supabase } from "../utils/supabase";
 
 export default function updateComment({ session }) {
   const [loading, setLoading] = useState(false);
@@ -65,7 +64,10 @@ export default function updateComment({ session }) {
         .delete()
         .eq("id", id);
       if (error) throw error;
-      else alert("Commentaire supprimé");
+      else
+        alert(
+          "Si vous étiez l'auteur de ce commentaire, il a bien été supprimé, vous pouvez rafraichir la page"
+        );
     } catch (error) {
       alert("Error updating comment!");
       console.log(error);

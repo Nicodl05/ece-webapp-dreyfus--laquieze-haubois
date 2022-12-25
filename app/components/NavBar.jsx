@@ -60,7 +60,6 @@ const NavBar = () => {
             </li>
           </ul>
         </div>
-
         <div className="grid grid-flow-row-2">
           <Header />
           <div>

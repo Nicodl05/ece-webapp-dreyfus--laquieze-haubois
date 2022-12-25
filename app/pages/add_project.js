@@ -137,7 +137,7 @@ function add_project({ session, projet }) {
       console.log(error);
       throw error;
     }
-
+    // Code pour mettre à jour le path
     // try {
     //   const { data: id_founded, error1 } = await supabase
     //     .from("projet")
@@ -267,5 +267,3 @@ function add_project({ session, projet }) {
 }
 
 export default add_project;
-
-/* Trigger after insert set path = path +id */

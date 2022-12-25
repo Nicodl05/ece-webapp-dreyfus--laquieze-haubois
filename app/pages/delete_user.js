@@ -1,23 +1,11 @@
-import { useContext, useEffect, useState } from "react";
-import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
-import Context from "../components/UserContext";
-
+import { useEffect, useState } from "react";
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { supabase } from "../utils/supabase";
-export const getServerSideProps = async () => {
-  const { data: users } = await supabase.from("user").select("*");
 
-  return {
-    props: {
-      users,
-    },
-  };
-};
 export default function delete_user({ session, users }) {
   const supabase = useSupabaseClient();
-
   const [to_delete, setToDelete] = useState("");
   const [loading, setLoading] = useState(true);
-
   const [name_user, setNameUser] = useState(null);
   const [email_user, setEmailUser] = useState(null);
   const [passwordUser, setPwdUser] = useState(null);
@@ -40,7 +28,6 @@ export default function delete_user({ session, users }) {
     if (!session?.user) {
       throw new Error("User not logged in");
     }
-
     return session.user;
   }
 
@@ -53,7 +40,6 @@ export default function delete_user({ session, users }) {
         .select(`id,name, email, password, admin`)
         .eq("id", user.id)
         .single();
-
       if (error && status !== 406) {
         throw error;
       }
@@ -79,7 +65,6 @@ export default function delete_user({ session, users }) {
         .from("user")
         .delete()
         .eq("name", to_delete);
-
       if (error) {
         alert("Erreur lors de la suppression de l'utilisateur ");
       } else {
@@ -128,3 +113,13 @@ export default function delete_user({ session, users }) {
     </div>
   );
 }
+
+export const getServerSideProps = async () => {
+  const { data: users } = await supabase.from("user").select("*");
+
+  return {
+    props: {
+      users,
+    },
+  };
+};

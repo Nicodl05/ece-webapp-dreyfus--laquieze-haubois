@@ -47,7 +47,6 @@ export default function handler(req, res) {
         alert(data.name);
         setName(data.name);
         setEmail(data.email);
-
         setId(data.id);
       }
     } catch (error) {

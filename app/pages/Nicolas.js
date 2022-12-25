@@ -14,14 +14,10 @@ import react from "/public/react.png";
 import tailwind from "/public/tailwind.png";
 import python from "/public/python.png";
 import php from "/public/php.png";
-import ski from "/public/ski.png";
-import java_nico from "/public/java_nico.png";
-import echec from "/public/echec.png";
 import profile_image from "/public/Nicolas.jpg";
 import cer from "/public/cer.png";
 import renov from "/public/renov.png";
 import ece from "/public/ece.png";
-import { supabase } from "../utils/supabase";
 
 export default function test() {
   const user = {
@@ -88,5 +84,3 @@ export default function test() {
     </div>
   );
 }
-// autrement envoyer le nom de user
-// par la suite faire la requete directement dans projects en utilisant en dur l'id de la personne

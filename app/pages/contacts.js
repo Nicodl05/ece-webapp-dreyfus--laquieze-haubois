@@ -16,7 +16,6 @@ function Contacts() {
       <br></br>
       <div className="dark:text-white">
         <br></br>
-
         <br></br>
         <div className=" text-white   grid grid-cols-2 ">
           <div className=" bg-[#007178] max-w-xs p-6 shadow-md rounded-xl sm:px-12 dark:bg-gray-900 dark:text-gray-100">
@@ -63,7 +62,6 @@ function Contacts() {
               </div>
             </div>
           </div>
-
           <div className=" bg-[#007178] max-w-xs p-6 shadow-md rounded-xl sm:px-12 dark:bg-gray-900 dark:text-gray-100">
             <Image
               src={cyril}

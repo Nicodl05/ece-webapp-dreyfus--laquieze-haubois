@@ -1,10 +1,9 @@
 import React from "react";
-import Link from "next/link";
-import { supabase } from "../../utils/supabase";
 import Add_comment from "../../components/Add_comment";
 import UpdateComment from "../../components/UpdateComment";
 import DeleteComment from "../../components/DeleteComment";
 
+import { supabase } from "../../utils/supabase";
 import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useEffect, useState } from "react";
 
@@ -15,6 +14,7 @@ function Page_Projet(props, { session }) {
   const [email, setEmail] = useState("");
   const [password, setPwd] = useState("");
   const [uid, setUid] = useState(null);
+  const id = props.id;
 
   useEffect(() => {
     getUser();
@@ -28,11 +28,9 @@ function Page_Projet(props, { session }) {
     if (error) {
       throw error;
     }
-
     if (!session?.user) {
       throw new Error("User not logged in");
     }
-
     return session.user;
   }
 
@@ -49,7 +47,6 @@ function Page_Projet(props, { session }) {
       if (error && status !== 406) {
         throw error;
       }
-
       if (data) {
         setName(data.name);
         setEmail(data.email);
@@ -70,7 +67,6 @@ function Page_Projet(props, { session }) {
     return user.name;
   }
 
-  const id = props.id;
   return (
     <div className="flex flex-col items-center  justify-center min-h-screen ">
       <section className="text-gray-600 body-font">
@@ -128,8 +124,6 @@ function Page_Projet(props, { session }) {
     </div>
   );
 }
-
-//console.log(props.comment)
 
 export async function getStaticPaths() {
   let { data: project } = await supabase.from("projet").select("*");

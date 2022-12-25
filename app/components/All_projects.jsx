@@ -1,4 +1,3 @@
-import Image from "next/image";
 function All_projects({ project }) {
   return (
     <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5 ">
@@ -13,7 +12,6 @@ function All_projects({ project }) {
               src={project.image}
               alt="Image du projet"
             />
-
             <div className="px-6 py-4 justify-center text-center">
               <div className="font-bold text-xl mb-2"> {project.name}</div>
               <p className="text-black dark:text-white text-base ">

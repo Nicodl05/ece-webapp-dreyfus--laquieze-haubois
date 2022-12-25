@@ -10,35 +10,6 @@ import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
 const Login = function () {
   const session = useSession();
   const supabase = useSupabaseClient();
-
-  // const customTheme = {
-  //   default: {
-  //     colors: {
-  //       brand: "hsl(153 60.0% 53.0%)",
-  //       brandAccent: "hsl(154 54.8% 45.1%)",
-  //       brandButtonText: "white",
-  //       // ..
-  //     },
-  //     dark: {
-  //       colors: {
-  //         brandButtonText: "white",
-  //         defaultButtonBackground: "#2e2e2e",
-  //         defaultButtonBackgroundHover: "#3e3e3e",
-  //         //..
-  //       },
-  //     },
-  //     // You can also add more theme variations with different names.
-  //     custom: {
-  //       colors: {
-  //         brandButtonText: "white",
-  //         defaultButtonBackground: "#1e1e1e",
-  //         defaultButtonBackgroundHover: "#2e2e2e",
-  //         //..
-  //       },
-  //     },
-  //   },
-  // };
-
   return (
     <div className="gap-6">
       <br></br>
@@ -59,7 +30,8 @@ const Login = function () {
   );
 };
 export default Login;
-/*
+
+/* Code précédant de connexion
 
 const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");

@@ -2,19 +2,6 @@ import { useEffect, useState } from "react";
 import { supabase } from "../utils/supabase";
 import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
 
-import { Link, Redirect } from "react-router-dom";
-export const getStaticProps = async () => {
-  let { data: user, error } = await supabase
-    .from("user")
-    .select("*")
-    .eq("name", "Nicolas");
-  return {
-    props: {
-      user,
-    },
-  };
-};
-
 function pwd_modif({ session }) {
   const [oldpwd, setOldPwd] = useState("");
   const [formError, setFromError] = useState(null);
@@ -98,7 +85,6 @@ function pwd_modif({ session }) {
   };
   return (
     <div>
-      {/* {user.map((user) => ( */}
       <div className="text-center justify-center items-center">
         <div className="wt-title">Modification de votre mot de passe: </div>
         <div className="form-control gap-4 text-lg ">
@@ -132,9 +118,18 @@ function pwd_modif({ session }) {
           </form>
         </div>
       </div>
-      {/* ))} */}
     </div>
   );
 }
-
+export const getServerSideProps = async () => {
+  let { data: user, error } = await supabase
+    .from("user")
+    .select("*")
+    .eq("name", "Nicolas");
+  return {
+    props: {
+      user,
+    },
+  };
+};
 export default pwd_modif;

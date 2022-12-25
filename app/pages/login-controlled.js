@@ -70,7 +70,6 @@ const Login = function () {
             </button>
           </div>
         </form>
-
         <p className="mt-8 text-xs font-light text-gray-700 mr-2 mb-2   text-center ">
           {" "}
           Don't have an account?{" "}

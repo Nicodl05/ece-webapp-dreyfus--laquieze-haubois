@@ -1,6 +1,6 @@
 import React from "react";
-import { useState, useEffect, useContext } from "react";
-import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
+import { useState, useEffect } from "react";
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
 export default function updateComment({ session }) {
   const [loading, setLoading] = useState(false);

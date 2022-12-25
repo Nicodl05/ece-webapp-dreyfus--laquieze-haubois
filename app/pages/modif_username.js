@@ -1,19 +1,5 @@
 import { useEffect, useState } from "react";
-import { supabase } from "../utils/supabase";
 import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
-
-// import { Link, Redirect } from "react-router-dom";
-// export const getStaticProps = async () => {
-//   let { data: user, error } = await supabase
-//     .from("user")
-//     .select("*")
-//     .eq("name", "Nicolas");
-//   return {
-//     props: {
-//       user,
-//     },
-//   };
-// };
 
 function modif_username({ session }) {
   const [oldname, setOldName] = useState("");
@@ -104,7 +90,6 @@ function modif_username({ session }) {
   };
   return (
     <div>
-      {/* {user.map((user) => ( */}
       <div className="text-center justify-center items-center">
         <div className="wt-title">Modification de votre nom: </div>
         <div className="form-control gap-4 text-lg ">
@@ -138,7 +123,6 @@ function modif_username({ session }) {
           </form>
         </div>
       </div>
-      {/* ))} */}
     </div>
   );
 }

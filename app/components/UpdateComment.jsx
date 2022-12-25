@@ -82,11 +82,6 @@ export default function updateComment({ session }) {
   }
   async function update() {
     try {
-      // const data = getCommentAuthor(id_comment);
-      // if (data.author != name) {
-      //   alert("Vous n'êtes pas l'auteur de ce commentaire");
-      //   return;
-      // } else {
       setLoading(true);
       let { error } = await supabase
         .from("comment")
@@ -94,7 +89,6 @@ export default function updateComment({ session }) {
         .eq("id", id_comment);
       if (error) throw error;
       alert("Commentaire modifié");
-      // }
     } catch (error) {
       alert(
         "Erreur lors de la modification, ce n'est peut être pas votre commentaire !"

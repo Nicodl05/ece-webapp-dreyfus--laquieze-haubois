@@ -2,12 +2,16 @@ import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { FaSun, FaMoon } from "react-icons/fa";
 import Avatar from "./Avatar";
-import { supabase } from "../utils/supabase";
 import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
 
 const Header = ({ session }) => {
   const { systemTheme, theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(true);
+  const supabase = useSupabaseClient();
+  const [error, setError] = useState(null);
+  const [name, setName] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const renderThemeChanger = () => {
     if (!mounted) return "shit";
@@ -36,12 +40,6 @@ const Header = ({ session }) => {
     email: "nico.dreylaq@gmail.com",
     isLoggedIn: true,
   };
-  const supabase = useSupabaseClient();
-  const [error, setError] = useState(null);
-  const [name, setName] = useState(null);
-  const [email, setEmail] = useState(null);
-  const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     getUser();
   }, [session]);
@@ -111,6 +109,8 @@ const Header = ({ session }) => {
 };
 
 export default Header;
+
+// Cours
 //  <p>User: {user?.username}</p>
 
 /*async function fetchUser() {

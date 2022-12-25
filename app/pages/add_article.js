@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../utils/supabase";
-var i = 0;
+
 function add_article() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -8,6 +8,7 @@ function add_article() {
   const [tags, setTags] = useState("");
   const [id_author, setId_author] = useState("5");
   const [formError, setFromError] = useState(null);
+  var i = 0;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,7 +16,6 @@ function add_article() {
       setFromError("Remplissez tous les champs");
       return;
     }
-
     const { data, error } = await supabase.from("articles").insert([
       {
         title: title,
@@ -31,7 +31,6 @@ function add_article() {
       setFromError("Remplissez tous les champs correctement " + i);
       i++;
     }
-
     if (data) {
       console.log(data);
       setFromError(null);

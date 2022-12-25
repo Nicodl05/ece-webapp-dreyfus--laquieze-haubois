@@ -1,8 +1,6 @@
 import { useState, useEffect, useContext } from "react";
-import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
-import Context, { UserContext } from "./UserContext";
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import React from "react";
-import { supabase } from "../utils/supabase";
 
 export default function Comment({ id, session }) {
   const supabase = useSupabaseClient();
@@ -25,11 +23,9 @@ export default function Comment({ id, session }) {
     if (error) {
       throw error;
     }
-
     if (!session?.user) {
       throw new Error("User not logged in");
     }
-
     return session.user;
   }
 
@@ -75,7 +71,6 @@ export default function Comment({ id, session }) {
         comment: comment,
         projet_id: id,
         author: name,
-        //
       });
       if (error2) {
         throw error2;
@@ -94,7 +89,6 @@ export default function Comment({ id, session }) {
         <div className="form-control gap-4 text-lg ">
           <br></br>
           <br></br>
-
           <form onSubmit={addComment}>
             <div>
               Votre nouveau commentaire

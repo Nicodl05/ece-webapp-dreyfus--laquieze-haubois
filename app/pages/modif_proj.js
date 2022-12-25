@@ -1,17 +1,19 @@
-import { useContext, useEffect, useState } from "react";
-import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
-import Context from "../components/UserContext";
+import { useEffect, useState } from "react";
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
 export default function modif_proj({ session }) {
   const [projet, setProjet] = useState([]);
   const supabase = useSupabaseClient();
-  const { user } = useContext(Context);
   const [id, setId] = useState("");
   const [loading, setLoading] = useState(true);
   const [name, setName] = useState(null);
   const [languages, setLanguages] = useState(null);
   const [git, setGit] = useState(null);
   const [description, setDescription] = useState(null);
+  const [name_user, setNameUser] = useState(null);
+  const [email_user, setEmailUser] = useState(null);
+  const [passwordUser, setPwdUser] = useState(null);
+  const [id_User, setId_User] = useState(null);
 
   useEffect(() => {
     async function getProjet() {
@@ -24,10 +26,6 @@ export default function modif_proj({ session }) {
     }
     getProjet();
   }, []);
-  const [name_user, setNameUser] = useState(null);
-  const [email_user, setEmailUser] = useState(null);
-  const [passwordUser, setPwdUser] = useState(null);
-  const [id_User, setId_User] = useState(null);
 
   useEffect(() => {
     getUser();
@@ -77,7 +75,6 @@ export default function modif_proj({ session }) {
   }
   const modif = async function (e) {
     e.preventDefault();
-
     if (name != null) {
       const { error } = await supabase
         .from("projet")
@@ -145,7 +142,6 @@ export default function modif_proj({ session }) {
                 src={project.image}
                 alt="Image du projet"
               />
-
               <div className="px-6 py-4 justify-center text-center">
                 <div className="font-bold text-xl mb-2"> {project.name}</div>
                 <p className="text-black dark:text-white text-base ">

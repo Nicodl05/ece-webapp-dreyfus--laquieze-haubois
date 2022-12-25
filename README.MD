@@ -51,7 +51,7 @@ Normalement après toutes ces étapes tout devrait normalement fonctionner.
   * Comments: RAS
   * 
 * Git
-  * Points: /2
+  * Points: 2/2
   * Commentaires: RAS
 * Code quality
   * Points: 4
@@ -71,33 +71,32 @@ Normalement après toutes ces étapes tout devrait normalement fonctionner.
   * Commentaires: Connexion et Page de profil parfaitement fonctionnelles, possibilité de connexion avec Github en plus
 * New articles creation
   * Points: 6
-  * Commentaires: Possibilité de créer un projet complet qui sera save dans supabase. Possibilité de mettre titre, languages, description, lien Github et images. Ce projet est directement affiché ensuite sur le site après un refresh 
+  * Commentaires: Possibilité de créer un projet complet qui sera save dans supabase. Possibilité de mettre titre, languages, description, lien Github, (imagess et routing de la page pas fonctionnelles). Ce projet est directement affiché ensuite sur le site après un refresh 
   * Bugs: pas encore possible d'aller sur la page d'un nouveau projet pour faire des commentaires
 * New comment creation
   * Points: 4
-  * Commentaires: Possibilité de créer des commentaires cependant l'authentification n'est pas encore reliée. Les commentaires sont save dans supabase
-  * Bugs: Problème d'authentifiation 
+  * Commentaires: Possibilité de créer des commentaires avec Authenfitication et RLS activé. 
 * Resource access control
   * Points: 6
-  * Commentaires: Le RLS est activé pour les tables user, projets et comment,aucun utilisateur non authentifié ne peut écrire/ modifié des projets commentaires qui ne sont pas les siens
+  * Commentaires: Le RLS est activé pour les tables user, projets et comment. Aucun utilisateur non authentifié et connecté ne peut écrire / modifié / supprimer des projets / commentaires / utilisateurs qui ne sont pas les siens / si il n'est pas admin
 * Article modification
   * Points: 4
-  * Commentaires: Possibilité de modifier le projet et sera save dans la base de données
+  * Commentaires: Possibilité de modifier le projet uniquement si l'utilisateur connecté est l'auteur de ce projet
 * Article removal
   * Points: 2
-  * Commentaires: Possibilité de supprimer un projet et le changement se voit dans la base de données ou lorsque l'on recharge la page projet
+  * Commentaires: Possibilité de supprimer un projet si l'utilisateur connecté est l'auteur de ce projet. Le changement se voit dans la base de données ou lorsque l'on recharge la page projet. 
 * Comment modification
   * Points: 2
-  * Commentaires: Possibilité de modifier un commentaire (sans authentification)
+  * Commentaires: Possibilité de modifier un commentaire si c'est un commentaire écrit par celui qui est connecté
 * Comment removal
   * Points: 2
-  * Commentaires: Possibilité de supprimer un commentaire (sans authentification)
+  * Commentaires: Possibilité de supprimer un commentaire si il s'agit d'un commentaire de la personne connectée.
 * Account settings
   * Points: 4
-  * Commentaires: Page paramètres permettant à l'utilisateur d'avoir des informations sur son compte, possibilité de modifier son nom
+  * Commentaires: Page paramètres permettant à l'utilisateur d'avoir des informations sur son compte et si il est admin, possibilité de modifier son nom, un projet, supprimer un projet. Si il est admin, de supprimer un utilisateur
 * WYSIWYG integration
   * Points: 2
-  * Commentaires: Notre affichage est celui que nous souhaitions en majorité
+  * Commentaires: Notre affichage est celui que nous avions prévu
 * Gravatar integration
   * Points: 2
   * Commentaires: Si le user n'est pas connecté via supabase, aucune image de profil ne sera affiché en haut à droite de l'écran. Si l'utilisateur est connecté, sa photo avec Gravatar s'affichera. (Liaision Gravatar - Supabase) 
@@ -109,6 +108,8 @@ Normalement après toutes ces étapes tout devrait normalement fonctionner.
   * Commentaires: Non réalisé
 ## Bonus ideas
 
+Liaison Gravatar - Supabase pour l'image
+Utilisation d'un Admin pour le compte de Nicolas et Cyril ==> Possibilité de supprimer un utilisateur
 
 ## Avancement
 

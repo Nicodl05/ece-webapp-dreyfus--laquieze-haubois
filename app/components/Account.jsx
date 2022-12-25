@@ -111,7 +111,6 @@ export default function Account({ session }) {
           onChange={(e) => setPwd(e.target.value)}
         />
       </div>
-
       <div>
         <button
           className="button primary block"
@@ -121,7 +120,6 @@ export default function Account({ session }) {
           {loading ? "Loading ..." : "Update"}
         </button>
       </div>
-
       <div>
         <button
           className="button block"

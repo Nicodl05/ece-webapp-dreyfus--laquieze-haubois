@@ -5,15 +5,7 @@ import echec from "/public/echec.png";
 import All_projects from "../components/All_projects";
 import { supabase } from "../utils/supabase";
 import Link from "next/link";
-export const getStaticProps = async () => {
-  const { data: projet } = await supabase.from("projet").select("*");
 
-  return {
-    props: {
-      projet,
-    },
-  };
-};
 export default function ListProjets({ projet }) {
   return (
     <div>
@@ -24,7 +16,7 @@ export default function ListProjets({ projet }) {
       <All_projects project={projet} />
       <div className="justify-between items-center text-center">
         <Link href="/add_project">
-          <button className="items-center justify-center text-center   bg-[#007178] dark:bg-gray-900 dark:hover:bg-indigo-800 text-white border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 hover:scale-150 rounded text-lg">
+          <button className="items-center justify-center text-center bg-[#007178] dark:bg-gray-900 dark:hover:bg-indigo-800 text-white border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 hover:scale-150 rounded text-lg">
             Ajouter un projet
           </button>
         </Link>
@@ -33,3 +25,12 @@ export default function ListProjets({ projet }) {
     </div>
   );
 }
+export const getServerSideProps = async () => {
+  const { data: projet } = await supabase.from("projet").select("*");
+
+  return {
+    props: {
+      projet,
+    },
+  };
+};

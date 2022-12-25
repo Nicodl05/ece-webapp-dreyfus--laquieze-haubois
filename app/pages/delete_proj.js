@@ -3,6 +3,7 @@ import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
 import Context from "../components/UserContext";
 
 export default function delete_proj({ session }) {
+  //Valeurs pour definir proj et supa
   const [projet, setProjet] = useState([]);
   const supabase = useSupabaseClient();
   const [id, setId] = useState("");
@@ -12,6 +13,7 @@ export default function delete_proj({ session }) {
   const [passwordUser, setPwdUser] = useState(null);
   const [id_User, setId_User] = useState(null);
 
+  // Permet de get le projet voulu pour delete
   useEffect(() => {
     async function getProjet() {
       setLoading(true);
@@ -24,10 +26,12 @@ export default function delete_proj({ session }) {
     getProjet();
   }, []);
 
+  // Permet de get le user
   useEffect(() => {
     getUser();
   }, [session]);
 
+  //Permet de get le user par rapport a la session en cours
   async function getCurrentUser() {
     const {
       data: { session },
@@ -43,6 +47,7 @@ export default function delete_proj({ session }) {
     return session.user;
   }
 
+  //Permet de get les infos du user sur la table user
   async function getUser() {
     try {
       setLoading(true);
@@ -70,6 +75,7 @@ export default function delete_proj({ session }) {
     }
   }
 
+  // Fonction pour delete le proj
   const delete_confirm = async function (e) {
     e.preventDefault();
 

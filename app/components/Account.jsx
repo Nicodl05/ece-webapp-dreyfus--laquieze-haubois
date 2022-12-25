@@ -3,6 +3,7 @@ import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
 import Context from "./UserContext";
 
 export default function Account({ session }) {
+  // Value pour supa et user
   const supabase = useSupabaseClient();
   const user = useContext(Context);
   const [loading, setLoading] = useState(true);
@@ -10,10 +11,12 @@ export default function Account({ session }) {
   const [email, setEmail] = useState("");
   const [password, setPwd] = useState("");
 
+  // Permet de get le user
   useEffect(() => {
     getUser();
   }, [session]);
 
+  // Permet de get le user en fonction de la session
   async function getCurrentUser() {
     const {
       data: { session },
@@ -30,6 +33,7 @@ export default function Account({ session }) {
     return session.user;
   }
 
+  // Permet de get le user en fonction de la session
   async function getUser() {
     try {
       setLoading(true);
@@ -58,6 +62,7 @@ export default function Account({ session }) {
     }
   }
 
+  // Permet de mettre à jour le user
   async function updateProfile({ name, password }) {
     try {
       setLoading(true);

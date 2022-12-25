@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import carou1 from "../public/carou1.png";
-
+// Display d'une image pour home
 function Carousel() {
   return (
     <div>

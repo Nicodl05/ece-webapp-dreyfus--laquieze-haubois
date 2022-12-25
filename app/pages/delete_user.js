@@ -12,10 +12,12 @@ export default function delete_user({ session, users }) {
   const [id_User, setId_User] = useState(null);
   const [admin, setAdmin] = useState(null);
 
+  // Permet de get le user
   useEffect(() => {
     getUser();
   }, [session]);
 
+  //Permet de get le user par rapport a la session en cours
   async function getCurrentUser() {
     const {
       data: { session },
@@ -31,6 +33,7 @@ export default function delete_user({ session, users }) {
     return session.user;
   }
 
+  //Permet de get les infos du user sur la table user
   async function getUser() {
     try {
       setLoading(true);
@@ -58,6 +61,7 @@ export default function delete_user({ session, users }) {
     }
   }
 
+  //Permet de delete un user avec check si le user est bien admin
   const delete_confirm = async function (e) {
     e.preventDefault();
     if (admin === true) {

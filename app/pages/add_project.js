@@ -4,21 +4,22 @@ import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
 
 function add_project({ session, projet }) {
   /* faut trouver un moyen pour add path */
+  // Valeurs pour projet et co supa
   const [name, setName] = useState("");
   const [languages, setLanguages] = useState("");
   const [git, setGit] = useState("");
   const [description, setDescription] = useState("");
   const [formError, setFromError] = useState(null);
   const supabase = useSupabaseClient();
-
   const user = useUser();
   const [loading, setLoading] = useState(true);
   const [id, setId] = useState("");
-
+  const [uploading, setUploading] = useState(false);
+  // get le user
   useEffect(() => {
     getUser();
   }, [session]);
-
+  //récupere l'utilisateur par rapport a la session
   async function getCurrentUser() {
     const {
       data: { session },
@@ -34,7 +35,7 @@ function add_project({ session, projet }) {
 
     return session.user;
   }
-
+  // recupere les infos user dans la table user p
   async function getUser() {
     try {
       setLoading(true);
@@ -58,6 +59,8 @@ function add_project({ session, projet }) {
     }
   }
 
+  // Permet de update le path apres insertion
+  // Dynamic routing basé sur l'id à récupérer après insertion
   async function addinfo(name) {
     try {
       const { data: id_founded, error1 } = await supabase
@@ -81,7 +84,7 @@ function add_project({ session, projet }) {
       alert(error);
     }
   }
-  const [uploading, setUploading] = useState(false);
+  // Permet d'inserer dans le bucket l'image select
   const handleFileChange = async (e) => {
     try {
       setUploading(true);
@@ -114,12 +117,14 @@ function add_project({ session, projet }) {
     // alert(proj_added);
   };
   // pour l'id
+
+  // Permet d'inserer dans la table projet, check si nom, languages et descr !vide
   const handleSubmit = async (e) => {
     if (!name || !languages || !description) {
       setFromError("Remplissez les champs obligatoires");
       return;
     }
-
+    // insert le proj
     try {
       const { error } = await supabase.from("projet").insert({
         user_id: id,
@@ -159,13 +164,12 @@ function add_project({ session, projet }) {
     // } catch (error) {
     //   alert(error);
     // }
-
     alert("Projet ajouté");
   };
+
   return (
     <div>
       <br></br>
-
       <h1 className=" text wt-title text-center space-y-6">
         Ajouter un nouveau projet
       </h1>

@@ -12,10 +12,12 @@ function modif_username({ session }) {
   const [password, setPwd] = useState(null);
   const [id, setId] = useState(null);
 
+  // Permet de get le user
   useEffect(() => {
     getUser();
   }, [session]);
 
+  // Permet de get le user en fonction de la session
   async function getCurrentUser() {
     const {
       data: { session },
@@ -32,6 +34,7 @@ function modif_username({ session }) {
     return session.user;
   }
 
+  // Permet de get les infos user a partir de la table
   async function getUser() {
     try {
       setLoading(true);
@@ -57,6 +60,7 @@ function modif_username({ session }) {
       console.log(error);
     }
   }
+  // Permet de modifier le nom d'utilisateur
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email) {
@@ -67,7 +71,7 @@ function modif_username({ session }) {
       setFromError("Votre nom doit contenir au moins 3 caractères");
       return;
     }
-
+    // Insert dans la bdd
     const { error } = await supabase
       .from("user")
       .update([{ name: name }])

@@ -3,7 +3,7 @@ import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
 import Image from "next/image";
 import Nicolas from "../public/Nicolas.jpg";
 import Cyril from "../public/Cyril.jpg";
-
+// Render switch pour display image en fonction du user
 function switchimages({ id }) {
   switch (id) {
     case "21ef1270-5eae-4b48-8f40-6e07915a0f90":
@@ -36,6 +36,7 @@ function switchimages({ id }) {
   }
 }
 export default function parametre({ session }) {
+  // Valeurs connexions supa et user
   const supabase = useSupabaseClient();
   const user = useUser();
   const [loading, setLoading] = useState(true);
@@ -45,10 +46,11 @@ export default function parametre({ session }) {
   const [id, setId] = useState(null);
   const [admin, setAdmin] = useState("");
 
+  // Permet de get le user
   useEffect(() => {
     getUser();
   }, [session]);
-
+  // Permet de get le user en fonction de la session
   async function getCurrentUser() {
     const {
       data: { session },
@@ -65,6 +67,7 @@ export default function parametre({ session }) {
     return session.user;
   }
 
+  // Permet de get les infos user a partir de la table
   async function getUser() {
     try {
       setLoading(true);

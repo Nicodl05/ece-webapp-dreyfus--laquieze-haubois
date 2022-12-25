@@ -3,6 +3,7 @@ import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import React from "react";
 
 export default function Comment({ id, session }) {
+  // Valeurs pour supa et définir le comment
   const supabase = useSupabaseClient();
   const [comment, setComment] = useState("");
   const [name, setName] = useState("");
@@ -11,10 +12,12 @@ export default function Comment({ id, session }) {
   const [uid, setUid] = useState(null);
   const [loading, setLoading] = useState(false);
 
+  // Permet de get le user
   useEffect(() => {
     getUser();
   }, [session]);
 
+  // Permet de get le user en fonction de la session
   async function getCurrentUser() {
     const {
       data: { session },
@@ -29,6 +32,7 @@ export default function Comment({ id, session }) {
     return session.user;
   }
 
+  // Permet de get les infos du user sur la table
   async function getUser() {
     try {
       setLoading(true);
@@ -58,6 +62,7 @@ export default function Comment({ id, session }) {
     console.log("mon id:" + id);
   }
 
+  // Permet d'ajouter un commentaire sur supa
   const addComment = async (e) => {
     e.preventDefault();
     if (!comment) {

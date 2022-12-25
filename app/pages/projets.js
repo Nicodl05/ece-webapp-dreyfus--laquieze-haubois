@@ -5,7 +5,7 @@ import echec from "/public/echec.png";
 import All_projects from "../components/All_projects";
 import { supabase } from "../utils/supabase";
 import Link from "next/link";
-
+// Display de chaque proj en envoyant le proj sur all_proj
 export default function ListProjets({ projet }) {
   return (
     <div>
@@ -25,6 +25,7 @@ export default function ListProjets({ projet }) {
     </div>
   );
 }
+// Récupération des projets
 export const getServerSideProps = async () => {
   const { data: projet } = await supabase.from("projet").select("*");
 

@@ -8,6 +8,7 @@ function About() {
         About Us
       </div>
       <br></br>
+      {/* Call Profiles for display */}
       <Profiles />
     </div>
   );

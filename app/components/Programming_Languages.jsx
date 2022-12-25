@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+// Display chaque language recu
 function Programming_Languages({ lang }) {
   return (
     <div className=" gap-6 justify-between text-center items-center ">

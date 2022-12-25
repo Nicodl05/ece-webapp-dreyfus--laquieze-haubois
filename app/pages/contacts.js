@@ -1,9 +1,7 @@
-import Layout from "../components/Layout";
 import Link from "next/link";
 import nicolas from "/public/Nicolas.jpg";
 import cyril from "/public/Cyril.jpg";
 import Image from "next/image";
-import { darkThemes } from "../utils/supabase";
 
 const mail_nico = "nico.dreylaq@gmail.com";
 const mail_cyril = "cyril.haubois@edu.ece.fr";

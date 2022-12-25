@@ -1,10 +1,10 @@
 import Image from "next/image";
 import { supabase } from "../utils/supabase";
 import { useEffect, useState } from "react";
-import Link from "next/link";
+
 export default function Projects({ id }) {
-  console.log(id);
   const [projet, setProjet] = useState([]);
+  // Permet de get le projet
   useEffect(() => {
     async function getProjet() {
       const { data: projet, error } = await supabase
@@ -16,6 +16,7 @@ export default function Projects({ id }) {
     }
     getProjet();
   }, []);
+  // Display du projet
   return (
     <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5 ">
       {projet.map((project) => (

@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+// Display des entreprises avec les job
 function Compagny({ jobs }) {
   return (
     <div className="">

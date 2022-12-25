@@ -3,6 +3,7 @@ import { supabase } from "../utils/supabase";
 import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
 
 function pwd_modif({ session }) {
+  // Valeurs pour définir user pwd et supa
   const [oldpwd, setOldPwd] = useState("");
   const [formError, setFromError] = useState(null);
   const supabase = useSupabaseClient();
@@ -13,10 +14,12 @@ function pwd_modif({ session }) {
   const [pwd, setPwd] = useState(null);
   const [id, setId] = useState(null);
 
+  // Permet de get le user
   useEffect(() => {
     getUser();
   }, [session]);
 
+  // Permet de get le user en fonction de la session
   async function getCurrentUser() {
     const {
       data: { session },
@@ -33,6 +36,7 @@ function pwd_modif({ session }) {
     return session.user;
   }
 
+  // Permet de get les infos user a partir de la table
   async function getUser() {
     try {
       setLoading(true);
@@ -58,6 +62,7 @@ function pwd_modif({ session }) {
       console.log(error);
     }
   }
+  // Modif pwd
   const handleSubmit = async (e) => {
     e.preventDefault();
 

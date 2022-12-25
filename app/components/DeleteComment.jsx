@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
 export default function updateComment({ session }) {
+  // Valeurs pour update un commentaire
   const [loading, setLoading] = useState(false);
   const [id, setId] = useState("");
   const supabase = useSupabaseClient();
@@ -11,10 +12,12 @@ export default function updateComment({ session }) {
   const [password, setPwd] = useState("");
   const [uid, setUid] = useState("");
 
+  // Permet de get le user
   useEffect(() => {
     getUser();
   }, [session]);
 
+  // Permet de get le user en fonction de la session
   async function getCurrentUser() {
     const {
       data: { session },
@@ -31,6 +34,7 @@ export default function updateComment({ session }) {
     return session.user;
   }
 
+  // Permet de get les infos du user sur la table
   async function getUser() {
     try {
       setLoading(true);
@@ -56,6 +60,7 @@ export default function updateComment({ session }) {
       setLoading(false);
     }
   }
+  // permet de delete le commentaire
   async function update() {
     try {
       // setLoading(true);

@@ -3,6 +3,7 @@ import nicolas from "/public/Nicolas.jpg";
 import cyril from "/public/Cyril.jpg";
 import Link from "next/link";
 
+// Permet de display les profiles des users en dur
 const Profiles = () => {
   return (
     <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-10">

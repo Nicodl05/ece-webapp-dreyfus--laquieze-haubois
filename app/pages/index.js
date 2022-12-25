@@ -6,7 +6,7 @@ import tailwind from "../public/tailwind.png";
 import nextjs from "../public/nextjs.png";
 import Image from "next/image";
 import Carousel from "../components/Carousel";
-
+// Page Home
 function Home() {
   return (
     <div className=" dark:dark">
@@ -90,6 +90,7 @@ function Home() {
           documentation):<br></br>
           <br></br>
           <div>
+            {/* Liens doc */}
             <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-10  ">
               <a href="https://nextjs.org/" className="hover:scale-75">
                 <Image src={nextjs} />

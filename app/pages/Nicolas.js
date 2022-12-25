@@ -20,6 +20,7 @@ import renov from "/public/renov.png";
 import ece from "/public/ece.png";
 
 export default function test() {
+  // Déclaration des objets en dur pour les send et display
   const user = {
     picture: profile_image,
     name: "Nicolas",

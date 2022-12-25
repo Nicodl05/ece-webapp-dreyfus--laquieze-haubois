@@ -11,6 +11,7 @@ function MyApp({ Component, pageProps }) {
   const [supabase] = useState(() => createBrowserSupabaseClient());
 
   return (
+    // Theme into session supa into usercontext
     <ThemeProvider enableSystem={true} attribute="class">
       <SessionContextProvider
         supabaseClient={supabase}

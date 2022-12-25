@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+// Permet de présenter mode cv le user
 export default function Presentation({ picture, name, info, linkd, git }) {
   return (
     <div className="flex space-y-10">

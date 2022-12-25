@@ -5,6 +5,7 @@ import Avatar from "./Avatar";
 import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
 
 const Header = ({ session }) => {
+  // Valeurs pour le theme, supa et la connexion user
   const { systemTheme, theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(true);
   const supabase = useSupabaseClient();
@@ -12,7 +13,7 @@ const Header = ({ session }) => {
   const [name, setName] = useState(null);
   const [email, setEmail] = useState(null);
   const [loading, setLoading] = useState(true);
-
+  // Permet de changer de theme avec display sun/moon
   const renderThemeChanger = () => {
     if (!mounted) return "shit";
     const currentTheme = theme === "system" ? systemTheme : theme;
@@ -40,9 +41,11 @@ const Header = ({ session }) => {
     email: "nico.dreylaq@gmail.com",
     isLoggedIn: true,
   };
+  // Permet de get le user
   useEffect(() => {
     getUser();
   }, [session]);
+  // Permet de get le user en fonction de la session
   async function getCurrentUser() {
     const {
       data: { session },
@@ -58,6 +61,7 @@ const Header = ({ session }) => {
 
     return session.user;
   }
+  // Permet de get les infos user sur la table user
   async function getUser() {
     try {
       setLoading(true);
@@ -95,6 +99,7 @@ const Header = ({ session }) => {
   if (error) {
     return <pre className="text-red-500">{JSON.stringify(error, null, 2)}</pre>;
   }
+  // Renvoie le bouton de switch de theme et l'avatar de co du user
   return (
     <div>
       <div className="flex gap-2 items-center">

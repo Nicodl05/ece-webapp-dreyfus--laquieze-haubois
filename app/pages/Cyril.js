@@ -20,7 +20,7 @@ import java_nico from "/public/java_nico.png";
 import profile_image from "/public/Cyril.jpg";
 import braintech from "/public/braintech.png";
 import lacentralef from "/public/lacentralef.png";
-
+// Définit tout nos obj en dur puis envoie tt pr display
 export default function test() {
   const user = {
     picture: profile_image,

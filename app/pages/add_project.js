@@ -29,7 +29,7 @@ function add_project({ session }) {
 
   const user = useUser();
   const [loading, setLoading] = useState(true);
-  const [id, setId] = useState(null);
+  const [id, setId] = useState("");
 
   useEffect(() => {
     getUser();

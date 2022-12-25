@@ -2,18 +2,18 @@ import { useEffect, useState } from "react";
 import { supabase } from "../utils/supabase";
 import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
 
-import { Link, Redirect } from "react-router-dom";
-export const getStaticProps = async () => {
-  let { data: user, error } = await supabase
-    .from("user")
-    .select("*")
-    .eq("name", "Nicolas");
-  return {
-    props: {
-      user,
-    },
-  };
-};
+// import { Link, Redirect } from "react-router-dom";
+// export const getStaticProps = async () => {
+//   let { data: user, error } = await supabase
+//     .from("user")
+//     .select("*")
+//     .eq("name", "Nicolas");
+//   return {
+//     props: {
+//       user,
+//     },
+//   };
+// };
 
 function modif_username({ session }) {
   const [oldname, setOldName] = useState("");
@@ -86,6 +86,13 @@ function modif_username({ session }) {
       .from("user")
       .update([{ name: name }])
       .eq("email", email);
+    alert(
+      "Votre nom d'utilisateur a été modifié, votre nouveau nom est " + name
+    );
+    const { error2 } = await supabase
+      .from("comment")
+      .update([{ author: name }])
+      .eq("u_id", id);
     alert(
       "Votre nom d'utilisateur a été modifié, votre nouveau nom est " + name
     );

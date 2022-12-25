@@ -50,7 +50,7 @@ export default function updateComment({ session }) {
         setEmail(data.email);
         setPwd(data.password);
         setUid(data.id);
-        alert("Bienvenue:" + data.name);
+        // alert("Bienvenue:" + data.name);
       }
     } catch (error) {
       console.log(error);

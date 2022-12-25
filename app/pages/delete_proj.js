@@ -3,7 +3,7 @@ import { supabase } from "../utils/supabase";
 import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
 import Link from "next/link";
 import Context from "../components/UserContext";
-export default function delete_proj() {
+export default function delete_proj({ session }) {
   const [projet, setProjet] = useState([]);
   const supabase = useSupabaseClient();
   const { user } = useContext(Context);
@@ -20,10 +20,80 @@ export default function delete_proj() {
     }
     getProjet();
   }, []);
+  const [name_user, setNameUser] = useState(null);
+  const [email_user, setEmailUser] = useState(null);
+  const [passwordUser, setPwdUser] = useState(null);
+  const [id_User, setId_User] = useState(null);
+
+  useEffect(() => {
+    getUser();
+  }, [session]);
+
+  async function getCurrentUser() {
+    const {
+      data: { session },
+      error,
+    } = await supabase.auth.getSession();
+    if (error) {
+      throw error;
+    }
+
+    if (!session?.user) {
+      throw new Error("User not logged in");
+    }
+
+    return session.user;
+  }
+
+  async function getUser() {
+    try {
+      setLoading(true);
+      const user = await getCurrentUser();
+      let { data, error, status } = await supabase
+        .from("user")
+        .select(`id,name, email, password`)
+        .eq("id", user.id)
+        .single();
+
+      if (error && status !== 406) {
+        throw error;
+      }
+
+      if (data) {
+        setNameUser(data.name);
+        setEmailUser(data.email);
+        setPwdUser(data.password);
+        setId_User(data.id);
+        alert("Bienvenue " + data.name);
+      }
+    } catch (error) {
+      alert("Error loading user data!");
+      console.log(error);
+    }
+  }
+
   const delete_confirm = async function (e) {
     e.preventDefault();
-    const { error } = await supabase.from("projet").delete().eq("id", id);
-    alert("Projet supprimé, vous pouvez rafraichir la page");
+    const { data, error2 } = await supabase
+      .from("projet")
+      .select()
+      .eq("id", id);
+    if (error2) {
+      alert("Erreur lors de la récupération du projet, ");
+    }
+    alert("Nom de l'auteur : " + data.user_id);
+    if (data.user_id == id_User) {
+      const { error } = await supabase.from("projet").delete().eq("id", id);
+      if (error) {
+        alert("Erreur lors de la suppression du projet, ");
+      } else {
+        alert("Projet supprimé, vous pouvez rafraichir la page");
+      }
+    } else {
+      alert(
+        "Vous n'êtes pas l'auteur de ce projet, vous ne pouvez pas le supprimer"
+      );
+    }
   };
   return (
     <div>

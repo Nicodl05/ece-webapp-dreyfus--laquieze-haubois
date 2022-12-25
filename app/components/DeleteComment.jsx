@@ -3,10 +3,60 @@ import { useState, useEffect, useContext } from "react";
 import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
 import { supabase } from "../utils/supabase";
 
-export default function updateComment() {
+export default function updateComment({ session }) {
   const [loading, setLoading] = useState(false);
   const [id, setId] = useState("");
+  const supabase = useSupabaseClient();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPwd] = useState("");
+  const [uid, setUid] = useState("");
 
+  useEffect(() => {
+    getUser();
+  }, [session]);
+
+  async function getCurrentUser() {
+    const {
+      data: { session },
+      error,
+    } = await supabase.auth.getSession();
+    if (error) {
+      throw error;
+    }
+
+    if (!session?.user) {
+      throw new Error("User not logged in");
+    }
+
+    return session.user;
+  }
+
+  async function getUser() {
+    try {
+      setLoading(true);
+      const user = await getCurrentUser();
+      let { data, error, status } = await supabase
+        .from("user")
+        .select(`id,name, email, password`)
+        .eq("id", user.id)
+        .single();
+      if (error && status !== 406) {
+        throw error;
+      }
+      if (data) {
+        setName(data.name);
+        setEmail(data.email);
+        setPwd(data.password);
+        setUid(data.id);
+        alert("Bienvenue:" + data.name);
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  }
   async function update() {
     try {
       // setLoading(true);

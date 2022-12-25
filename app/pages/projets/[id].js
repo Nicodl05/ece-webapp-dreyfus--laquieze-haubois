@@ -115,10 +115,10 @@ function Page_Projet(props, { session }) {
         </div>
 
         <div>
-          <UpdateComment id={id} />
+          <UpdateComment session={session} />
         </div>
         <div>
-          <DeleteComment />
+          <DeleteComment session={session} />
         </div>
       </div>
     </div>

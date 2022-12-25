@@ -6,9 +6,7 @@ import { supabase } from "../utils/supabase";
 
 export default function Comment({ id, session }) {
   const supabase = useSupabaseClient();
-  const [user, setUser] = useState([]);
   const [comment, setComment] = useState("");
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPwd] = useState("");
@@ -44,17 +42,14 @@ export default function Comment({ id, session }) {
         .select(`id,name, email, password`)
         .eq("id", user.id)
         .single();
-
       if (error && status !== 406) {
         throw error;
       }
-
       if (data) {
         setName(data.name);
         setEmail(data.email);
         setPwd(data.password);
         setUid(data.id);
-        alert("Personne connectée: " + data.name);
       }
     } catch (error) {
       alert("Error loading user data!");
@@ -85,7 +80,7 @@ export default function Comment({ id, session }) {
       if (error2) {
         throw error2;
       }
-      alert("Commentaire ajouté");
+      alert("Votre commentaire a été ajouté " + name);
     } catch (e) {
       alert("Erreur lors de l'ajout du commentaire");
       throw e;
@@ -114,7 +109,6 @@ export default function Comment({ id, session }) {
               />
             </div>
             <br></br>
-            <h3>Name author</h3>
             <button
               className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
               type="submit"

@@ -3,10 +3,10 @@
  @tailwind utilities;
 
  .wt-title{
-    @apply font-bold text-4xl underline mb-10 text-center;
+    @apply font-bold text-6xl underline mb-10 text-center;
  }
  .light{
-   @apply bg-gray-200 text-black;
+   @apply bg-gray-300 text-gray-900;
 }
  .dark{ 
     @apply bg-gray-800 text-white;

@@ -101,7 +101,9 @@ export default function delete_user({ session, users }) {
         <br></br>
         {users.map((user) => (
           <div key={user.id}>
-            <p className="bg-gray-900">{user.name}</p>
+            <p className="bg-[#007178] text-white dark:bg-gray-900">
+              {user.name}
+            </p>
             {user.mail}
           </div>
         ))}
@@ -117,7 +119,7 @@ export default function delete_user({ session, users }) {
         <br></br>
         <br></br>
         <button
-          className="hover:scale-90 min-h-min items-center justify-center text-center  text-gray-700 bg-red-400 border-0 py-2 px-6 focus:outline-none hover:bg-red-800 rounded text-lg"
+          className="hover:scale-90 min-h-min items-center justify-center text-center  text-white-700 bg-red-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-800 rounded text-lg"
           onClick={delete_confirm}
         >
           Supprimer

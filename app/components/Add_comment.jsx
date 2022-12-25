@@ -90,7 +90,7 @@ export default function Comment({ id, session }) {
   return (
     <div>
       <div className="text-center justify-center items-center">
-        <h2 className="underline italic">Nouveau Commentaire </h2>
+        <h2 className="underline italic text-2xl">Nouveau Commentaire </h2>
         <div className="form-control gap-4 text-lg ">
           <br></br>
           <br></br>
@@ -103,7 +103,7 @@ export default function Comment({ id, session }) {
                 className="input input-bordered"
                 type="text"
                 id="comment"
-                placeholder="commentaire"
+                placeholder="Commentaire"
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
               />

@@ -20,12 +20,12 @@ export default function Projects({ id }) {
     <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5 ">
       {projet.map((project) => (
         <div
-          className="rounded overflow-hidden shadow-lg dark:bg-gray-900 "
+          className="rounded overflow-hidden shadow-lg bg-[#007178] border-solid border-black border-opacity-100 dark:bg-gray-900 "
           key={project.id}
         >
           <div className="justify-between items-center text-center gap-4 ">
             <img
-              className="w-full h-full"
+              className="w-full h-full "
               src={project.image}
               alt="Image du projet"
             />

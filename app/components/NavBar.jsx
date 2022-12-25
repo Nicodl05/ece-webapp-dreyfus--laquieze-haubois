@@ -6,7 +6,7 @@ import { FaUserCircle, FaUserCog } from "react-icons/fa";
 
 const NavBar = () => {
   return (
-    <nav className=" bg-[#007178]   border-blue-400  dark:border-gray-600 dark:bg-gray-700 grid grid-flow-row  ">
+    <nav className=" bg-[#007178] border-blue-400  dark:border-gray-600 dark:bg-gray-700 grid grid-flow-row  ">
       <div className="  flex flex-row text-center items-center justify-between ">
         <div>
           <a
@@ -24,9 +24,9 @@ const NavBar = () => {
             />
           </a>
         </div>
-        <div>
-          <ul className="flex flex-col text-center justify-between  border-blue-400 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-transparent dark:dark md:dark:bg-transparent  ">
-            <li className="hover:text-white hover:underline hover:scale-110  text-2xl ">
+        <div className="">
+          <ul className="flex flex-col text-center justify-between   border-blue-400 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-transparent dark:dark md:dark:bg-transparent  ">
+            <li className="hover:text-white hover:underline hover:scale-110 text-3xl  ">
               <Link
                 href="/"
                 className="  md:bg-transparent md:text-white md:p-0 md:dark:text-white dark:bg-white md:dark:bg-transparent"
@@ -34,7 +34,7 @@ const NavBar = () => {
                 Home
               </Link>
             </li>
-            <li className="hover:text-white  hover:underline hover:scale-110  text-2xl">
+            <li className="hover:text-white  hover:underline hover:scale-110 text-3xl ">
               <Link
                 href="/about"
                 className=" text-white bg-white  md:bg-transparent md:text-white md:p-0 "
@@ -42,7 +42,7 @@ const NavBar = () => {
                 About
               </Link>
             </li>
-            <li className="hover:text-white hover:underline hover:scale-110  text-2xl">
+            <li className="hover:text-white hover:underline hover:scale-110 text-3xl">
               <Link
                 href="/contacts"
                 className=" text-white bg-white  md:bg-transparent md:text-white md:p-0 "
@@ -50,7 +50,7 @@ const NavBar = () => {
                 Contact
               </Link>
             </li>
-            <li className="hover:text-white hover:underline hover:scale-110  text-2xl">
+            <li className="hover:text-white hover:underline hover:scale-110 text-3xl  ">
               <Link
                 href="/projets"
                 className=" text-white bg-white md:bg-transparent md:text-white md:p-0 "
@@ -66,11 +66,11 @@ const NavBar = () => {
           <div>
             <button
               type="button"
-              className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+              className="text-white bg-indigo-500 dark:hover:bg-indigo-300 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800  dark:focus:ring-gray-700 dark:border-gray-700"
             >
               <a
                 href="/login-native"
-                className=" text-white bg-white md:bg-transparent md:text-white md:p-0 "
+                className=" text-white  md:bg-transparent md:text-white md:p-0 "
               >
                 <FaUserCircle
                   className="w-5 h-5 dark:text-white hover:scale-125  "
@@ -81,7 +81,7 @@ const NavBar = () => {
             <a href="/parametre">
               <button
                 type="button"
-                className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+                className="text-white bg-indigo-500 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-indigo-300 dark:focus:ring-gray-700 dark:border-gray-700"
               >
                 <FaUserCog
                   className="w-5 h-5 dark:text-white hover:scale-125  "

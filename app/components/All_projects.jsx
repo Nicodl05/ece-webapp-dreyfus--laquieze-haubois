@@ -4,7 +4,7 @@ function All_projects({ project }) {
     <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5 ">
       {project.map((project) => (
         <div
-          className="rounded overflow-hidden shadow-lg dark:bg-gray-900 "
+          className="rounded overflow-hidden shadow-lg bg-[#007178] border-solid border-opacity-100 border-black dark:bg-gray-900 "
           key={project.id}
         >
           <div className="justify-between items-center text-center gap-4 ">
@@ -34,6 +34,7 @@ function All_projects({ project }) {
               </button>
             </a>
           </div>
+          <br></br>
         </div>
       ))}
     </div>

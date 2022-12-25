@@ -2,8 +2,11 @@ import Profiles from "../components/Profiles";
 
 function About() {
   return (
-    <div>
-      <h1 className=" align-center h1 dark:dark   text-center">About Us</h1>
+    <div className="">
+      <br></br>
+      <div className=" wt-title gap-2 space-y-2 align-center text-center">
+        About Us
+      </div>
       <br></br>
       <Profiles />
     </div>

@@ -72,11 +72,11 @@ function Page_Projet(props, { session }) {
 
   const id = props.id;
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen ">
+    <div className="flex flex-col items-center  justify-center min-h-screen ">
       <section className="text-gray-600 body-font">
-        <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+        <div className="container border  border-solid border-opacity-100 border-black dark:border-gray-200  dark:text-gray-200 mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
           <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-            <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-black dark:text-white">
+            <h1 className="title-font sm:text-4xl text-3xl font-bold mb-4  underline dark:text-white">
               <br className="hidden lg:inline-block"></br>
               {props.name}
             </h1>
@@ -92,11 +92,15 @@ function Page_Projet(props, { session }) {
           </div>
         </div>
       </section>
+      <br></br>
       {/* Juste en dessous c'est la ligne pour map les commentaires faudras que tu mettes en forme stp */}
       <h1 className="underline wt-title">Commentaires</h1>
       <div className="border-t pt-4 pb-4 grid grid-cols-3 gap-6">
         {props.comment.map((commentary) => (
-          <div key={commentary.id} className="border rounded-md p-4">
+          <div
+            key={commentary.id}
+            className="border border-black rounded-md p-4"
+          >
             ID Comment: {commentary.id}
             <br></br>
             <p className="font-bold">Commentaire: {commentary.comment}</p>

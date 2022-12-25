@@ -102,7 +102,7 @@ const Header = ({ session }) => {
       <div className="flex gap-2 items-center">
         <p>{renderThemeChanger()}</p>
         <Avatar email={userProfile.email} />
-        <p> {userProfile?.username}</p>
+        <p className="text-2xl"> {userProfile?.username}</p>
       </div>
     </div>
   );

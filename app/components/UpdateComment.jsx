@@ -106,7 +106,9 @@ export default function updateComment({ session }) {
   return (
     <div>
       <div className="text-center justify-center items-center">
-        <h2 className="underline italic">Modification de commentaires </h2>
+        <h2 className="underline italic text-2xl">
+          Modification de commentaires{" "}
+        </h2>
         <div className="form-control gap-4 text-lg ">
           <br></br>
           <br></br>
@@ -116,7 +118,7 @@ export default function updateComment({ session }) {
               className="input input-bordered"
               type="text"
               id="id"
-              placeholder="id du commentaire"
+              placeholder="Id du commentaire"
               value={id_comment}
               onChange={(e) => setIdComment(e.target.value)}
             />

@@ -85,10 +85,10 @@ export default function delete_proj({ session }) {
   };
   return (
     <div>
-      <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5 ">
+      <div className=" p-10 text-gray-200  grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5 ">
         {projet.map((project) => (
           <div
-            className="rounded overflow-hidden shadow-lg dark:bg-gray-900 "
+            className=" bg-[#007178] rounded overflow-hidden shadow-lg dark:bg-gray-900 "
             key={project.id}
           >
             <div className="justify-between items-center text-center gap-4 ">
@@ -100,7 +100,7 @@ export default function delete_proj({ session }) {
 
               <div className="px-6 py-4 justify-center text-center">
                 <div className="font-bold text-xl mb-2"> {project.name}</div>
-                <p className="text-black dark:text-white text-base ">
+                <p className=" dark:text-white text-base ">
                   <div className="text-sm underline">
                     Projet n° {project.id}
                   </div>
@@ -133,7 +133,7 @@ export default function delete_proj({ session }) {
         <br></br>
         <br></br>
         <button
-          className="hover:scale-90 min-h-min items-center justify-center text-center  text-gray-700 bg-red-400 border-0 py-2 px-6 focus:outline-none hover:bg-red-800 rounded text-lg"
+          className="hover:scale-90 min-h-min items-center justify-center text-center  text-gray-900 bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-800 rounded text-lg"
           onClick={delete_confirm}
         >
           Supprimer

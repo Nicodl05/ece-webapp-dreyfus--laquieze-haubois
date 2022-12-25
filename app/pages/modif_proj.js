@@ -68,7 +68,7 @@ export default function modif_proj({ session }) {
         setEmailUser(data.email);
         setPwdUser(data.password);
         setId_User(data.id);
-        alert("Bienvenue " + data.name);
+        // alert("Bienvenue " + data.name);
       }
     } catch (error) {
       alert("Error loading user data!");
@@ -136,7 +136,7 @@ export default function modif_proj({ session }) {
       <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5 ">
         {projet.map((project) => (
           <div
-            className="rounded overflow-hidden shadow-lg dark:bg-gray-900 "
+            className="bg-[#007178] rounded overflow-hidden shadow-lg dark:bg-gray-900 "
             key={project.id}
           >
             <div className="justify-between items-center text-center gap-4 ">
@@ -171,7 +171,7 @@ export default function modif_proj({ session }) {
       </div>
       <div className="justify-between items-center text-center">
         <input
-          className="dark:bg-gray-900 text-white"
+          className="dark:bg-gray-700 text-white"
           type="text"
           id="id"
           placeholder="N° du projet à modifier "
@@ -183,7 +183,7 @@ export default function modif_proj({ session }) {
         <div className="mb-6">
           <label
             htmlFor="text"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white underline italic"
+            className="block mb-2 text-xl font-medium text-gray-900 dark:text-white underline italic"
           >
             Titre du projet
           </label>
@@ -199,7 +199,7 @@ export default function modif_proj({ session }) {
         <div className="mb-6">
           <label
             htmlFor="text"
-            className="block mb-2 text-sm font-medium text-gray-900 underline italic dark:text-white"
+            className="block mb-2 text-xl font-medium text-gray-900 underline italic dark:text-white"
           >
             Languages
           </label>
@@ -215,7 +215,7 @@ export default function modif_proj({ session }) {
         <div className="mb-6">
           <label
             htmlFor="text"
-            className="block mb-2 text-sm font-medium underline italic text-gray-900 dark:text-white"
+            className="block mb-2 text-xl font-medium underline italic text-gray-900 dark:text-white"
           >
             Lien Github
           </label>
@@ -231,7 +231,7 @@ export default function modif_proj({ session }) {
         <div className="mb-6">
           <label
             htmlFor="text"
-            className="block mb-2 text-sm font-medium underline italic text-gray-900 dark:text-white"
+            className="block mb-2 text-xl font-medium underline italic text-gray-900 dark:text-white"
           >
             Description du projet
           </label>

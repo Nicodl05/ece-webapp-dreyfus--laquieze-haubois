@@ -93,16 +93,16 @@ function Home() {
             {/* Liens doc */}
             <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-10  ">
               <a href="https://nextjs.org/" className="hover:scale-75">
-                <Image src={nextjs} />
+                <Image src={nextjs} title="Image Nextjs" />
               </a>
               <a href="https://fr.reactjs.org/" className="hover:scale-75">
-                <Image src={react} />
+                <Image src={react} title="Image React" />
               </a>
               <a href="https://tailwindcss.com/" className="hover:scale-75">
-                <Image src={tailwind} />
+                <Image src={tailwind} title="Image TailWindcss" />
               </a>
               <a href="https://nodejs.org/en/docs/" className="hover:scale-75">
-                <Image src={nodejs} />
+                <Image src={nodejs} title="Image NodeJS" />
               </a>
             </div>
           </div>

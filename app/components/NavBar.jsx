@@ -74,6 +74,7 @@ const NavBar = () => {
                 <FaUserCircle
                   className="w-5 h-5 dark:text-white hover:scale-125  "
                   role="button"
+                  name="Bouton Login"
                 />
               </a>
             </button>
@@ -85,6 +86,7 @@ const NavBar = () => {
                 <FaUserCog
                   className="w-5 h-5 dark:text-white hover:scale-125  "
                   role="button"
+                  name="Bouton Parametre"
                 />
               </button>
             </a>

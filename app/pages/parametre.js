@@ -126,23 +126,35 @@ export default function parametre({ session }) {
             </div>
             <div className=" justify-center grid lg:grid-cols-2 sm:grid-cols-1 gap-6 ">
               <a href="/modif_username">
-                <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 hover:text-white rounded text-lg">
+                <button
+                  name="modif nom"
+                  className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 hover:text-white rounded text-lg"
+                >
                   Modifier le nom
                 </button>
               </a>
 
               <a href="/modif_proj">
-                <button className=" inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 hover:text-gray-700 rounded text-lg">
+                <button
+                  name="modif proj"
+                  className=" inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 hover:text-gray-700 rounded text-lg"
+                >
                   Modifier un projet
                 </button>
               </a>
               <a href="/delete_proj">
-                <button className=" inline-flex text-white bg-red-500  border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 hover:text-gray-700 rounded text-lg">
+                <button
+                  name="delete proj"
+                  className=" inline-flex text-white bg-red-500  border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 hover:text-gray-700 rounded text-lg"
+                >
                   Supprimer un projet
                 </button>
               </a>
               <a href="/delete_user">
-                <button className=" inline-flex text-white bg-red-500  border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 hover:text-gray-700 rounded text-lg">
+                <button
+                  name="delete user"
+                  className=" inline-flex text-white bg-red-500  border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 hover:text-gray-700 rounded text-lg"
+                >
                   Supprimer un utilisateur
                 </button>
               </a>

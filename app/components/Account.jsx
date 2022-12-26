@@ -121,6 +121,7 @@ export default function Account({ session }) {
           className="button primary block"
           onClick={() => updateProfile({ name, email, password })}
           disabled={loading}
+          name="Bouton load"
         >
           {loading ? "Loading ..." : "Update"}
         </button>
@@ -129,6 +130,7 @@ export default function Account({ session }) {
         <button
           className="button block"
           onClick={() => supabase.auth.signOut()}
+          name="Bouton sign out"
         >
           Sign Out
         </button>

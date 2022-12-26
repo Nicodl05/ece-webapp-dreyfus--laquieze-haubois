@@ -16,7 +16,10 @@ export default function ListProjets({ projet }) {
       <All_projects project={projet} />
       <div className="justify-between items-center text-center">
         <Link href="/add_project">
-          <button className="items-center justify-center text-center bg-[#007178] dark:bg-gray-900 dark:hover:bg-indigo-800 text-white border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 hover:scale-150 rounded text-lg">
+          <button
+            name="add_proj"
+            className="items-center justify-center text-center bg-[#007178] dark:bg-gray-900 dark:hover:bg-indigo-800 text-white border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 hover:scale-150 rounded text-lg"
+          >
             Ajouter un projet
           </button>
         </Link>

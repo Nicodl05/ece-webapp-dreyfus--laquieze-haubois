@@ -23,6 +23,7 @@ const Header = ({ session }) => {
           className="w-10 h-10 text-yellow-400 hover:scale-125  "
           role="button"
           onClick={() => setTheme("light")}
+          name="Switch theme"
         />
       );
     } else {
@@ -31,6 +32,7 @@ const Header = ({ session }) => {
           className="w-10 h-10 text-white hover:scale-125 "
           role="button"
           onClick={() => setTheme("dark")}
+          name="Switch theme"
         />
       );
     }

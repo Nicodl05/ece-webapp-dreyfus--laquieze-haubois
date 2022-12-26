@@ -28,7 +28,10 @@ function All_projects({ project }) {
               </span>
             </div>
             <a href={project.path}>
-              <button className="hover:scale-90 items-center justify-center text-center  text-gray-700 bg-blue-400 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">
+              <button
+                name="more info"
+                className="hover:scale-90 items-center justify-center text-center  text-gray-700 bg-blue-400 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg"
+              >
                 En savoir plus
               </button>
             </a>

@@ -73,6 +73,7 @@ export default function updateComment({ session }) {
         alert(
           "Si vous étiez l'auteur de ce commentaire, il a bien été supprimé, vous pouvez rafraichir la page"
         );
+      router.push("/projets/[id]");
     } catch (error) {
       alert("Error updating comment!");
       console.log(error);

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../utils/supabase";
 import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
+import { useRouter } from "next/router";
 
 function add_project({ session, projet }) {
   /* faut trouver un moyen pour add path */
@@ -15,6 +16,7 @@ function add_project({ session, projet }) {
   const [loading, setLoading] = useState(true);
   const [id, setId] = useState("");
   const [uploading, setUploading] = useState(false);
+  const router = useRouter();
   // get le user
   useEffect(() => {
     getUser();
@@ -165,6 +167,7 @@ function add_project({ session, projet }) {
     //   alert(error);
     // }
     alert("Projet ajouté");
+    router.push("/projets");
   };
 
   return (

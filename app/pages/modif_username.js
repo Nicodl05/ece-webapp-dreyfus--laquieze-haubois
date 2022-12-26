@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
+import { useRouter } from "next/router";
 
 function modif_username({ session }) {
   const [oldname, setOldName] = useState("");
@@ -11,7 +12,7 @@ function modif_username({ session }) {
   const [email, setEmail] = useState(null);
   const [password, setPwd] = useState(null);
   const [id, setId] = useState(null);
-
+  const router = useRouter();
   // Permet de get le user
   useEffect(() => {
     getUser();
@@ -76,9 +77,7 @@ function modif_username({ session }) {
       .from("user")
       .update([{ name: name }])
       .eq("email", email);
-    alert(
-      "Votre nom d'utilisateur a été modifié, votre nouveau nom est " + name
-    );
+
     const { error2 } = await supabase
       .from("comment")
       .update([{ author: name }])
@@ -86,6 +85,7 @@ function modif_username({ session }) {
     alert(
       "Votre nom d'utilisateur a été modifié, votre nouveau nom est " + name
     );
+    router.push("/parametres");
 
     if (error) {
       console.log(error);

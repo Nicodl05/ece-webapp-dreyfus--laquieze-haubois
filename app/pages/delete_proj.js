@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
 import Context from "../components/UserContext";
-
+import { useRouter } from "next/router";
 export default function delete_proj({ session }) {
   //Valeurs pour definir proj et supa
   const [projet, setProjet] = useState([]);
@@ -12,7 +12,7 @@ export default function delete_proj({ session }) {
   const [email_user, setEmailUser] = useState(null);
   const [passwordUser, setPwdUser] = useState(null);
   const [id_User, setId_User] = useState(null);
-
+  const router = useRouter();
   // Permet de get le projet voulu pour delete
   useEffect(() => {
     async function getProjet() {
@@ -86,6 +86,7 @@ export default function delete_proj({ session }) {
       alert(
         "Si vous étiez l'auteur de ce projet, il a bien été supprimé, vous pouvez rafraichir la page"
       );
+      router.push("/projets");
     }
   };
   return (

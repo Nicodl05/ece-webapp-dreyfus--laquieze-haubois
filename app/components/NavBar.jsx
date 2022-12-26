@@ -63,21 +63,21 @@ const NavBar = () => {
         <div className="grid grid-flow-row-2">
           <Header />
           <div>
-            <button
-              type="button"
-              className="text-white bg-indigo-500 dark:hover:bg-indigo-300 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800  dark:focus:ring-gray-700 dark:border-gray-700"
+            <a
+              href="/login-native"
+              className=" text-white  md:bg-transparent md:text-white md:p-0 "
             >
-              <a
-                href="/login-native"
-                className=" text-white  md:bg-transparent md:text-white md:p-0 "
+              <button
+                type="button"
+                className="text-white bg-indigo-500 dark:hover:bg-indigo-300 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800  dark:focus:ring-gray-700 dark:border-gray-700"
               >
                 <FaUserCircle
                   className="w-5 h-5 dark:text-white hover:scale-125  "
                   role="button"
                   name="Bouton Login"
                 />
-              </a>
-            </button>
+              </button>
+            </a>
             <a href="/parametre">
               <button
                 type="button"

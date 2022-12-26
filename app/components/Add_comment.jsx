@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import React from "react";
+import { useRouter } from "next/router";
 
 export default function Comment({ id, session }) {
   // Valeurs pour supa et définir le comment
@@ -11,6 +12,7 @@ export default function Comment({ id, session }) {
   const [password, setPwd] = useState("");
   const [uid, setUid] = useState(null);
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   // Permet de get le user
   useEffect(() => {
@@ -81,6 +83,7 @@ export default function Comment({ id, session }) {
           throw error3;
         } else {
           alert("Votre commentaire a été ajouté");
+          router.push("/projets/[id]");
         }
       } else {
         const { error2 } = await supabase.from("comment").insert({
@@ -94,6 +97,7 @@ export default function Comment({ id, session }) {
           throw error2;
         }
         alert("Votre commentaire a été ajouté " + name);
+        router.push("/projets/[id]");
       }
     } catch (e) {
       alert("Erreur lors de l'ajout du commentaire");

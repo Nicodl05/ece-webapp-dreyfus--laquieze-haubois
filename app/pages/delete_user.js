@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { supabase } from "../utils/supabase";
-
+import { useRouter } from "next/router";
 export default function delete_user({ session, users }) {
   const supabase = useSupabaseClient();
   const [to_delete, setToDelete] = useState("");
@@ -11,7 +11,7 @@ export default function delete_user({ session, users }) {
   const [passwordUser, setPwdUser] = useState(null);
   const [id_User, setId_User] = useState(null);
   const [admin, setAdmin] = useState(null);
-
+  const router = useRouter();
   // Permet de get le user
   useEffect(() => {
     getUser();
@@ -73,6 +73,7 @@ export default function delete_user({ session, users }) {
         alert("Erreur lors de la suppression de l'utilisateur ");
       } else {
         alert("L'utilisateur a été supprimé");
+        router.push("/parametre");
       }
     } else {
       alert("Vous n'avez pas les droits pour supprimer un utilisateur");

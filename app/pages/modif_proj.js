@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
+import { useRouter } from "next/router";
 
 export default function modif_proj({ session }) {
   const [projet, setProjet] = useState([]);
@@ -14,7 +15,7 @@ export default function modif_proj({ session }) {
   const [email_user, setEmailUser] = useState(null);
   const [passwordUser, setPwdUser] = useState(null);
   const [id_User, setId_User] = useState(null);
-
+  const router = useRouter();
   useEffect(() => {
     async function getProjet() {
       setLoading(true);
@@ -86,6 +87,7 @@ export default function modif_proj({ session }) {
         );
       } else {
         alert("Projet modifié, vous pouvez rafraichir la page");
+        router.push("/projets");
       }
     }
     if (languages != null) {
@@ -99,6 +101,7 @@ export default function modif_proj({ session }) {
         );
       } else {
         alert("Projet modifié, vous pouvez rafraichir la page");
+        router.push("/projets");
       }
     }
     if (git != null) {
@@ -112,6 +115,7 @@ export default function modif_proj({ session }) {
         );
       } else {
         alert("Projet modifié, vous pouvez rafraichir la page");
+        router.push("/projets");
       }
     }
     if (description != null) {
@@ -125,6 +129,7 @@ export default function modif_proj({ session }) {
         );
       } else {
         alert("Projet modifié, vous pouvez rafraichir la page");
+        router.push("/projets");
       }
     }
   };

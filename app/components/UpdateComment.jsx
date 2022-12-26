@@ -95,10 +95,12 @@ export default function updateComment({ session }) {
         .eq("id", id_comment);
       if (error) throw error;
       alert("Commentaire modifié");
+      router.push("/projets/[id]");
     } catch (error) {
       alert(
         "Erreur lors de la modification, ce n'est peut être pas votre commentaire !"
       );
+
       console.log(error);
     }
   }

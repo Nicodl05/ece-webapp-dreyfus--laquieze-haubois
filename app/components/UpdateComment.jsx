@@ -85,6 +85,7 @@ export default function updateComment({ session }) {
       alert("Error loading comment author!");
     }
   }
+  // Permet l'update du commentaire
   async function update() {
     try {
       setLoading(true);

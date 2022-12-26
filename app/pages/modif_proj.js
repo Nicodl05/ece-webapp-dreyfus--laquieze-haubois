@@ -167,7 +167,7 @@ export default function modif_proj({ session }) {
       </div>
       <div className="justify-between items-center text-center">
         <input
-          className="dark:bg-gray-700 text-white"
+          className="dark:bg-gray-700 text-gray-900  dark:text-white"
           type="text"
           id="id"
           placeholder="N° du projet à modifier "

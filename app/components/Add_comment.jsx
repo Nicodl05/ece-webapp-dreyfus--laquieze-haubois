@@ -70,17 +70,31 @@ export default function Comment({ id, session }) {
       return;
     }
     try {
-      const { error2 } = await supabase.from("comment").insert({
-        created_at: new Date().toISOString(),
-        u_id: uid,
-        comment: comment,
-        projet_id: id,
-        author: name,
-      });
-      if (error2) {
-        throw error2;
+      if (name === null) {
+        const { error3 } = await supabase.from("comment").insert({
+          created_at: new Date().toISOString(),
+          u_id: uid,
+          comment: comment,
+          projet_id: id,
+        });
+        if (error3) {
+          throw error3;
+        } else {
+          alert("Votre commentaire a été ajouté");
+        }
+      } else {
+        const { error2 } = await supabase.from("comment").insert({
+          created_at: new Date().toISOString(),
+          u_id: uid,
+          comment: comment,
+          projet_id: id,
+          author: name,
+        });
+        if (error2) {
+          throw error2;
+        }
+        alert("Votre commentaire a été ajouté " + name);
       }
-      alert("Votre commentaire a été ajouté " + name);
     } catch (e) {
       alert("Erreur lors de l'ajout du commentaire");
       throw e;

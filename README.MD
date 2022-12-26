@@ -7,12 +7,18 @@ Etudiants:
 - Haubois Cyril
 
 *ECE Paris Promotion 2024*
-
+TD 4 SI
 ---
+
+## Production
+
+- Vercel URL: 
+- Supabase Project URL: <https://app.supabase.com/project/ypkrvmmlnbddeybnmruo>
+
 
 ## Introduction et But
 
-Le but de ce projet est de créer une application web. Pour créer cette application nous utiliserons différentes technologies comme Next.js, Tailwindcss, react.
+Le but de ce projet est de créer une application web semblable à un portfolio. Pour créer cette application nous utiliserons différentes technologies comme Next.js, Tailwindcss, ReactJS. 
 
 ### Prérequis
 
@@ -42,70 +48,80 @@ Normalement après toutes ces étapes tout devrait normalement fonctionner.
 
 *Gestion du projet*
 
+- Naming convention
+  - Points: 2/2
+  - Commentaires: RAS
+- Project structure
+  - Points: /2
+  - Comments: RAS
+  -
+- Git
+  - Points: 2/2
+  - Commentaires: RAS
+- Code quality
+  - Points: 4
+  - Commentaires: RAS
 
-* Naming convention
-  * Points: 2/2
-  * Commentaires: RAS
-* Project structure
-  * Points: /2
-  * Comments: RAS
-  * 
-* Git
-  * Points: 2/2
-  * Commentaires: RAS
-* Code quality
-  * Points: 4
-  * Commentaires: Code écrit en franglais
+- Design, UX, and content
+  - Points: 4
+  - Commentaires: Design assez classique avec utilisations de components issus de :
+    - [Tailwind UI](https://tailwindui.com)
+    - [Flowbite](https://flowbite.com/).
 
-* Design, UX, and content
-  * Points: 4
-  * Commentairs: Design assez classique avec utilisations de components issus de  [Tailwind UI](https://tailwindui.com), [Flowbite](https://flowbite.com/).
+  - Préconception du design réalisée avec 
+    -  [Figma](https://www.figma.com/fr/)
 
 **Application development:**
 
-* Home page
-  * Points: 2
-  * Commentaires: Page présentant toutes les possibilités de notre site avec présentation des attendus de la matière Webtech
-* Login and profile page
-  * Points: 4
-  * Commentaires: Connexion et Page de profil parfaitement fonctionnelles, possibilité de connexion avec Github en plus
-* New articles creation
-  * Points: 6
-  * Commentaires: Possibilité de créer un projet complet qui sera save dans supabase. Possibilité de mettre titre, languages, description, lien Github, (imagess et routing de la page pas fonctionnelles). Ce projet est directement affiché ensuite sur le site après un refresh 
-  * Bugs: pas encore possible d'aller sur la page d'un nouveau projet pour faire des commentaires
-* New comment creation
-  * Points: 4
-  * Commentaires: Possibilité de créer des commentaires avec Authenfitication et RLS activé. 
-* Resource access control
-  * Points: 6
-  * Commentaires: Le RLS est activé pour les tables user, projets et comment. Aucun utilisateur non authentifié et connecté ne peut écrire / modifié / supprimer des projets / commentaires / utilisateurs qui ne sont pas les siens / si il n'est pas admin
-* Article modification
-  * Points: 4
-  * Commentaires: Possibilité de modifier le projet uniquement si l'utilisateur connecté est l'auteur de ce projet
-* Article removal
-  * Points: 2
-  * Commentaires: Possibilité de supprimer un projet si l'utilisateur connecté est l'auteur de ce projet. Le changement se voit dans la base de données ou lorsque l'on recharge la page projet. 
-* Comment modification
-  * Points: 2
-  * Commentaires: Possibilité de modifier un commentaire si c'est un commentaire écrit par celui qui est connecté
-* Comment removal
-  * Points: 2
-  * Commentaires: Possibilité de supprimer un commentaire si il s'agit d'un commentaire de la personne connectée.
-* Account settings
-  * Points: 4
-  * Commentaires: Page paramètres permettant à l'utilisateur d'avoir des informations sur son compte et si il est admin, possibilité de modifier son nom, un projet, supprimer un projet. Si il est admin, de supprimer un utilisateur
-* WYSIWYG integration
-  * Points: 2
-  * Commentaires: Notre affichage est celui que nous avions prévu
-* Gravatar integration
-  * Points: 2
-  * Commentaires: Si le user n'est pas connecté via supabase, aucune image de profil ne sera affiché en haut à droite de l'écran. Si l'utilisateur est connecté, sa photo avec Gravatar s'affichera. (Liaision Gravatar - Supabase) 
-* Light/dark theme
-  * Points: 2
-  * Commentaires: Bouton switch Moon Sun pour changer de thème
-* Accent color selection
-  * Points: 0/4
-  * Commentaires: Non réalisé
+- Home page
+  - Points: 2
+  - Commentaires: Page présentant toutes les possibilités de notre site avec présentation des attendus de la matière Webtech
+- Login and profile page
+  - Points: 4
+  - Commentaires: Connexion et Page de profil parfaitement fonctionnelles, possibilité de connexion avec Github en plus
+- New articles creation
+  - Points: 6
+  - Commentaires: Possibilité de créer un projet complet qui sera save dans supabase. Possibilité de mettre titre, languages, description, lien Github, (images et dynamic routing de la nouvelle page du projet non fonctionnel). Ce projet est directement affiché ensuite sur le site après un refresh sur la page projet.
+  - Bugs: pas encore possible d'aller sur la page d'un nouveau projet pour faire des commentaires
+- New comment creation
+  - Points: 4
+  - Commentaires: Possibilité de créer des commentaires avec Authenfitication et RLS activé. Mise en place de la possibilité de mettre des commentaires sans être connecté, sauf que ce ne sera pas sauvegardé dans supabase en raison du RLS. Il y a bien les deux possibilités existantes dans le code. (ficher add_comment.jsx)
+- Resource access control
+  - Points: 6
+  - Commentaires: Le RLS est activé pour les tables projets et comment. Nous avons choisi de ne pas activé le RLS sur user, nous avons instauré dans le code des sécurités similaire pour des cas de suppression ou mise à jours dans la table Aucun utilisateur non authentifié et connecté ne peut :
+    - ajouter des projets
+    - modifier des projets
+    - supprimer des projets
+    - supprimer des commentaires qui ne sont pas les siens
+    - supprimer des utilisateurs si il n'est pas admin
+- Article modification
+  - Points: 4
+  - Commentaires: Possibilité de modifier le projet uniquement si l'utilisateur connecté est bien l'auteur de ce projet
+- Article removal
+  - Points: 2
+  - Commentaires: Possibilité de supprimer un projet si l'utilisateur connecté est l'auteur de ce projet. Le changement se voit dans la base de données ou lorsque l'on recharge la page projet.
+- Comment modification
+  - Points: 2
+  - Commentaires: Possibilité de modifier un commentaire si c'est un commentaire écrit par celui qui est connecté.
+- Comment removal
+  - Points: 2
+  - Commentaires: Possibilité de supprimer un commentaire si il s'agit d'un commentaire de la personne connectée.
+- Account settings
+  - Points: 4
+  - Commentaires: Page paramètres permettant à l'utilisateur d'avoir des informations sur son compte et si il est admin, possibilité de modifier son nom, un projet, supprimer un projet. Si il est admin, de supprimer un utilisateur.
+- WYSIWYG integration
+  - Points: 2
+  - Commentaires: Notre affichage est celui que nous avions prévu.
+- Gravatar integration
+  - Points: 2
+  - Commentaires: Si le user n'est pas connecté via supabase, aucune image de profil ne sera affiché en haut à droite de l'écran. Si l'utilisateur est connecté, sa photo avec Gravatar s'affichera. (Liaision Gravatar - Supabase)
+- Light/dark theme
+  - Points: 2
+  - Commentaires: Bouton switch Moon Sun pour changer de thème
+- Accent color selection
+  - Points: 0/4
+  - Commentaires: Non réalisé
+
 ## Bonus ideas
 
 Liaison Gravatar - Supabase pour l'image
@@ -172,8 +188,6 @@ Dès lors qu'il sera connecté, il aura la possibilité de modifer des informati
 ### 6. Paramètres
 
 Sur cette page, l'utilisateur a la possibilité de modifier son nom sauvegardé dans la base de données. Il a aussi la possibilité de modifier un projet ou bien d'en supprimer un totalement de la base de données.
-
-
 
 ### Nos emails pour nous contacter
 

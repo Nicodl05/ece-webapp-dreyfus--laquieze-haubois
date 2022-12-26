@@ -125,17 +125,12 @@ function Page_Projet(props, { session }) {
   );
 }
 
-export async function getStaticPaths() {
-  let { data: project } = await supabase.from("projet").select("*");
-
-  const paths = project.map((projet) => ({
-    params: { id: `${projet.id}` },
-  }));
-  return { paths, fallback: false };
-}
 export async function getServerSideProps({ params }) {
   // trouver le bon projet en fonction de l'id en parametre et le return
   let { data: project } = await supabase.from("projet").select("*");
+  const paths = project.map((projet) => ({
+    params: { id: `${projet.id}` },
+  }));
   let { data: comment } = await supabase
     .from("comment")
     .select("*")

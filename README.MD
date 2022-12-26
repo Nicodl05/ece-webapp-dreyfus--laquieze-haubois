@@ -54,7 +54,6 @@ Normalement après toutes ces étapes tout devrait normalement fonctionner.
 - Project structure
   - Points: /2
   - Comments: RAS
-  -
 - Git
   - Points: 2/2
   - Commentaires: RAS
@@ -122,7 +121,7 @@ Normalement après toutes ces étapes tout devrait normalement fonctionner.
   - Points: 0/4
   - Commentaires: Non réalisé
 
-## Bonus ideas
+## Bonus 
 
 Liaison Gravatar - Supabase pour l'image
 Utilisation d'un Admin pour le compte de Nicolas et Cyril ==> Possibilité de supprimer un utilisateur

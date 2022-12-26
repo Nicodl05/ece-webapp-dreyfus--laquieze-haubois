@@ -133,7 +133,7 @@ export async function getStaticPaths() {
   }));
   return { paths, fallback: false };
 }
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   // trouver le bon projet en fonction de l'id en parametre et le return
   let { data: project } = await supabase.from("projet").select("*");
   let { data: comment } = await supabase

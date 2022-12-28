@@ -139,6 +139,8 @@ function add_project({ session, projet }) {
       if (error) {
         console.log(error);
         setFromError("Remplissez tous les champs correctement ");
+      } else {
+        alert("Projet ajouté !");
       }
     } catch (error) {
       console.log(error);

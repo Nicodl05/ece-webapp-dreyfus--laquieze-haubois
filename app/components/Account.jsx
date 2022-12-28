@@ -88,6 +88,10 @@ export default function Account({ session }) {
 
   return (
     <div className="form-widget">
+      <h2>
+        Si vos informations ne sont pas complétées, complétez les et appuyez sur
+        update !
+      </h2>
       <div>
         <label htmlFor="email">Email : </label>
         <input

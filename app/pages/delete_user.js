@@ -71,10 +71,9 @@ export default function delete_user({ session, users }) {
         .eq("name", to_delete);
       if (error) {
         alert("Erreur lors de la suppression de l'utilisateur ");
-      } else {
-        alert("L'utilisateur a été supprimé");
-        router.push("/parametre");
       }
+      alert("L'utilisateur a été supprimé");
+      router.push("/parametre");
     } else {
       alert("Vous n'avez pas les droits pour supprimer un utilisateur");
     }

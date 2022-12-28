@@ -52,41 +52,41 @@ Normalement après toutes ces étapes tout devrait normalement fonctionner.
   - Points: 2/2
   - Commentaires: RAS
 - Project structure
-  - Points: /2
-  - Comments: RAS
+  - Points: 1/2
+  - Comments: Problèmes pour mettre en place Supabase à la racine du projet, cela créait beaucoup de bugs, on a décidé de laisser comme cela.
 - Git
   - Points: 2/2
   - Commentaires: RAS
 - Code quality
-  - Points: 4
-  - Commentaires: RAS
+  - Points: 3,25/4
+  - Commentaires: Analyse LightHouse donne les résultats suivants: Performance 90-100/100 Accessibility: 80-82 Best Practices: 80-92, SEO: 80
 
 - Design, UX, and content
-  - Points: 4
+  - Points: 3,5/4
   - Commentaires: Design assez classique avec utilisations de components issus de :
     - [Tailwind UI](https://tailwindui.com)
     - [Flowbite](https://flowbite.com/).
-
   - Préconception du design réalisée avec 
     -  [Figma](https://www.figma.com/fr/)
+    Le site n'a pas une apparence révolutionnaire mais semble simple selon des utilisateurs lambdas.
 
 **Application development:**
 
 - Home page
-  - Points: 2
+  - Points: 2/2
   - Commentaires: Page présentant toutes les possibilités de notre site avec présentation des attendus de la matière Webtech
 - Login and profile page
-  - Points: 4
-  - Commentaires: Connexion et Page de profil parfaitement fonctionnelles, possibilité de connexion avec Github en plus
+  - Points: 4/4
+  - Commentaires: Connexion et Page de profil parfaitement fonctionnelles, possibilité de connexion avec Github en plus toujours avec le composant Auth.
 - New articles creation
-  - Points: 6
+  - Points: 5/6
   - Commentaires: Possibilité de créer un projet complet qui sera save dans supabase. Possibilité de mettre titre, languages, description, lien Github, (images et dynamic routing de la nouvelle page du projet non fonctionnel). Ce projet est directement affiché ensuite sur le site après un refresh sur la page projet.
   - Bugs: pas encore possible d'aller sur la page d'un nouveau projet pour faire des commentaires
 - New comment creation
-  - Points: 4
+  - Points: 4/4
   - Commentaires: Possibilité de créer des commentaires avec Authenfitication et RLS activé. Mise en place de la possibilité de mettre des commentaires sans être connecté, sauf que ce ne sera pas sauvegardé dans supabase en raison du RLS. Il y a bien les deux possibilités existantes dans le code. (ficher add_comment.jsx)
 - Resource access control
-  - Points: 6
+  - Points: 6/6
   - Commentaires: Le RLS est activé pour les tables projets et comment. Nous avons choisi de ne pas activé le RLS sur user, nous avons instauré dans le code des sécurités similaire pour des cas de suppression ou mise à jours dans la table Aucun utilisateur non authentifié et connecté ne peut :
     - ajouter des projets
     - modifier des projets
@@ -94,28 +94,28 @@ Normalement après toutes ces étapes tout devrait normalement fonctionner.
     - supprimer des commentaires qui ne sont pas les siens
     - supprimer des utilisateurs si il n'est pas admin
 - Article modification
-  - Points: 4
+  - Points: 4/4
   - Commentaires: Possibilité de modifier le projet uniquement si l'utilisateur connecté est bien l'auteur de ce projet
 - Article removal
-  - Points: 2
+  - Points: 2/2
   - Commentaires: Possibilité de supprimer un projet si l'utilisateur connecté est l'auteur de ce projet. Le changement se voit dans la base de données ou lorsque l'on recharge la page projet.
 - Comment modification
-  - Points: 2
+  - Points: 2/2
   - Commentaires: Possibilité de modifier un commentaire si c'est un commentaire écrit par celui qui est connecté.
 - Comment removal
-  - Points: 2
+  - Points: 2/2
   - Commentaires: Possibilité de supprimer un commentaire si il s'agit d'un commentaire de la personne connectée.
 - Account settings
-  - Points: 4
-  - Commentaires: Page paramètres permettant à l'utilisateur d'avoir des informations sur son compte et si il est admin, possibilité de modifier son nom, un projet, supprimer un projet. Si il est admin, de supprimer un utilisateur.
+  - Points: 4/4
+  - Commentaires: Page paramètres permettant à l'utilisateur d'avoir des informations sur son compte et si il est admin, possibilité de modifier son nom, un projet, supprimer un projet. Si il est admin, de supprimer un utilisateur. (partie bonus)
 - WYSIWYG integration
-  - Points: 2
+  - Points: 2/2
   - Commentaires: Notre affichage est celui que nous avions prévu.
 - Gravatar integration
-  - Points: 2
-  - Commentaires: Si le user n'est pas connecté via supabase, aucune image de profil ne sera affiché en haut à droite de l'écran. Si l'utilisateur est connecté, sa photo avec Gravatar s'affichera. (Liaision Gravatar - Supabase)
+  - Points: 2/2
+  - Commentaires: Si le user n'est pas connecté via supabase, aucune image de profil ne sera affiché en haut à droite de l'écran. Si l'utilisateur est connecté, sa photo avec Gravatar s'affichera. (Liaision Gravatar - Supabase )(partie bonus)
 - Light/dark theme
-  - Points: 2
+  - Points: 2/2
   - Commentaires: Bouton switch Moon Sun pour changer de thème
 - Accent color selection
   - Points: 0/4
@@ -123,8 +123,12 @@ Normalement après toutes ces étapes tout devrait normalement fonctionner.
 
 ## Bonus 
 
-Liaison Gravatar - Supabase pour l'image
-Utilisation d'un Admin pour le compte de Nicolas et Cyril ==> Possibilité de supprimer un utilisateur
+Liaison Gravatar - Supabase pour l'image +1
+Utilisation d'un Admin pour le compte de Nicolas et Cyril ==> Possibilité de supprimer un utilisateur +1
+Page Paramètre ou l'on peut avoir des informations sur l'utilisateur, son nom, si il est admin etc..
+(A noter que c'est à partir de cette page que l'on peut faire des modifications sur les projets/ supprimer un projet) +1
+
+Note finale d'auto évaluation: 55,75/60 ==> 18,5/20.
 
 ## Avancement
 

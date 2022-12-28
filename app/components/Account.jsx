@@ -121,7 +121,6 @@ export default function Account({ session }) {
         />
       </div>
       <div>
-        alert("Vous pouvez rafraichir la page");
         <button
           className="button primary block"
           onClick={() => updateProfile({ name, email, password })}

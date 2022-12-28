@@ -26,13 +26,12 @@ function switchimages({ id }) {
       );
     default:
       return (
-        <Avatar email={email} />
-        // <img
-        //   src="https://ypkrvmmlnbddeybnmruo.supabase.co/storage/v1/object/public/images-projets/profile.png"
-        //   alt="Picture of the author"
-        //   width={500}
-        //   height={500}
-        // />
+        <img
+          src="https://ypkrvmmlnbddeybnmruo.supabase.co/storage/v1/object/public/images-projets/profile.png"
+          alt="Picture of the author"
+          width={500}
+          height={500}
+        />
       );
   }
 }

@@ -14,16 +14,7 @@ function footer() {
             About
           </a>
         </li>
-        <li>
-          <a href="#" className="mr-4 hover:text-white hover:underline md:mr-6">
-            Privacy Policy
-          </a>
-        </li>
-        <li>
-          <a href="#" className="mr-4 hover:text-white hover:underline md:mr-6">
-            Licensing
-          </a>
-        </li>
+
         <li>
           <a
             href="/contacts"

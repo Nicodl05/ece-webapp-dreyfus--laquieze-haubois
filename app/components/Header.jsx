@@ -96,7 +96,7 @@ const Header = ({ session }) => {
     isLoggedIn: true,
   };
   if (!userProfile.username) {
-    return <div>En attente de connexion...</div>;
+    return <div>Non Connecté...</div>;
   } //SI c'est à null, sans le ? ça va bugger
   if (error) {
     return <pre className="text-red-500">{JSON.stringify(error, null, 2)}</pre>;

@@ -20,7 +20,7 @@ function Home() {
         <p>
           {" "}
           Vous êtes sur la page principale de cette application qui est un
-          projet Web de 4ème année d'école d'ingénieurs{" "}
+          projet Web de 4ème année d'école d'ingénieurs.{" "}
         </p>
         <div className="flex flex-wrap">
           Ce site internet a été crée dans le but d'un projet semestriel à ECE
@@ -57,10 +57,10 @@ function Home() {
           <li>
             Si vous cliquez sur Projets, vous avez la possibilité d'observer
             tous les projets (que nous considérons commme des articles) stockés
-            dans la base de données de Supabase. L'utilisateur si, il est
-            connecté a la possibilité de rajouter un de ces projets en
-            définissant: nom du projet, languages utilisés son Github une
-            description du projet , une image.
+            dans la base de données de Supabase. L'utilisateur s'il est connecté
+            a la possibilité de rajouter un de ces projets en définissant: nom
+            du projet, languages utilisés son Github une description du projet ,
+            une image.
           </li>
           <br></br>
           <li>

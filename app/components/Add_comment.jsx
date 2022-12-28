@@ -83,7 +83,6 @@ export default function Comment({ id, session }) {
           throw error3;
         } else {
           alert("Votre commentaire a été ajouté");
-          router.push("/projets/[id]");
         }
       } else {
         const { error2 } = await supabase.from("comment").insert({
@@ -97,7 +96,6 @@ export default function Comment({ id, session }) {
           throw error2;
         }
         alert("Votre commentaire a été ajouté " + name);
-        router.push("/projets/[id]");
       }
     } catch (e) {
       alert("Erreur lors de l'ajout du commentaire");

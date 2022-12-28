@@ -28,7 +28,11 @@ Il est necessaire d'avoir installé au préalable Node.js, et il faut pouvoir se
 
 Pour lancer notre application il faut:
 
-- écrire dans le terminal la commmande: `npm run dev`
+- écrire dans le terminal la commmande: 
+```
+npm run dev
+```
+
 - cliquer sur le lien géneré par l'application qui sera: <http://localhost:3000/>
 
 Si l'application ne se lance pas, soit:
@@ -40,7 +44,18 @@ Pour résoudre ce problème il faut supprimer de l'aborescence le dossier .next 
 
 Ensuite il faut vérifier dans le terminal que nous sommes bien situé à l'emplacement: `ece-webapp-dreyfus--laquieze-haubois\app`
 
-Et ensuite il faut saisir la commande: `npm install`
+Et ensuite il faut saisir la commande: 
+```
+npm install
+```
+
+Pour `build` le projet et lancer par la suite: il faut saisir les commandes: 
+``` 
+npm run build
+npm start
+```
+
+
 
 Normalement après toutes ces étapes tout devrait normalement fonctionner.
 
@@ -169,11 +184,11 @@ Sur la page **Projets**, vous avez la possibilité d'observer tous les projets (
 2. Languages utilisés
 3. Son Github
 4. Une description du projet
-5. Une image
+5. Une image (pas fonctionnel)
 
 ### 5. Connexion
 
-Sur la page connexion, l'utilisateur a la possibilité de pouvoir soit se créer un compte Supabase afin de se connecter, soit de se connecter avec des logins préexistants, pour des phases de test, nous vous conseillons d'utiliser les logins des auteurs de ce site :
+Sur la page connexion, l'utilisateur a la possibilité de pouvoir soit se créer un compte Supabase afin de se connecter, soit de se connecter avec des logins préexistants, pour des phases de test, nous vous conseillons d'utiliser les logins des auteurs qui sont des admins de ce site :
 
 - Email: nico.dreylaq@gmail.com
 - Password: password
@@ -182,8 +197,6 @@ Sur la page connexion, l'utilisateur a la possibilité de pouvoir soit se créer
 
 - Email: cyrilhaubois342@gmail.com
 - Password: azerty
-
-*Nous tenons à dire que ces mots de passes sont ultra sécurisés*
 
 L'utilisateur a aussi la possibilité de se connecter en utilisant son compte *Github*.
 Dès lors qu'il sera connecté, il aura la possibilité de modifer des informations dans la page Paramètres.

@@ -145,7 +145,9 @@ Normalement après toutes ces étapes tout devrait normalement fonctionner.
 - Page Paramètre ou l'on peut avoir des informations sur l'utilisateur, son nom, si il est admin etc..
 (A noter que c'est à partir de cette page que l'on peut faire des modifications sur les projets/ supprimer un projet) +1
 
-Note finale d'auto évaluation: 55,75/60 ==> 18,5/20.
+## Note finale d'auto évaluation
+
+## 55,75/60 ==> 18,5/20 ##
 
 ## Avancement
 

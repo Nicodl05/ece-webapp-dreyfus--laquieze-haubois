@@ -25,8 +25,11 @@ Le but de ce projet est de créer une application web semblable à un portfolio.
 Il est necessaire d'avoir installé au préalable Node.js, et il faut pouvoir se servir du manager de paquets npm.
 
 ### Pour lancer l'application
-
-Pour lancer notre application il faut:
+Avant de lancer l'application, entrez la commande: 
+```
+npm install
+```
+Par la suite, pour lancer notre application en mode **dev** il faut:
 
 - écrire dans le terminal la commmande: 
 ```
@@ -44,7 +47,7 @@ Pour résoudre ce problème il faut supprimer de l'aborescence le dossier .next 
 
 Ensuite il faut vérifier dans le terminal que nous sommes bien situé à l'emplacement: `ece-webapp-dreyfus--laquieze-haubois\app`
 
-Et ensuite il faut saisir la commande: 
+Et ensuite il faut resaisir la commande: 
 ```
 npm install
 ```
@@ -54,7 +57,6 @@ Pour `build` le projet et lancer par la suite: il faut saisir les commandes:
 npm run build
 npm start
 ```
-
 
 
 Normalement après toutes ces étapes tout devrait normalement fonctionner.
@@ -138,9 +140,9 @@ Normalement après toutes ces étapes tout devrait normalement fonctionner.
 
 ## Bonus 
 
-Liaison Gravatar - Supabase pour l'image +1
-Utilisation d'un Admin pour le compte de Nicolas et Cyril ==> Possibilité de supprimer un utilisateur +1
-Page Paramètre ou l'on peut avoir des informations sur l'utilisateur, son nom, si il est admin etc..
+- Liaison Gravatar - Supabase pour l'image +1
+- Utilisation d'un Admin pour le compte de Nicolas et Cyril ==> Possibilité de supprimer un utilisateur +1
+- Page Paramètre ou l'on peut avoir des informations sur l'utilisateur, son nom, si il est admin etc..
 (A noter que c'est à partir de cette page que l'on peut faire des modifications sur les projets/ supprimer un projet) +1
 
 Note finale d'auto évaluation: 55,75/60 ==> 18,5/20.

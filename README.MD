@@ -130,5 +130,5 @@ Sur cette page, l'utilisateur a la possibilité de modifier son nom sauvegardé 
 
 Nos cours de ReactJS ont été réalisé par Monsieur Paul Farault, travaillant dans l'entreprise Adaltas
 Lien de nos cours : 
--Cours de WebTech : https://github.com/adaltas/ece-webtech-2022-fall/tree/main/courses/webtech
+- Cours de WebTech : https://github.com/adaltas/ece-webtech-2022-fall/tree/main/courses/webtech
 - Cours de DevOps: https://github.com/adaltas/ece-devops-2022-fall
